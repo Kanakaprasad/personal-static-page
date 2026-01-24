@@ -9,6 +9,7 @@ const ambientContainer = document.getElementById("ambientTexts");
 
 let ambientTimer = null;
 
+/* 🌸 Floating affectionate words */
 const words = [
   "Sanju 💖",
   "Sanji ✨",
@@ -21,8 +22,8 @@ const words = [
   "KP 🧡 Sanju"
 ];
 
-/* Gate */
-input.addEventListener("keydown", e => {
+/* 🔐 Gate logic */
+input.addEventListener("keydown", (e) => {
   if (e.key === "Enter") checkName();
 });
 enterBtn.addEventListener("click", checkName);
@@ -32,32 +33,40 @@ function checkName() {
     document.getElementById("overlay").style.display = "none";
     content.classList.remove("blurred");
     content.classList.add("unblur");
+
+    // 🌸 START ambient names immediately
+    startAmbient();
   } else {
-    document.getElementById("errorMsg").innerText = "Not for everyone 🌙";
+    document.getElementById("errorMsg").innerText =
+      "Not for everyone 🌙";
   }
 }
 
-/* Navigation */
+/* ▶️ Navigation */
 function nextStep() {
   if (currentStep >= totalSteps) return;
-  stopAmbient();
 
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
   document.getElementById(`step${currentStep}`).classList.add("active");
 
-  if (currentStep === 3) startAmbient();
+  // Optional: stop ambient only on final step
+  if (currentStep === 4) {
+    stopAmbient();
+  }
 }
 
 function prevStep() {
   if (currentStep <= 1) return;
-  stopAmbient();
 
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep--;
   document.getElementById(`step${currentStep}`).classList.add("active");
 
-  if (currentStep === 3) startAmbient();
+  // Resume ambient if coming back from final step
+  if (currentStep < 4) {
+    startAmbient();
+  }
 }
 
 /* 💕 Ambient floating logic */
