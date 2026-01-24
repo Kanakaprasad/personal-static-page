@@ -1,12 +1,6 @@
 const SECRET_NAME = "sanjana";
 const music = document.getElementById("bgMusic");
 
-window.onload = () => {
-  if (sessionStorage.getItem("accessGranted") === "true") {
-    unlockPage();
-  }
-};
-
 function checkName() {
   const input = document
     .getElementById("nameInput")
@@ -14,17 +8,24 @@ function checkName() {
     .toLowerCase();
 
   if (input === SECRET_NAME) {
-    sessionStorage.setItem("accessGranted", "true");
-    unlockPage();
+    unlockExperience();
   } else {
     document.getElementById("errorMsg").innerText =
-      "Hmm… this page isn’t for you 🌸";
+      "Almost… but this surprise is for someone else 🌸";
   }
 }
 
-function unlockPage() {
-  document.getElementById("gate").style.display = "none";
-  document.getElementById("protectedContent").classList.remove("hidden");
+function unlockExperience() {
+  const overlay = document.getElementById("overlay");
+  const content = document.getElementById("content");
+
+  overlay.style.opacity = "0";
+  overlay.style.pointerEvents = "none";
+
+  setTimeout(() => {
+    overlay.style.display = "none";
+    content.classList.add("unblur");
+  }, 900);
 }
 
 function startExperience() {
