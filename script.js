@@ -1,4 +1,31 @@
+const SECRET_NAME = "sanjana";
 const music = document.getElementById("bgMusic");
+
+window.onload = () => {
+  if (sessionStorage.getItem("accessGranted") === "true") {
+    unlockPage();
+  }
+};
+
+function checkName() {
+  const input = document
+    .getElementById("nameInput")
+    .value.trim()
+    .toLowerCase();
+
+  if (input === SECRET_NAME) {
+    sessionStorage.setItem("accessGranted", "true");
+    unlockPage();
+  } else {
+    document.getElementById("errorMsg").innerText =
+      "Hmm… this page isn’t for you 🌸";
+  }
+}
+
+function unlockPage() {
+  document.getElementById("gate").style.display = "none";
+  document.getElementById("protectedContent").classList.remove("hidden");
+}
 
 function startExperience() {
   document.querySelector(".hero").classList.add("hidden");
