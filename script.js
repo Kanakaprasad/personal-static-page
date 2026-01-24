@@ -5,23 +5,26 @@ const totalSteps = 4;
 const input = document.getElementById("nameInput");
 const enterBtn = document.getElementById("enterBtn");
 const content = document.getElementById("content");
-const floatingContainer = document.getElementById("floatingTexts");
 
-let floatingInterval = null;
+const loveFlow = document.getElementById("loveFlow");
+const loveText = document.getElementById("loveText");
 
-const floatingWords = [
+let loveInterval = null;
+let loveIndex = 0;
+
+const loveWords = [
   "Sanju 💖",
   "Sanji ✨",
   "Dear 🌸",
   "Sanjana ❤️",
   "My Dear 💕",
-  "Hendti 🥺❤️",
   "Sanju 💗",
-  "— KP 💫"
+  "Sanju 🧡 KP",
+  "KP 🧡 Sanju"
 ];
 
 /* Gate */
-input.addEventListener("keydown", (e) => {
+input.addEventListener("keydown", e => {
   if (e.key === "Enter") checkName();
 });
 enterBtn.addEventListener("click", checkName);
@@ -40,45 +43,43 @@ function checkName() {
 /* Navigation */
 function nextStep() {
   if (currentStep >= totalSteps) return;
-  toggleFloating(false);
+  stopLoveFlow();
 
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
   document.getElementById(`step${currentStep}`).classList.add("active");
 
-  toggleFloating(currentStep === 3);
+  if (currentStep === 3) startLoveFlow();
 }
 
 function prevStep() {
   if (currentStep <= 1) return;
-  toggleFloating(false);
+  stopLoveFlow();
 
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep--;
   document.getElementById(`step${currentStep}`).classList.add("active");
 
-  toggleFloating(currentStep === 3);
+  if (currentStep === 3) startLoveFlow();
 }
 
-/* Floating logic */
-function toggleFloating(start) {
-  if (start) {
-    if (floatingInterval) return;
-    floatingInterval = setInterval(createFloatingText, 1800);
-  } else {
-    clearInterval(floatingInterval);
-    floatingInterval = null;
-  }
+/* 💖 Love flow control */
+function startLoveFlow() {
+  loveFlow.classList.remove("hidden");
+  showNextLove();
+  loveInterval = setInterval(showNextLove, 3200);
 }
 
-function createFloatingText() {
-  const span = document.createElement("span");
-  span.className = "floating-text";
-  span.innerText = floatingWords[Math.floor(Math.random() * floatingWords.length)];
-  span.style.left = Math.random() * 80 + 10 + "%";
-  span.style.fontSize = Math.random() * 0.6 + 1 + "rem";
+function stopLoveFlow() {
+  clearInterval(loveInterval);
+  loveInterval = null;
+  loveFlow.classList.add("hidden");
+}
 
-  floatingContainer.appendChild(span);
-
-  setTimeout(() => span.remove(), 6000);
+function showNextLove() {
+  loveText.style.animation = "none";
+  loveText.offsetHeight; // reflow
+  loveText.innerText = loveWords[loveIndex % loveWords.length];
+  loveText.style.animation = "loveText 3s ease forwards";
+  loveIndex++;
 }
