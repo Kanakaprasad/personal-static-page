@@ -17,39 +17,25 @@ body {
   color: var(--text);
 }
 
-h1, h2 {
-  font-family: 'Playfair Display', serif;
+/* Floating texts */
+#floatingTexts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50;
 }
 
-/* Buttons */
-button {
-  border: none;
-  border-radius: 40px;
-  padding: 14px 36px;
-  font-size: 1rem;
-  cursor: pointer;
+.floating-text {
+  position: absolute;
+  bottom: -40px;
+  font-size: 1.2rem;
+  opacity: 0;
+  animation: floatUp 6s ease forwards;
+  white-space: nowrap;
 }
 
-.primary {
-  background: var(--accent);
-  color: white;
-}
-
-.secondary {
-  background: transparent;
-  color: var(--muted);
-  border: 1px solid var(--muted);
-}
-
-.nav {
-  margin-top: 40px;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Steps */
+/* Steps & buttons */
 .step {
   min-height: 100vh;
   padding: 80px 20px;
@@ -64,42 +50,30 @@ button {
   display: flex;
 }
 
-/* Gate */
-.overlay {
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(10px);
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+button {
+  border-radius: 40px;
+  padding: 14px 36px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.modal {
-  background: rgba(255,255,255,0.1);
-  padding: 40px;
-  border-radius: 20px;
-  text-align: center;
-}
-
-.modal input {
-  margin-top: 20px;
-  padding: 12px;
-  border-radius: 30px;
+.primary {
+  background: var(--accent);
+  color: white;
   border: none;
-  width: 220px;
 }
 
-/* Blur */
-.blurred {
-  filter: blur(8px);
-  pointer-events: none;
+.secondary {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--muted);
 }
 
-.unblur {
-  filter: none;
-  pointer-events: auto;
+.nav {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
 /* Cards */
@@ -132,10 +106,6 @@ button {
   inset: 0;
   border-radius: 20px;
   backface-visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
 }
 
 .front img {
@@ -147,5 +117,16 @@ button {
 
 .back {
   background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   transform: rotateY(180deg);
+}
+
+/* Animations */
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 0.8; }
+  100% { transform: translateY(-110vh); opacity: 0; }
 }
