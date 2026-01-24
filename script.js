@@ -1,5 +1,6 @@
 const SECRET = "sanjana";
 let currentStep = 1;
+const totalSteps = 4;
 
 const input = document.getElementById("nameInput");
 const enterBtn = document.getElementById("enterBtn");
@@ -7,9 +8,7 @@ const content = document.getElementById("content");
 
 /* ENTER KEY SUPPORT */
 input.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    checkName();
-  }
+  if (e.key === "Enter") checkName();
 });
 
 enterBtn.addEventListener("click", checkName);
@@ -26,7 +25,15 @@ function checkName() {
 }
 
 function nextStep() {
+  if (currentStep >= totalSteps) return;
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
+  document.getElementById(`step${currentStep}`).classList.add("active");
+}
+
+function prevStep() {
+  if (currentStep <= 1) return;
+  document.getElementById(`step${currentStep}`).classList.remove("active");
+  currentStep--;
   document.getElementById(`step${currentStep}`).classList.add("active");
 }
