@@ -1,11 +1,25 @@
 const SECRET = "sanjana";
 let currentStep = 1;
 
+const input = document.getElementById("nameInput");
+const enterBtn = document.getElementById("enterBtn");
+const content = document.getElementById("content");
+
+/* ENTER KEY SUPPORT */
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    checkName();
+  }
+});
+
+enterBtn.addEventListener("click", checkName);
+
 function checkName() {
-  const v = document.getElementById("nameInput").value.trim().toLowerCase();
+  const v = input.value.trim().toLowerCase();
   if (v === SECRET) {
     document.getElementById("overlay").style.display = "none";
-    document.getElementById("content").classList.add("unblur");
+    content.classList.remove("blurred");
+    content.classList.add("unblur");
   } else {
     document.getElementById("errorMsg").innerText = "Not for everyone 🌙";
   }
@@ -15,12 +29,4 @@ function nextStep() {
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
   document.getElementById(`step${currentStep}`).classList.add("active");
-
-  burst();
-}
-
-function burst() {
-  const p = document.querySelector(".particles");
-  p.style.opacity = "0.4";
-  setTimeout(() => p.style.opacity = "0.15", 600);
 }

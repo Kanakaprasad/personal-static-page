@@ -14,7 +14,6 @@ body {
   margin: 0;
   background: radial-gradient(circle at top, #1a1a2e, #0f0f14);
   color: var(--text);
-  overflow-x: hidden;
 }
 
 h1, h2 {
@@ -41,7 +40,6 @@ button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: fadeIn 1s ease;
 }
 
 .step.active {
@@ -57,6 +55,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 }
 
 .modal {
@@ -74,11 +73,12 @@ button {
   width: 220px;
 }
 
-/* Blur */
+/* Blur logic – FIXED */
 .blurred {
   filter: blur(8px);
   pointer-events: none;
 }
+
 .unblur {
   filter: none;
   pointer-events: auto;
@@ -131,25 +131,4 @@ button {
 .back {
   background: var(--card);
   transform: rotateY(180deg);
-  text-align: center;
-}
-
-/* Particles */
-.particles::before {
-  content: "💖 ✨ 🌸 💕";
-  position: fixed;
-  inset: 0;
-  font-size: 24px;
-  opacity: 0.15;
-  animation: float 20s linear infinite;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: none; }
-}
-
-@keyframes float {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-100vh); }
 }
