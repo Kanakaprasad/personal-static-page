@@ -1,49 +1,34 @@
-const SECRET_NAME = "sanjana";
-const music = document.getElementById("bgMusic");
+const SECRET = "sanjana";
 
 function checkName() {
-  const input = document
-    .getElementById("nameInput")
-    .value.trim()
-    .toLowerCase();
-
-  if (input === SECRET_NAME) {
-    unlockExperience();
+  const v = document.getElementById("nameInput").value.trim().toLowerCase();
+  if (v === SECRET) {
+    document.getElementById("overlay").style.display = "none";
+    document.getElementById("content").classList.add("unblur");
   } else {
-    document.getElementById("errorMsg").innerText =
-      "Almost… but this surprise is for someone else 🌸";
+    document.getElementById("errorMsg").innerText = "Not for everyone 🌙";
   }
-}
-
-function unlockExperience() {
-  const overlay = document.getElementById("overlay");
-  const content = document.getElementById("content");
-
-  overlay.style.opacity = "0";
-  overlay.style.pointerEvents = "none";
-
-  setTimeout(() => {
-    overlay.style.display = "none";
-    content.classList.add("unblur");
-  }, 900);
 }
 
 function startExperience() {
-  document.querySelector(".hero").classList.add("hidden");
-
-  showSection(".message", "music/intro.mp3");
-  setTimeout(() => showSection(".cards", "music/memories.mp3"), 4000);
-  setTimeout(() => showSection(".photos"), 8000);
-  setTimeout(() => showSection(".letter"), 12000);
-  setTimeout(() => showSection(".ending", "music/ending.mp3"), 16000);
+  revealOnScroll();
+  playMusic("music/intro.mp3");
 }
 
-function showSection(selector, song) {
-  const section = document.querySelector(selector);
-  section.classList.remove("hidden");
+function playMusic(src) {
+  const m = document.getElementById("bgMusic");
+  m.src = src;
+  m.play().catch(()=>{});
+}
 
-  if (song) {
-    music.src = song;
-    music.play().catch(() => {});
-  }
+function revealOnScroll() {
+  const items = document.querySelectorAll(".reveal");
+  window.addEventListener("scroll", () => {
+    items.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add("active");
+      }
+    });
+  });
 }
