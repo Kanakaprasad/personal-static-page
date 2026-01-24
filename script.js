@@ -1,4 +1,5 @@
 const SECRET = "sanjana";
+let currentStep = 1;
 
 function checkName() {
   const v = document.getElementById("nameInput").value.trim().toLowerCase();
@@ -10,25 +11,16 @@ function checkName() {
   }
 }
 
-function startExperience() {
-  revealOnScroll();
-  playMusic("music/intro.mp3");
+function nextStep() {
+  document.getElementById(`step${currentStep}`).classList.remove("active");
+  currentStep++;
+  document.getElementById(`step${currentStep}`).classList.add("active");
+
+  burst();
 }
 
-function playMusic(src) {
-  const m = document.getElementById("bgMusic");
-  m.src = src;
-  m.play().catch(()=>{});
-}
-
-function revealOnScroll() {
-  const items = document.querySelectorAll(".reveal");
-  window.addEventListener("scroll", () => {
-    items.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
-        el.classList.add("active");
-      }
-    });
-  });
+function burst() {
+  const p = document.querySelector(".particles");
+  p.style.opacity = "0.4";
+  setTimeout(() => p.style.opacity = "0.15", 600);
 }
