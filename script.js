@@ -5,19 +5,17 @@ const totalSteps = 4;
 const input = document.getElementById("nameInput");
 const enterBtn = document.getElementById("enterBtn");
 const content = document.getElementById("content");
+const ambientContainer = document.getElementById("ambientTexts");
 
-const loveFlow = document.getElementById("loveFlow");
-const loveText = document.getElementById("loveText");
+let ambientTimer = null;
 
-let loveInterval = null;
-let loveIndex = 0;
-
-const loveWords = [
+const words = [
   "Sanju 💖",
   "Sanji ✨",
   "Dear 🌸",
   "Sanjana ❤️",
   "My Dear 💕",
+  "Hendti 🥺❤️",
   "Sanju 💗",
   "Sanju 🧡 KP",
   "KP 🧡 Sanju"
@@ -30,8 +28,7 @@ input.addEventListener("keydown", e => {
 enterBtn.addEventListener("click", checkName);
 
 function checkName() {
-  const v = input.value.trim().toLowerCase();
-  if (v === SECRET) {
+  if (input.value.trim().toLowerCase() === SECRET) {
     document.getElementById("overlay").style.display = "none";
     content.classList.remove("blurred");
     content.classList.add("unblur");
@@ -43,43 +40,47 @@ function checkName() {
 /* Navigation */
 function nextStep() {
   if (currentStep >= totalSteps) return;
-  stopLoveFlow();
+  stopAmbient();
 
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
   document.getElementById(`step${currentStep}`).classList.add("active");
 
-  if (currentStep === 3) startLoveFlow();
+  if (currentStep === 3) startAmbient();
 }
 
 function prevStep() {
   if (currentStep <= 1) return;
-  stopLoveFlow();
+  stopAmbient();
 
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep--;
   document.getElementById(`step${currentStep}`).classList.add("active");
 
-  if (currentStep === 3) startLoveFlow();
+  if (currentStep === 3) startAmbient();
 }
 
-/* 💖 Love flow control */
-function startLoveFlow() {
-  loveFlow.classList.remove("hidden");
-  showNextLove();
-  loveInterval = setInterval(showNextLove, 3200);
+/* 💕 Ambient floating logic */
+function startAmbient() {
+  if (ambientTimer) return;
+  ambientTimer = setInterval(createAmbientText, 700);
 }
 
-function stopLoveFlow() {
-  clearInterval(loveInterval);
-  loveInterval = null;
-  loveFlow.classList.add("hidden");
+function stopAmbient() {
+  clearInterval(ambientTimer);
+  ambientTimer = null;
 }
 
-function showNextLove() {
-  loveText.style.animation = "none";
-  loveText.offsetHeight; // reflow
-  loveText.innerText = loveWords[loveIndex % loveWords.length];
-  loveText.style.animation = "loveText 3s ease forwards";
-  loveIndex++;
+function createAmbientText() {
+  const span = document.createElement("span");
+  span.className = "ambient";
+  span.innerText = words[Math.floor(Math.random() * words.length)];
+
+  span.style.left = Math.random() * 100 + "%";
+  span.style.fontSize = Math.random() * 6 + 12 + "px";
+  span.style.animationDuration = Math.random() * 4 + 6 + "s";
+
+  ambientContainer.appendChild(span);
+
+  setTimeout(() => span.remove(), 10000);
 }
