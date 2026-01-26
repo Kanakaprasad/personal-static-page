@@ -5,13 +5,7 @@ body {
   color: white;
   overflow-x: hidden;
 
-  background: linear-gradient(
-    120deg,
-    #1a1a2e,
-    #16213e,
-    #533483,
-    #e94560
-  );
+  background: linear-gradient(120deg, #1a1a2e, #16213e, #533483, #e94560);
   background-size: 400% 400%;
   animation: bgMove 18s ease infinite;
 }
@@ -22,7 +16,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Lottie hearts layer */
+/* Lottie */
 #lottie-hearts {
   position: fixed;
   inset: 0;
@@ -71,7 +65,7 @@ body {
 /* Cards */
 .cards {
   display: flex;
-  gap: 30px;
+  gap: 24px;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -83,6 +77,10 @@ body {
   border: 3px solid rgba(255,182,193,0.9);
   box-shadow: 0 0 40px rgba(255,105,180,0.6);
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.photo-card:hover {
+  transform: scale(1.05);
 }
 .photo-card img {
   width: 100%;
