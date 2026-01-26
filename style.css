@@ -1,236 +1,156 @@
-/* -------------------- GLOBAL -------------------- */
 body {
   margin: 0;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
-  color: #ffffff;
+  color: white;
   overflow-x: hidden;
 
-  /* Animated gradient background */
   background: linear-gradient(
     120deg,
     #1a1a2e,
     #16213e,
-    #0f3460,
     #533483,
     #e94560
   );
   background-size: 400% 400%;
-  animation: gradientMove 18s ease infinite;
+  animation: bgMove 18s ease infinite;
 }
 
-@keyframes gradientMove {
+@keyframes bgMove {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Soft light blobs */
-body::before,
-body::after {
-  content: "";
+/* Lottie hearts layer */
+#lottie-hearts {
   position: fixed;
-  width: 300px;
-  height: 300px;
-  background: rgba(255, 105, 180, 0.25);
-  filter: blur(120px);
-  border-radius: 50%;
-  z-index: 0;
-  animation: floatBlob 20s infinite alternate ease-in-out;
-}
-body::after {
-  background: rgba(138, 43, 226, 0.25);
-  animation-delay: 5s;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
-@keyframes floatBlob {
-  from { transform: translate(0, 0); }
-  to { transform: translate(200px, 150px); }
-}
-
-/* -------------------- CONTENT LAYER -------------------- */
-#content {
-  position: relative;
+/* Floating photos */
+#floatingPhotos {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
   z-index: 2;
 }
 
-/* -------------------- STEPS -------------------- */
+.floating-photo {
+  position: absolute;
+  bottom: -140px;
+  width: 90px;
+  height: 110px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(255,182,193,0.9);
+  box-shadow: 0 10px 30px rgba(255,105,180,0.6);
+  animation: floatPhoto linear forwards;
+}
+
+@keyframes floatPhoto {
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+
+/* Steps */
 .step {
   min-height: 100vh;
   padding: 80px 20px;
   display: none;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 3;
 }
+.step.active { display: flex; }
 
-.step.active {
-  display: flex;
-}
-
-/* -------------------- BUTTONS -------------------- */
-.primary {
-  background: linear-gradient(135deg, #ff5c8d, #ff87ab);
-  color: #fff;
-  border: none;
-  padding: 14px 38px;
-  border-radius: 40px;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(255, 92, 141, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.primary:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 15px 40px rgba(255, 92, 141, 0.7);
-}
-
-.secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 12px 32px;
-  border-radius: 40px;
-  backdrop-filter: blur(10px);
-}
-
-.nav {
-  margin-top: 40px;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* -------------------- PHOTO CARDS -------------------- */
+/* Cards */
 .cards {
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 40px;
 }
-
-.flip-card {
+.photo-card {
   width: 220px;
   height: 280px;
-  perspective: 1200px;
-}
-
-.inner {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.9s cubic-bezier(.4,.2,.2,1);
-  transform-style: preserve-3d;
-}
-
-.flip-card.flipped .inner {
-  transform: rotateY(180deg);
-}
-
-.front,
-.back {
-  position: absolute;
-  inset: 0;
   border-radius: 22px;
-  backface-visibility: hidden;
   overflow: hidden;
+  border: 3px solid rgba(255,182,193,0.9);
+  box-shadow: 0 0 40px rgba(255,105,180,0.6);
+  cursor: pointer;
 }
-
-/* Image frame */
-.front {
-  border: 3px solid rgba(255, 192, 203, 0.7);
-  box-shadow:
-    0 0 20px rgba(255, 182, 193, 0.5),
-    0 0 40px rgba(255, 105, 180, 0.4);
-  animation: glowPulse 4s infinite alternate;
-}
-
-@keyframes glowPulse {
-  from {
-    box-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
-  }
-  to {
-    box-shadow: 0 0 35px rgba(255, 105, 180, 0.8);
-  }
-}
-
-.front img {
+.photo-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Card back */
-.back {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  transform: rotateY(180deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  font-size: 0.95rem;
-}
-
-/* -------------------- FLOATING LOVE TEXT -------------------- */
-#ambientTexts {
+/* Modal */
+#photoModal {
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+#photoModal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
 }
 
-.ambient {
-  position: absolute;
-  bottom: -30px;
-  font-size: 14px;
-  opacity: 0;
-  animation: floatUp linear forwards;
-  white-space: nowrap;
-  color: rgba(255, 255, 255, 0.6);
-  text-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+/* Buttons */
+.primary {
+  background: linear-gradient(135deg, #ff5c8d, #ff87ab);
+  border: none;
+  padding: 14px 38px;
+  border-radius: 40px;
+  color: white;
+  cursor: pointer;
 }
-
-@keyframes floatUp {
-  0% { transform: translateY(0); opacity: 0; }
-  15% { opacity: 0.5; }
-  85% { opacity: 0.5; }
-  100% { transform: translateY(-110vh); opacity: 0; }
+.secondary {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 12px 32px;
+  border-radius: 40px;
+  color: white;
 }
+.nav { margin-top: 40px; display: flex; gap: 20px; }
 
-/* -------------------- PASSWORD OVERLAY -------------------- */
+/* Gate */
 .overlay {
   position: fixed;
   inset: 0;
   backdrop-filter: blur(14px);
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0,0,0,0.65);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 50;
 }
-
 .modal {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255,255,255,0.15);
   padding: 40px;
   border-radius: 24px;
-  box-shadow: 0 0 40px rgba(255, 92, 141, 0.4);
 }
 
-/* -------------------- MUTE BUTTON -------------------- */
+/* Mute */
 .mute-btn {
   position: fixed;
   top: 16px;
   right: 16px;
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 50%;
   width: 46px;
   height: 46px;
-  font-size: 18px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.2);
   color: white;
-  cursor: pointer;
-  z-index: 30;
+  z-index: 20;
 }
