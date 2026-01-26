@@ -16,22 +16,39 @@ const musicMap = {
   4: "./music/ending.mp3"
 };
 
-/* 📸 Google Drive image links */
-const floatingPhotos = [
-  "PHOTO_LINK_1",
-  "PHOTO_LINK_2",
-  "PHOTO_LINK_3"
+/* 📸 YOUR 10 PHOTOS */
+const photos = [
+  "https://drive.google.com/uc?export=view&id=1iFmFSNKIscZLgoo67YLSBTemRMOEvcWC",
+  "https://drive.google.com/uc?export=view&id=148r2J2Vbtd0SeZMi8985k-eIYVS2gIS-",
+  "https://drive.google.com/uc?export=view&id=1CFp93527FDPXZBHj54rcH0lBjO_uyufB",
+  "https://drive.google.com/uc?export=view&id=1lCrz0_cd4d9Cal3MUvwtn9w2bF-eBGjv",
+  "https://drive.google.com/uc?export=view&id=1aUqSxdMR1PJMY_edz8zwem4Z3QJmZ3ZR",
+  "https://drive.google.com/uc?export=view&id=1enqLcvkpwQ8pKEM3mlwyoHmDyCFKXtCQ",
+  "https://drive.google.com/uc?export=view&id=1b7qt8TKTjO3h-MEGDOqhk40lXKvmvnqL",
+  "https://drive.google.com/uc?export=view&id=1efED_K7yqcuIXKaDlfJv8LMJJlcHP83i",
+  "https://drive.google.com/uc?export=view&id=1XxPQLAZ7WMcoK6j9EnxNjRqLesuVxaCN",
+  "https://drive.google.com/uc?export=view&id=1c2kTt9S1dgRG4ydR3C8w9DpARJl_cDPy"
 ];
 
 const floatContainer = document.getElementById("floatingPhotos");
+const cardsContainer = document.getElementById("photoCards");
 
-/* ❤️ LOTTIE HEARTS ACTUAL CODE */
+/* ❤️ LOTTIE HEARTS */
 lottie.loadAnimation({
   container: document.getElementById("lottie-hearts"),
   renderer: "svg",
   loop: true,
   autoplay: true,
   path: "https://assets10.lottiefiles.com/packages/lf20_jppxqf.json"
+});
+
+/* Build photo cards */
+photos.forEach(src => {
+  const div = document.createElement("div");
+  div.className = "photo-card";
+  div.innerHTML = `<img src="${src}">`;
+  div.onclick = () => openModal(div);
+  cardsContainer.appendChild(div);
 });
 
 /* Password */
@@ -64,13 +81,13 @@ function prevStep() {
 function startFloatingPhotos() {
   setInterval(() => {
     const img = document.createElement("img");
-    img.src = floatingPhotos[Math.floor(Math.random() * floatingPhotos.length)];
+    img.src = photos[Math.floor(Math.random() * photos.length)];
     img.className = "floating-photo";
     img.style.left = Math.random() * 90 + "%";
     img.style.animationDuration = Math.random() * 8 + 10 + "s";
     floatContainer.appendChild(img);
     setTimeout(() => img.remove(), 15000);
-  }, 2000);
+  }, 1800);
 }
 
 /* Modal */
@@ -82,7 +99,7 @@ function closeModal() {
   document.getElementById("photoModal").style.display = "none";
 }
 
-/* Music control */
+/* Music */
 function playMusic(step) {
   if (muted) return;
   music.src = musicMap[step];
