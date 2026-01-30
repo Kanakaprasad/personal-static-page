@@ -5,15 +5,22 @@
   <title>Just for You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Lottie -->
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-  <!-- ❤️ Lottie Hearts -->
+  <!-- ❤️ Hearts Background -->
   <div id="lottie-hearts"></div>
+
+  <!-- 🎵 Music -->
+  <audio id="bgMusic" loop></audio>
+  <button id="muteBtn" class="mute-btn">🔊</button>
 
   <!-- 🔐 LOGIN -->
   <div class="login-screen" id="loginScreen">
@@ -22,10 +29,11 @@
       <p>This page opens only for one special person</p>
       <input id="nameInput" placeholder="Enter your name…" />
       <button id="enterBtn">Unlock 💖</button>
+      <span id="errorMsg"></span>
     </div>
   </div>
 
-  <!-- 💖 ROMANTIC HERO -->
+  <!-- 💖 HERO -->
   <section class="hero" id="heroScreen">
     <h1 class="hero-name">Sanjana</h1>
     <div class="hero-heart">❤️</div>
@@ -34,12 +42,13 @@
     <button class="primary" onclick="startJourney()">There’s something I want to ask you…</button>
   </section>
 
-  <!-- 🌙 MAIN CONTENT -->
+  <!-- 📸 Floating Photos -->
+  <div id="floatingPhotos"></div>
+
+  <!-- 🌙 CONTENT -->
   <div id="content">
 
-    <!-- EXISTING SECTIONS STAY -->
-
-    <section class="step" id="step1">
+    <section class="step active" id="step1">
       <p>This is not a website.<br>This is something I made… just for you.</p>
       <button class="primary" onclick="nextStep()">Continue ❤️</button>
     </section>
@@ -60,34 +69,33 @@
       <button class="primary" onclick="nextStep()">Our Story 📖</button>
     </section>
 
-    <!-- 📖 STORY SECTION -->
-    <section class="story-section">
+    <!-- 📖 STORY -->
+    <section class="step story-section" id="step4">
       <h2>Our Story 💫</h2>
       <div class="story-content">
-        <!-- YOU WILL WRITE HERE -->
         <p>
-          (You will explain everything here… how you met, what you felt, what you planned.
-          This can be very long. No limits.)
+          (You will write your full story here.  
+          No limits. Long text is completely fine.)
         </p>
       </div>
       <button class="primary" onclick="nextStep()">One Question 💍</button>
     </section>
 
     <!-- 💍 PROPOSAL -->
-    <section class="proposal-section">
+    <section class="step proposal-section" id="step5">
       <h2>Will you be my Valentine… again? 💖</h2>
       <div class="proposal-actions">
-        <button class="primary">Yes 💕</button>
-        <button class="primary">Always Yes 🥺❤️</button>
+        <button class="primary" onclick="nextStep()">Yes 💕</button>
+        <button class="primary" onclick="nextStep()">Always Yes 🥺❤️</button>
       </div>
     </section>
 
-    <!-- 💌 LOVE LETTER -->
-    <section class="letter-section">
+    <!-- 💌 LETTER -->
+    <section class="step letter-section" id="step6">
       <h2>My Love Letter to You 💌</h2>
       <div class="letter">
         <p>
-          (Your love letter content goes here.)
+          (Your digital love letter goes here.)
         </p>
         <p class="signature">Forever yours,<br>KP ❤️</p>
       </div>
