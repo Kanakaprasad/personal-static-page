@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -5,7 +9,13 @@ body {
   color: white;
   overflow-x: hidden;
 
-  background: linear-gradient(120deg, #1a1a2e, #16213e, #533483, #e94560);
+  background: linear-gradient(
+    120deg,
+    #1a1a2e,
+    #16213e,
+    #533483,
+    #e94560
+  );
   background-size: 400% 400%;
   animation: bgMove 18s ease infinite;
 }
@@ -16,7 +26,7 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Lottie */
+/* ❤️ Lottie */
 #lottie-hearts {
   position: fixed;
   inset: 0;
@@ -24,7 +34,7 @@ body {
   pointer-events: none;
 }
 
-/* Floating photos */
+/* 📸 Floating Photos */
 #floatingPhotos {
   position: fixed;
   inset: 0;
@@ -34,21 +44,31 @@ body {
 
 .floating-photo {
   position: absolute;
-  bottom: -140px;
+  bottom: -160px;
   width: 90px;
-  height: 110px;
-  border-radius: 16px;
+  height: 120px;
+  border-radius: 18px;
   overflow: hidden;
   border: 2px solid rgba(255,182,193,0.9);
   box-shadow: 0 10px 30px rgba(255,105,180,0.6);
   animation: floatPhoto linear forwards;
+  background: #000;
+}
+
+.floating-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @keyframes floatPhoto {
-  to { transform: translateY(-120vh); opacity: 0; }
+  to {
+    transform: translateY(-130vh) rotate(6deg);
+    opacity: 0;
+  }
 }
 
-/* Steps */
+/* 🌙 Steps */
 .step {
   min-height: 100vh;
   padding: 80px 20px;
@@ -60,51 +80,60 @@ body {
   position: relative;
   z-index: 3;
 }
-.step.active { display: flex; }
 
-/* Cards */
-.cards {
+.step.active {
   display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
+
+/* 🖼️ Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 1100px;
+  margin-top: 30px;
+}
+
 .photo-card {
-  width: 220px;
-  height: 280px;
+  width: 100%;
+  aspect-ratio: 3 / 4;
   border-radius: 22px;
   overflow: hidden;
   border: 3px solid rgba(255,182,193,0.9);
   box-shadow: 0 0 40px rgba(255,105,180,0.6);
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.35s ease;
+  background: #000;
 }
+
 .photo-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
+
 .photo-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Modal */
+/* 🔍 Modal */
 #photoModal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 99;
 }
+
 #photoModal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 20px;
+  max-width: 92%;
+  max-height: 92%;
+  border-radius: 22px;
 }
 
-/* Buttons */
+/* 🔘 Buttons */
 .primary {
   background: linear-gradient(135deg, #ff5c8d, #ff87ab);
   border: none;
@@ -112,43 +141,69 @@ body {
   border-radius: 40px;
   color: white;
   cursor: pointer;
+  font-size: 1rem;
 }
+
 .secondary {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.4);
   padding: 12px 32px;
   border-radius: 40px;
   color: white;
+  cursor: pointer;
 }
-.nav { margin-top: 40px; display: flex; gap: 20px; }
 
-/* Gate */
+.nav {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* 🔐 Gate */
 .overlay {
   position: fixed;
   inset: 0;
-  backdrop-filter: blur(14px);
-  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(16px);
+  background: rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 50;
 }
+
 .modal {
   background: rgba(255,255,255,0.15);
   padding: 40px;
-  border-radius: 24px;
+  border-radius: 26px;
+  text-align: center;
 }
 
-/* Mute */
+.modal input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.modal button {
+  margin-top: 15px;
+}
+
+/* 🔊 Mute */
 .mute-btn {
   position: fixed;
   top: 16px;
   right: 16px;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   border: none;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.25);
   color: white;
   z-index: 20;
+  font-size: 1.2rem;
 }
