@@ -5,42 +5,39 @@
   <title>Just for You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <!-- Lottie -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-  <!-- 💖 Lottie Hearts -->
+  <!-- ❤️ Background Hearts -->
   <div id="lottie-hearts"></div>
 
-  <!-- 📸 Floating Photos -->
-  <div id="floatingPhotos"></div>
-
-  <!-- 🎵 Music -->
-  <audio id="bgMusic" loop></audio>
-  <button id="muteBtn" class="mute-btn">🔊</button>
-
-  <!-- 🔐 Password Gate -->
-  <div class="overlay" id="overlay">
-    <div class="modal">
-      <h2>Hey 🌸</h2>
-      <p>This space is meant for someone special.</p>
-      <input id="nameInput" placeholder="Your name…" />
-      <button id="enterBtn">Enter</button>
+  <!-- 🔐 LOGIN -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <h1>Hello 🌸</h1>
+      <p>This page opens only for one special person</p>
+      <input id="nameInput" placeholder="Enter your name…" />
+      <button id="enterBtn">Unlock 💖</button>
       <span id="errorMsg"></span>
     </div>
   </div>
 
-  <!-- 🌙 Main Content -->
+  <!-- 💖 CINEMATIC INTRO -->
+  <div class="intro-screen" id="introScreen">
+    <h1 class="big-names">
+      Sanjana <span>❤️</span> KP
+    </h1>
+    <button class="primary" onclick="startJourney()">Continue ✨</button>
+  </div>
+
+  <!-- 🌙 MAIN CONTENT -->
   <div id="content">
 
     <section class="step active" id="step1">
-      <h1>Hey Sanjana ❤️</h1>
       <p>This is not a website.<br>This is something I made… just for you.</p>
       <button class="primary" onclick="nextStep()">Okay… show me ❤️</button>
     </section>
@@ -52,19 +49,13 @@
         Idhu intention.<br>
         Idhu feeling.
       </p>
-      <div class="nav">
-        <button class="secondary" onclick="prevStep()">← Back</button>
-        <button class="primary" onclick="nextStep()">Tell me more 💭</button>
-      </div>
+      <button class="primary" onclick="nextStep()">Tell me more 💭</button>
     </section>
 
     <section class="step" id="step3">
       <h2>Little pieces of my heart 💖</h2>
       <div class="cards" id="photoCards"></div>
-      <div class="nav">
-        <button class="secondary" onclick="prevStep()">← Back</button>
-        <button class="primary" onclick="nextStep()">One last thing 💕</button>
-      </div>
+      <button class="primary" onclick="nextStep()">One last thing 💕</button>
     </section>
 
     <section class="step" id="step4">
@@ -73,14 +64,13 @@
         Sanjana,<br><br>
         Ee page perfect alla.<br>
         But idhu honest.<br><br>
-        Just like how I feel about you.<br><br>
         — KP 💖
       </p>
     </section>
 
   </div>
 
-  <!-- 🖼️ Image Modal -->
+  <!-- 🔍 Image Modal -->
   <div id="photoModal" onclick="closeModal()">
     <img id="modalImg">
   </div>
