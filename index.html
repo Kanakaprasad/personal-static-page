@@ -5,7 +5,7 @@
   <title>Just for You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
   <link rel="stylesheet" href="./style.css" />
@@ -22,25 +22,26 @@
       <p>This page opens only for one special person</p>
       <input id="nameInput" placeholder="Enter your name…" />
       <button id="enterBtn">Unlock 💖</button>
-      <span id="errorMsg"></span>
     </div>
   </div>
 
-  <!-- 💖 CINEMATIC INTRO -->
-  <div class="intro-screen" id="introScreen">
-    <h1 class="big-names">SANJANA <span>❤️</span> KP</h1>
-    <button class="primary" onclick="startJourney()">Continue ✨</button>
-  </div>
-
-  <!-- 📸 Floating Photos -->
-  <div id="floatingPhotos"></div>
+  <!-- 💖 ROMANTIC HERO -->
+  <section class="hero" id="heroScreen">
+    <h1 class="hero-name">Sanjana</h1>
+    <div class="hero-heart">❤️</div>
+    <h1 class="hero-name">KP</h1>
+    <p class="hero-sub">Happy Valentine’s Day, My Love 💖</p>
+    <button class="primary" onclick="startJourney()">There’s something I want to ask you…</button>
+  </section>
 
   <!-- 🌙 MAIN CONTENT -->
   <div id="content">
 
-    <section class="step active" id="step1">
+    <!-- EXISTING SECTIONS STAY -->
+
+    <section class="step" id="step1">
       <p>This is not a website.<br>This is something I made… just for you.</p>
-      <button class="primary" onclick="nextStep()">Okay… show me ❤️</button>
+      <button class="primary" onclick="nextStep()">Continue ❤️</button>
     </section>
 
     <section class="step" id="step2">
@@ -50,30 +51,48 @@
         Idhu intention.<br>
         Idhu feeling.
       </p>
-      <button class="primary" onclick="nextStep()">Tell me more 💭</button>
+      <button class="primary" onclick="nextStep()">Next 💭</button>
     </section>
 
     <section class="step" id="step3">
       <h2>Little pieces of my heart 💖</h2>
       <div class="cards" id="photoCards"></div>
-      <button class="primary" onclick="nextStep()">One last thing 💕</button>
+      <button class="primary" onclick="nextStep()">Our Story 📖</button>
     </section>
 
-    <section class="step" id="step4">
-      <h2>Happy Valentine’s Day ❤️</h2>
-      <p>
-        Sanjana,<br><br>
-        Ee page perfect alla.<br>
-        But idhu honest.<br><br>
-        — KP 💖
-      </p>
+    <!-- 📖 STORY SECTION -->
+    <section class="story-section">
+      <h2>Our Story 💫</h2>
+      <div class="story-content">
+        <!-- YOU WILL WRITE HERE -->
+        <p>
+          (You will explain everything here… how you met, what you felt, what you planned.
+          This can be very long. No limits.)
+        </p>
+      </div>
+      <button class="primary" onclick="nextStep()">One Question 💍</button>
     </section>
 
-  </div>
+    <!-- 💍 PROPOSAL -->
+    <section class="proposal-section">
+      <h2>Will you be my Valentine… again? 💖</h2>
+      <div class="proposal-actions">
+        <button class="primary">Yes 💕</button>
+        <button class="primary">Always Yes 🥺❤️</button>
+      </div>
+    </section>
 
-  <!-- 🖼️ Image Modal -->
-  <div id="photoModal" onclick="closeModal()">
-    <img id="modalImg">
+    <!-- 💌 LOVE LETTER -->
+    <section class="letter-section">
+      <h2>My Love Letter to You 💌</h2>
+      <div class="letter">
+        <p>
+          (Your love letter content goes here.)
+        </p>
+        <p class="signature">Forever yours,<br>KP ❤️</p>
+      </div>
+    </section>
+
   </div>
 
   <script src="./script.js"></script>
