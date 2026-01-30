@@ -1,166 +1,79 @@
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
+.hero {
   min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  overflow-x: hidden;
-  background: linear-gradient(120deg, #1a1a2e, #16213e, #533483, #e94560);
-}
-
-/* ❤️ Lottie */
-#lottie-hearts {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* 🔐 LOGIN */
-.login-screen {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
-
-.login-card {
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(18px);
-  padding: 40px 30px;
-  border-radius: 26px;
-  width: min(90%, 380px);
-  text-align: center;
-}
-
-.login-card input {
-  width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-  margin-top: 20px;
-}
-
-.login-card button {
-  width: 100%;
-  margin-top: 20px;
-}
-
-/* 💖 INTRO */
-.intro-screen {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle, #000, #1a1a2e);
   display: none;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  z-index: 9;
-}
-
-.big-names {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 700;
-  text-shadow: 0 0 40px rgba(255,105,180,0.9);
-  animation: glow 2.5s infinite alternate;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 20px #ff5c8d; }
-  to { text-shadow: 0 0 60px #ff87ab; }
-}
-
-/* 📸 Floating Photos */
-#floatingPhotos {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-}
-
-.floating-photo {
-  position: absolute;
-  bottom: -160px;
-  width: 90px;
-  height: 120px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 2px solid rgba(255,182,193,0.9);
-  box-shadow: 0 10px 30px rgba(255,105,180,0.6);
-  animation: floatPhoto linear forwards;
-}
-
-@keyframes floatPhoto {
-  to { transform: translateY(-130vh); opacity: 0; }
-}
-
-/* 🌙 STEPS */
-#content { display: none; }
-
-.step {
-  min-height: 100vh;
-  padding: 80px 20px;
-  display: none;
   justify-content: center;
   align-items: center;
   text-align: center;
-  flex-direction: column;
   z-index: 3;
 }
 
-.step.active { display: flex; }
-
-/* 🖼️ Cards */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-  max-width: 1100px;
+.hero-name {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 700;
+  text-shadow: 0 0 40px rgba(255,105,180,0.9);
 }
 
-.photo-card {
-  aspect-ratio: 3 / 4;
-  border-radius: 22px;
-  overflow: hidden;
-  border: 3px solid rgba(255,182,193,0.9);
-  box-shadow: 0 0 40px rgba(255,105,180,0.6);
-  cursor: pointer;
+.hero-heart {
+  font-size: 4rem;
+  animation: pulse 2s infinite;
 }
 
-.photo-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.hero-sub {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  opacity: 0.9;
 }
 
-/* 🔘 Buttons */
-.primary {
-  background: linear-gradient(135deg, #ff5c8d, #ff87ab);
-  border: none;
-  padding: 14px 36px;
-  border-radius: 40px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Story */
+.story-section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.story-content {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* Proposal */
+.proposal-section {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.proposal-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
   margin-top: 30px;
 }
 
-/* 🔍 Modal */
-#photoModal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
+/* Love Letter */
+.letter-section {
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
-#photoModal img {
-  max-width: 90%;
-  max-height: 90%;
+.letter {
+  background: rgba(255,255,255,0.1);
+  padding: 40px;
   border-radius: 20px;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.8;
+}
+
+.signature {
+  margin-top: 40px;
+  text-align: right;
+  font-style: italic;
 }
