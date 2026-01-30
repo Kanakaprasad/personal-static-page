@@ -2,13 +2,28 @@ const SECRET = "sanjana";
 let currentStep = 1;
 
 const loginScreen = document.getElementById("loginScreen");
-const introScreen = document.getElementById("introScreen");
+const heroScreen = document.getElementById("heroScreen");
 const content = document.getElementById("content");
 
 const input = document.getElementById("nameInput");
 const enterBtn = document.getElementById("enterBtn");
 
-/* ❤️ Lottie hearts */
+const music = document.getElementById("bgMusic");
+const muteBtn = document.getElementById("muteBtn");
+let muted = false;
+
+/* 🎵 Music per stage */
+const musicMap = {
+  hero: "./music/intro.mp3",
+  1: "./music/intro.mp3",
+  2: "./music/intro.mp3",
+  3: "./music/memories.mp3",
+  4: "./music/memories.mp3",
+  5: "./music/ending.mp3",
+  6: "./music/ending.mp3"
+};
+
+/* ❤️ Hearts */
 lottie.loadAnimation({
   container: document.getElementById("lottie-hearts"),
   renderer: "svg",
@@ -17,7 +32,7 @@ lottie.loadAnimation({
   path: "https://assets10.lottiefiles.com/packages/lf20_jppxqf.json"
 });
 
-/* 📸 YOUR CLOUDINARY PHOTOS (ALL 17) */
+/* 📸 Photos (Cloudinary) */
 const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/Sanju-1_x6t8eh.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/SanKP-9_whwphg.jpg",
@@ -39,14 +54,10 @@ const photos = [
 ];
 
 const cardsContainer = document.getElementById("photoCards");
-const floatContainer = document.getElementById("floatingPhotos");
-
-/* Build cards */
 photos.forEach(src => {
   const card = document.createElement("div");
   card.className = "photo-card";
   card.innerHTML = `<img src="${src}" loading="lazy">`;
-  card.onclick = () => openModal(card);
   cardsContainer.appendChild(card);
 });
 
@@ -54,7 +65,8 @@ photos.forEach(src => {
 enterBtn.onclick = () => {
   if (input.value.trim().toLowerCase() === SECRET) {
     loginScreen.style.display = "none";
-    introScreen.style.display = "flex";
+    heroScreen.style.display = "flex";
+    playMusic("hero");
   }
 };
 
@@ -64,9 +76,9 @@ input.addEventListener("keydown", e => {
 
 /* Start */
 function startJourney() {
-  introScreen.style.display = "none";
+  heroScreen.style.display = "none";
   content.style.display = "block";
-  startFloatingPhotos();
+  playMusic(1);
 }
 
 /* Navigation */
@@ -74,26 +86,19 @@ function nextStep() {
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
   document.getElementById(`step${currentStep}`).classList.add("active");
+  playMusic(currentStep);
 }
 
-/* Floating photos */
-function startFloatingPhotos() {
-  setInterval(() => {
-    const img = document.createElement("img");
-    img.src = photos[Math.floor(Math.random() * photos.length)];
-    img.className = "floating-photo";
-    img.style.left = Math.random() * 90 + "%";
-    img.style.animationDuration = Math.random() * 8 + 12 + "s";
-    floatContainer.appendChild(img);
-    setTimeout(() => img.remove(), 16000);
-  }, 2000);
+/* Music control */
+function playMusic(key) {
+  if (muted) return;
+  music.src = musicMap[key];
+  music.volume = 0.6;
+  music.play().catch(()=>{});
 }
 
-/* Modal */
-function openModal(card) {
-  document.getElementById("modalImg").src = card.querySelector("img").src;
-  document.getElementById("photoModal").style.display = "flex";
-}
-function closeModal() {
-  document.getElementById("photoModal").style.display = "none";
-}
+muteBtn.onclick = () => {
+  muted = !muted;
+  muteBtn.innerText = muted ? "🔇" : "🔊";
+  muted ? music.pause() : playMusic(currentStep);
+};
