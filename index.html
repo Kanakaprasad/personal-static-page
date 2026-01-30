@@ -5,7 +5,8 @@
   <title>Just for You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
   <!-- Lottie -->
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
@@ -21,10 +22,10 @@
   <div id="floatingPhotos"></div>
 
   <!-- 🎵 Music -->
-  <audio id="bgMusic"></audio>
+  <audio id="bgMusic" loop></audio>
   <button id="muteBtn" class="mute-btn">🔊</button>
 
-  <!-- 🔐 Password -->
+  <!-- 🔐 Password Gate -->
   <div class="overlay" id="overlay">
     <div class="modal">
       <h2>Hey 🌸</h2>
@@ -35,18 +36,18 @@
     </div>
   </div>
 
-  <!-- CONTENT -->
+  <!-- 🌙 Main Content -->
   <div id="content">
 
     <section class="step active" id="step1">
       <h1>Hey Sanjana ❤️</h1>
-      <p>This is not a website.<br>This is something I made… for you.</p>
+      <p>This is not a website.<br>This is something I made… just for you.</p>
       <button class="primary" onclick="nextStep()">Okay… show me ❤️</button>
     </section>
 
     <section class="step" id="step2">
       <p>
-        Ninna hesaru type madidmele<br>
+        Ninna hesaru type madidmele,<br>
         ee page open aagodu coincidence alla.<br><br>
         Idhu intention.<br>
         Idhu feeling.
@@ -59,9 +60,7 @@
 
     <section class="step" id="step3">
       <h2>Little pieces of my heart 💖</h2>
-
       <div class="cards" id="photoCards"></div>
-
       <div class="nav">
         <button class="secondary" onclick="prevStep()">← Back</button>
         <button class="primary" onclick="nextStep()">One last thing 💕</button>
@@ -81,7 +80,7 @@
 
   </div>
 
-  <!-- Modal -->
+  <!-- 🖼️ Image Modal -->
   <div id="photoModal" onclick="closeModal()">
     <img id="modalImg">
   </div>
