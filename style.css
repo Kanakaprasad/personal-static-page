@@ -1,6 +1,4 @@
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -8,67 +6,86 @@ body {
   font-family: 'Poppins', sans-serif;
   color: white;
   overflow-x: hidden;
-
-  background: linear-gradient(
-    120deg,
-    #1a1a2e,
-    #16213e,
-    #533483,
-    #e94560
-  );
-  background-size: 400% 400%;
-  animation: bgMove 18s ease infinite;
-}
-
-@keyframes bgMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  background: radial-gradient(circle at top, #ff5c8d, #1a1a2e);
 }
 
 /* ❤️ Lottie */
 #lottie-hearts {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
 }
 
-/* 📸 Floating Photos */
-#floatingPhotos {
+/* 🔐 LOGIN */
+.login-screen {
   position: fixed;
   inset: 0;
-  pointer-events: none;
-  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 
-.floating-photo {
-  position: absolute;
-  bottom: -160px;
-  width: 90px;
-  height: 120px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 2px solid rgba(255,182,193,0.9);
-  box-shadow: 0 10px 30px rgba(255,105,180,0.6);
-  animation: floatPhoto linear forwards;
-  background: #000;
+.login-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(20px);
+  padding: 40px 30px;
+  border-radius: 26px;
+  width: min(90%, 380px);
+  text-align: center;
+  animation: fadeUp 1s ease;
 }
 
-.floating-photo img {
+.login-card h1 {
+  font-size: 2rem;
+}
+
+.login-card input {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  margin-top: 20px;
+  font-size: 1rem;
 }
 
-@keyframes floatPhoto {
-  to {
-    transform: translateY(-130vh) rotate(6deg);
-    opacity: 0;
-  }
+.login-card button {
+  margin-top: 20px;
+  width: 100%;
 }
 
-/* 🌙 Steps */
+/* 💖 INTRO */
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, #000, #1a1a2e);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9;
+}
+
+.big-names {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  text-shadow: 0 0 40px rgba(255,105,180,0.8);
+  animation: glow 2.5s infinite alternate;
+}
+
+.big-names span {
+  margin: 0 15px;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 20px #ff5c8d; }
+  to { text-shadow: 0 0 60px #ff87ab; }
+}
+
+/* 🌙 STEPS */
+#content { display: none; }
+
 .step {
   min-height: 100vh;
   padding: 80px 20px;
@@ -77,13 +94,9 @@ body {
   align-items: center;
   text-align: center;
   flex-direction: column;
-  position: relative;
-  z-index: 3;
 }
 
-.step.active {
-  display: flex;
-}
+.step.active { display: flex; }
 
 /* 🖼️ Cards */
 .cards {
@@ -91,29 +104,33 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 24px;
   max-width: 1100px;
-  margin-top: 30px;
 }
 
 .photo-card {
-  width: 100%;
   aspect-ratio: 3 / 4;
   border-radius: 22px;
   overflow: hidden;
   border: 3px solid rgba(255,182,193,0.9);
   box-shadow: 0 0 40px rgba(255,105,180,0.6);
   cursor: pointer;
-  transition: transform 0.35s ease;
-  background: #000;
-}
-
-.photo-card:hover {
-  transform: scale(1.06);
 }
 
 .photo-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* 🔘 Buttons */
+.primary {
+  background: linear-gradient(135deg, #ff5c8d, #ff87ab);
+  border: none;
+  padding: 14px 36px;
+  border-radius: 40px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 30px;
 }
 
 /* 🔍 Modal */
@@ -128,82 +145,13 @@ body {
 }
 
 #photoModal img {
-  max-width: 92%;
-  max-height: 92%;
-  border-radius: 22px;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 20px;
 }
 
-/* 🔘 Buttons */
-.primary {
-  background: linear-gradient(135deg, #ff5c8d, #ff87ab);
-  border: none;
-  padding: 14px 38px;
-  border-radius: 40px;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.secondary {
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.4);
-  padding: 12px 32px;
-  border-radius: 40px;
-  color: white;
-  cursor: pointer;
-}
-
-.nav {
-  margin-top: 40px;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* 🔐 Gate */
-.overlay {
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(16px);
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 50;
-}
-
-.modal {
-  background: rgba(255,255,255,0.15);
-  padding: 40px;
-  border-radius: 26px;
-  text-align: center;
-}
-
-.modal input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-
-.modal button {
-  margin-top: 15px;
-}
-
-/* 🔊 Mute */
-.mute-btn {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.25);
-  color: white;
-  z-index: 20;
-  font-size: 1.2rem;
+/* ✨ Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
