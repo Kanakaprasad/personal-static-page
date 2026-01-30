@@ -1,22 +1,23 @@
 const SECRET = "sanjana";
 let currentStep = 1;
 
+const loginScreen = document.getElementById("loginScreen");
+const introScreen = document.getElementById("introScreen");
+const content = document.getElementById("content");
+
 const input = document.getElementById("nameInput");
 const enterBtn = document.getElementById("enterBtn");
-const music = document.getElementById("bgMusic");
-const muteBtn = document.getElementById("muteBtn");
 
-let muted = false;
+/* ❤️ Lottie hearts */
+lottie.loadAnimation({
+  container: document.getElementById("lottie-hearts"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "https://assets10.lottiefiles.com/packages/lf20_jppxqf.json"
+});
 
-/* 🎵 Music per step */
-const musicMap = {
-  1: "./music/intro.mp3",
-  2: "./music/intro.mp3",
-  3: "./music/memories.mp3",
-  4: "./music/ending.mp3"
-};
-
-/* 📸 CLOUDINARY PHOTOS (ALL 17) */
+/* 📸 YOUR CLOUDINARY PHOTOS (ALL 17) */
 const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/Sanju-1_x6t8eh.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/SanKP-9_whwphg.jpg",
@@ -37,19 +38,10 @@ const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758458/SanKP-7_zn4n5s.jpg"
 ];
 
-const floatContainer = document.getElementById("floatingPhotos");
 const cardsContainer = document.getElementById("photoCards");
+const floatContainer = document.getElementById("floatingPhotos");
 
-/* ❤️ Lottie Hearts */
-lottie.loadAnimation({
-  container: document.getElementById("lottie-hearts"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "https://assets10.lottiefiles.com/packages/lf20_jppxqf.json"
-});
-
-/* Build photo cards */
+/* Build cards */
 photos.forEach(src => {
   const card = document.createElement("div");
   card.className = "photo-card";
@@ -58,49 +50,43 @@ photos.forEach(src => {
   cardsContainer.appendChild(card);
 });
 
-/* Password gate */
+/* Login */
 enterBtn.onclick = () => {
   if (input.value.trim().toLowerCase() === SECRET) {
-    document.getElementById("overlay").style.display = "none";
-    startFloatingPhotos();
-    playMusic(1);
-  } else {
-    document.getElementById("errorMsg").innerText = "Not for everyone 🌙";
+    loginScreen.style.display = "none";
+    introScreen.style.display = "flex";
   }
 };
+
+input.addEventListener("keydown", e => {
+  if (e.key === "Enter") enterBtn.click();
+});
+
+/* Start */
+function startJourney() {
+  introScreen.style.display = "none";
+  content.style.display = "block";
+  startFloatingPhotos();
+}
 
 /* Navigation */
 function nextStep() {
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
   document.getElementById(`step${currentStep}`).classList.add("active");
-  playMusic(currentStep);
 }
 
-function prevStep() {
-  document.getElementById(`step${currentStep}`).classList.remove("active");
-  currentStep--;
-  document.getElementById(`step${currentStep}`).classList.add("active");
-  playMusic(currentStep);
-}
-
-/* Floating photos animation */
+/* Floating photos */
 function startFloatingPhotos() {
   setInterval(() => {
-    const wrap = document.createElement("div");
-    wrap.className = "floating-photo";
-
     const img = document.createElement("img");
     img.src = photos[Math.floor(Math.random() * photos.length)];
-
-    wrap.style.left = Math.random() * 90 + "%";
-    wrap.style.animationDuration = Math.random() * 8 + 12 + "s";
-
-    wrap.appendChild(img);
-    floatContainer.appendChild(wrap);
-
-    setTimeout(() => wrap.remove(), 16000);
-  }, 1800);
+    img.className = "floating-photo";
+    img.style.left = Math.random() * 90 + "%";
+    img.style.animationDuration = Math.random() * 8 + 12 + "s";
+    floatContainer.appendChild(img);
+    setTimeout(() => img.remove(), 16000);
+  }, 2000);
 }
 
 /* Modal */
@@ -111,17 +97,3 @@ function openModal(card) {
 function closeModal() {
   document.getElementById("photoModal").style.display = "none";
 }
-
-/* Music */
-function playMusic(step) {
-  if (muted) return;
-  music.src = musicMap[step];
-  music.volume = 0.6;
-  music.play().catch(() => {});
-}
-
-muteBtn.onclick = () => {
-  muted = !muted;
-  muteBtn.innerText = muted ? "🔇" : "🔊";
-  muted ? music.pause() : playMusic(currentStep);
-};
