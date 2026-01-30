@@ -8,7 +8,7 @@ const muteBtn = document.getElementById("muteBtn");
 
 let muted = false;
 
-/* 🎵 Music */
+/* 🎵 Music per step */
 const musicMap = {
   1: "./music/intro.mp3",
   2: "./music/intro.mp3",
@@ -16,24 +16,31 @@ const musicMap = {
   4: "./music/ending.mp3"
 };
 
-/* 📸 YOUR 10 PHOTOS */
+/* 📸 CLOUDINARY PHOTOS (ALL 17) */
 const photos = [
-  "https://drive.google.com/uc?export=view&id=1iFmFSNKIscZLgoo67YLSBTemRMOEvcWC",
-  "https://drive.google.com/uc?export=view&id=148r2J2Vbtd0SeZMi8985k-eIYVS2gIS-",
-  "https://drive.google.com/uc?export=view&id=1CFp93527FDPXZBHj54rcH0lBjO_uyufB",
-  "https://drive.google.com/uc?export=view&id=1lCrz0_cd4d9Cal3MUvwtn9w2bF-eBGjv",
-  "https://drive.google.com/uc?export=view&id=1aUqSxdMR1PJMY_edz8zwem4Z3QJmZ3ZR",
-  "https://drive.google.com/uc?export=view&id=1enqLcvkpwQ8pKEM3mlwyoHmDyCFKXtCQ",
-  "https://drive.google.com/uc?export=view&id=1b7qt8TKTjO3h-MEGDOqhk40lXKvmvnqL",
-  "https://drive.google.com/uc?export=view&id=1efED_K7yqcuIXKaDlfJv8LMJJlcHP83i",
-  "https://drive.google.com/uc?export=view&id=1XxPQLAZ7WMcoK6j9EnxNjRqLesuVxaCN",
-  "https://drive.google.com/uc?export=view&id=1c2kTt9S1dgRG4ydR3C8w9DpARJl_cDPy"
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/Sanju-1_x6t8eh.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/SanKP-9_whwphg.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758484/SanKP-5_dbjx0a.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758483/Sanju-2_kz1yqa.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758482/Sanju-4_r0xjpd.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758480/Sanju-7_iksay0.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758479/Sanju-8_zlcbhy.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758476/SanKP-2_yqisgv.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758474/Sanju-3_noksgw.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758469/SanKP-3_xa8ckt.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758467/SanKP-10_szafd3.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758467/SanKP-4_r7eflo.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758466/Sanju-6_mweqgu.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758463/SanKP-1_yb6czj.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758463/SanKP-6_ilbntr.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758462/SanKP-8_dqvuie.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758458/SanKP-7_zn4n5s.jpg"
 ];
 
 const floatContainer = document.getElementById("floatingPhotos");
 const cardsContainer = document.getElementById("photoCards");
 
-/* ❤️ LOTTIE HEARTS */
+/* ❤️ Lottie Hearts */
 lottie.loadAnimation({
   container: document.getElementById("lottie-hearts"),
   renderer: "svg",
@@ -44,14 +51,14 @@ lottie.loadAnimation({
 
 /* Build photo cards */
 photos.forEach(src => {
-  const div = document.createElement("div");
-  div.className = "photo-card";
-  div.innerHTML = `<img src="${src}">`;
-  div.onclick = () => openModal(div);
-  cardsContainer.appendChild(div);
+  const card = document.createElement("div");
+  card.className = "photo-card";
+  card.innerHTML = `<img src="${src}" loading="lazy">`;
+  card.onclick = () => openModal(card);
+  cardsContainer.appendChild(card);
 });
 
-/* Password */
+/* Password gate */
 enterBtn.onclick = () => {
   if (input.value.trim().toLowerCase() === SECRET) {
     document.getElementById("overlay").style.display = "none";
@@ -77,16 +84,22 @@ function prevStep() {
   playMusic(currentStep);
 }
 
-/* Floating photos */
+/* Floating photos animation */
 function startFloatingPhotos() {
   setInterval(() => {
+    const wrap = document.createElement("div");
+    wrap.className = "floating-photo";
+
     const img = document.createElement("img");
     img.src = photos[Math.floor(Math.random() * photos.length)];
-    img.className = "floating-photo";
-    img.style.left = Math.random() * 90 + "%";
-    img.style.animationDuration = Math.random() * 8 + 10 + "s";
-    floatContainer.appendChild(img);
-    setTimeout(() => img.remove(), 15000);
+
+    wrap.style.left = Math.random() * 90 + "%";
+    wrap.style.animationDuration = Math.random() * 8 + 12 + "s";
+
+    wrap.appendChild(img);
+    floatContainer.appendChild(wrap);
+
+    setTimeout(() => wrap.remove(), 16000);
   }, 1800);
 }
 
