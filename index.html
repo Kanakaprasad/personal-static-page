@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Only For You ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
@@ -11,88 +11,77 @@
   <!-- Lottie -->
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Background Hearts -->
-<div id="lottie-bg"></div>
+<!-- 🌸 Animated Background Layers -->
+<div id="bg-gradient"></div>
+<div id="bg-vignette"></div>
+<div id="lottie-hearts"></div>
 
-<!-- Music -->
-<audio id="bgMusic" loop></audio>
-<button id="muteBtn" class="mute-btn">🔊</button>
+<!-- 🎵 Music -->
+<audio id="bgMusic" src="music/story.mp3" loop></audio>
+<button id="muteBtn">🔊</button>
 
-<!-- Back -->
-<button id="backBtn" class="back-btn">←</button>
-
-<!-- SCENE 0: LOGIN -->
-<section class="scene active" id="scene-0">
-  <div class="glass-card">
+<!-- 🔐 LOGIN -->
+<section id="login">
+  <div class="login-card">
     <h1>Hello 🌸</h1>
     <p>This space opens only for one special person</p>
-    <input id="nameInput" placeholder="Enter your name…" />
-    <span id="errorText"></span>
-    <button class="primary" id="unlockBtn">Unlock 💖</button>
+    <input id="nameInput" placeholder="Enter your name…">
+    <span id="error"></span>
+    <button onclick="unlock()">Unlock 💖</button>
   </div>
 </section>
 
-<!-- SCENE 1: HERO -->
-<section class="scene" id="scene-1">
-  <h1 class="hero-title">
-    Sanjana <span class="heart">❤️</span> KP
-  </h1>
-  <p class="hero-sub">
-    This isn’t a website.<br>
-    This is something I made only for you.
-  </p>
-  <button class="primary" onclick="nextScene()">Continue</button>
-</section>
+<!-- 🌟 CONTENT -->
+<main id="content">
 
-<!-- SCENE 2: STORY -->
-<section class="scene" id="scene-2">
-  <div class="story-box" id="storyBox"></div>
-  <button class="primary" onclick="nextStory()">Continue</button>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Sanjana <span>❤️</span> KP</h1>
+    <p>Not a website. A feeling.</p>
+  </section>
 
-<!-- SCENE 3: PHOTOS -->
-<section class="scene" id="scene-3">
-  <h2>Memories 💖</h2>
-  <div id="photoStage"></div>
-  <div id="photoGrid" class="photo-grid"></div>
-  <button class="primary" id="photoNextBtn" onclick="nextScene()" disabled>
-    Our Future →
-  </button>
-</section>
+  <!-- STORY -->
+  <section class="story">
+<pre>
+Hi, Nanna Preethiya hendatige ninna gandan kade inda Happy Valentine's Day 💌 
 
-<!-- SCENE 4: PROPOSAL -->
-<section class="scene proposal" id="scene-4">
-  <h2>My Promise 💍</h2>
-  <p class="proposal-text">
-    Sanjana,<br><br>
-    I want to take you to my home,<br>
-    stand with you in front of my family,<br>
-    and build our life together.<br><br>
-    Will you marry me?
-  </p>
-  <div class="proposal-actions">
-    <button class="primary" onclick="nextScene()">Yes ❤️</button>
-    <button class="primary" onclick="nextScene()">Always ❤️</button>
-  </div>
-</section>
+Let's start my one of the best chaper in my life and ninu nanna life ge bandiddu and ninna love madidde nange best ever experience and feeling
 
-<!-- SCENE 5: LETTER -->
-<section class="scene" id="scene-5">
-  <div class="letter">
-    <p>
-      Ee page idu illi mugiyutte,<br>
-      aadre namma jeevana kathe illi mugiyalla.
-    </p>
-    <p class="signature">
-      Always yours,<br>
-      KP ❤️
-    </p>
-  </div>
-</section>
+
+Yellinda start madbeku gottagtilla but I've to start,
+
+21st Dec , date will be day to remember forever, that's the day we've to decided to leave together forever and that's the day navu ibru madve ago plan madiddu, that's day nanu obne allade nangu ondu family ide anta adanna taleli itkondu yelladannu vichar madok start madide, and avatte for the first time nanu astondu full low voice nalli and kai shake madta and bhaya dalli mathadiddu anisutte 😁, aa tara yavattu experience agirlilla nange, thanks for the experience 😊
+
+
+Nange ondu hemme ide Nanu ninna select madi madve agidke namma appa amma proud agtare anta and avre heltare like, nave hudugi huduki select madidre kanaka ga inta hudugi hudkoke agta irlilla anta because astondu ollevla na nane select madini 😊
+
+
+One of the best night andre nange 1st jan 2026 year night,  I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne emd madide and 2026 na ninna jote ne start madide, and unexpectedly that kiss will be my best ever kiss agutte and nanu lifelong mariyall adanna, hinge yella year nu end agli and start agli till.my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona, like ninu helidange Keral or bere yelladru hogi alli celebration madona, nange otnalli ninu irbeku nanna jote aste sak
+
+
+En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide and adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise 🥺, just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu sorry, adastu bega nimma manege baroke, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu
+</pre>
+  </section>
+
+  <!-- PHOTOS -->
+  <section class="photos" id="photos"></section>
+
+  <!-- PROPOSAL -->
+  <section class="proposal">
+    <h2>Sanjana 💍</h2>
+    <p>I don’t want days with you.<br>I want a lifetime.<br><br>Will you marry me?</p>
+  </section>
+
+  <!-- LETTER -->
+  <section class="letter">
+    <p>Always yours,<br>KP ❤️</p>
+  </section>
+
+</main>
 
 <script src="script.js"></script>
 </body>
