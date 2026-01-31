@@ -1,88 +1,52 @@
-/* =========================
-   GLOBAL STATE
-========================= */
-
 const SECRET = "sanjana";
-let currentScene = 0;
-
+let current = 0;
 const scenes = document.querySelectorAll(".scene");
+
 const backBtn = document.getElementById("backBtn");
 const muteBtn = document.getElementById("muteBtn");
 const music = document.getElementById("bgMusic");
 
-/* =========================
-   SCENE NAVIGATION
-========================= */
-
-function showScene(index) {
+function showScene(i) {
   scenes.forEach(s => s.classList.remove("active"));
-  scenes[index].classList.add("active");
-  currentScene = index;
-
-  backBtn.style.display = index === 0 ? "none" : "block";
-
-  if (index === 4) {
-    startPhotoSequence();
-  }
+  scenes[i].classList.add("active");
+  current = i;
+  backBtn.style.display = i === 0 ? "none" : "block";
+  if (i === 3) startPhotoSequence();
 }
 
 function nextScene() {
-  if (currentScene < scenes.length - 1) {
-    showScene(currentScene + 1);
-  }
+  if (current < scenes.length - 1) showScene(current + 1);
 }
-
 function prevScene() {
-  if (currentScene > 0) {
-    showScene(currentScene - 1);
-  }
+  if (current > 0) showScene(current - 1);
 }
-
-backBtn.addEventListener("click", prevScene);
-
-/* =========================
-   LOGIN
-========================= */
+backBtn.onclick = prevScene;
 
 function unlock() {
-  const val = document.getElementById("nameInput").value.trim().toLowerCase();
-  const error = document.getElementById("error");
-
-  if (val === SECRET) {
-    error.innerText = "";
+  const v = document.getElementById("nameInput").value.trim().toLowerCase();
+  if (v === SECRET) {
     music.volume = 0.35;
-    music.play().catch(() => {});
+    music.play().catch(()=>{});
     nextScene();
   } else {
-    error.innerText = "This page is waiting for someone else…";
+    document.getElementById("error").innerText = "Not for you 🙂";
   }
 }
 
-/* =========================
-   MUSIC
-========================= */
-
-muteBtn.addEventListener("click", () => {
+muteBtn.onclick = () => {
   music.muted = !music.muted;
   muteBtn.textContent = music.muted ? "🔇" : "🔊";
-});
+};
 
-/* =========================
-   LOTTIE – BALLOONS
-========================= */
+async function load(id, file) {
+  document.getElementById(id).innerHTML = await fetch(file).then(r=>r.text());
+}
 
-lottie.loadAnimation({
-  container: document.getElementById("lottie-balloons"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "https://assets10.lottiefiles.com/packages/lf20_6cfdxl.json"
-});
+load("story-container","./partials/story.html");
+load("memories-container","./partials/memories.html");
+load("letter-container","./partials/letter.html");
 
-/* =========================
-   PHOTO SEQUENCE (HEAVY)
-========================= */
-
+/* PHOTOS */
 const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758489/Sanju-1_x6t8eh.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758489/SanKP-9_whwphg.jpg",
@@ -97,59 +61,40 @@ const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758467/SanKP-10_szafd3.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758466/Sanju-6_mweqgu.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758463/SanKP-1_yb6czj.jpg",
-  "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758463/SanKP-6_ilbntr.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758462/SanKP-8_dqvuie.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758458/SanKP-7_zn4n5s.jpg"
 ];
 
-const photoStage = document.getElementById("photoStage");
-const photoGrid = document.getElementById("photoGrid");
-const photoNextBtn = document.getElementById("photoNextBtn");
-
-let photoIndex = 0;
-
-function preloadImages() {
-  photos.forEach(src => {
-    const img = new Image();
-    img.src = src;
-  });
-}
-
+let p = 0;
 function startPhotoSequence() {
-  photoStage.innerHTML = "";
-  photoGrid.innerHTML = "";
-  photoIndex = 0;
-  photoNextBtn.disabled = true;
+  const stage = document.getElementById("photoStage");
+  const grid = document.getElementById("photoGrid");
+  stage.innerHTML = "";
+  grid.innerHTML = "";
+  p = 0;
 
-  preloadImages();
-  playNextPhoto();
-}
-
-function playNextPhoto() {
-  if (photoIndex >= photos.length) {
-    photoNextBtn.disabled = false;
-    return;
-  }
-
-  const src = photos[photoIndex];
-  const img = document.createElement("img");
-  img.src = src;
-  img.className = "stage-photo";
-
-  photoStage.innerHTML = "";
-  photoStage.appendChild(img);
-
-  setTimeout(() => {
-    img.classList.add("shrink");
+  function next() {
+    if (p >= photos.length) {
+      document.getElementById("photoNextBtn").disabled = false;
+      return;
+    }
+    const img = new Image();
+    img.src = photos[p];
+    img.className = "stage-photo";
+    stage.innerHTML = "";
+    stage.appendChild(img);
 
     setTimeout(() => {
-      const card = document.createElement("div");
-      card.className = "photo-card";
-      card.innerHTML = `<img src="${src}" />`;
-      photoGrid.appendChild(card);
-
-      photoIndex++;
-      playNextPhoto();
-    }, 1600);
-  }, 3200);
+      img.classList.add("shrink");
+      setTimeout(() => {
+        const c = document.createElement("div");
+        c.className = "photo-card";
+        c.innerHTML = `<img src="${photos[p]}">`;
+        grid.appendChild(c);
+        p++;
+        next();
+      }, 1500);
+    }, 3000);
+  }
+  next();
 }
