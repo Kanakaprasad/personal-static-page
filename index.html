@@ -21,7 +21,7 @@
 
 <!-- ================= SCENES ================= -->
 
-<!-- SCENE 0 : LOGIN -->
+<!-- LOGIN -->
 <section class="scene active">
   <div class="login-glow"></div>
 
@@ -29,65 +29,69 @@
     <div class="login-heart">❤️</div>
 
     <h1 class="login-title">
-      Hey…
-      <span>I was hoping it would be you</span>
+      Hey you…
+      <span>I was secretly hoping it’s you</span>
     </h1>
 
     <p class="login-sub">
-      This place exists only for<br>
-      <strong>one special heart</strong>.
+      This page isn’t public.<br>
+      It opens only when the <b>right name</b> is typed.
     </p>
 
-    <input id="nameInput" class="login-input"
-           placeholder="Type your name…" autocomplete="off" />
+    <input
+      id="nameInput"
+      class="login-input"
+      placeholder="Type your name here…"
+      autocomplete="off"
+    />
 
     <p id="error" class="login-error"></p>
 
-    <button class="primary login-btn" onclick="unlock()">Let me in 💗</button>
-    <p class="login-hint">(Only one name works 😉)</p>
+    <button class="primary login-btn" onclick="unlock()">Unlock my heart 💗</button>
+    <p class="login-hint">Try pressing Enter after typing 😉</p>
   </div>
 
-  <!-- LOGIN POPUP -->
+  <!-- POPUP -->
   <div id="login-popup" class="login-popup">
     <div class="popup-card">
       <div class="popup-heart">💖</div>
       <p class="popup-text">
         Of course it’s you, Sanjana…<br>
-        I was waiting ❤️
+        I was waiting just for you ❤️
       </p>
     </div>
   </div>
 </section>
 
-<!-- SCENE 1 : HERO -->
+<!-- HERO -->
 <section class="scene">
   <h1 class="hero-title">
     Sanjana <span class="heart">❤️</span> KP
   </h1>
-  <p>Happy Valentine’s Day</p>
-  <button class="primary" onclick="nextScene()">Begin</button>
+  <p>Happy Valentine’s Day, my love 💌</p>
+  <button class="primary" onclick="nextScene()">Begin our story</button>
 </section>
 
-<!-- SCENE 2 : STORY -->
+<!-- STORY -->
 <section class="scene scrollable">
   <div id="story-container"></div>
   <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
-<!-- SCENE 3 : MEMORIES -->
+<!-- MEMORIES -->
 <section class="scene">
   <div id="memories-container"></div>
   <button id="photoNextBtn" class="primary" disabled onclick="nextScene()">Continue</button>
 </section>
 
-<!-- SCENE 4 : PROPOSAL -->
+<!-- PROPOSAL -->
 <section class="scene">
   <h2>My Promise 💍</h2>
   <p>Will you marry me?</p>
   <button class="primary" onclick="nextScene()">Yes ❤️</button>
 </section>
 
-<!-- SCENE 5 : LETTER -->
+<!-- LETTER -->
 <section class="scene">
   <div id="letter-container"></div>
 </section>

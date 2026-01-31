@@ -8,22 +8,24 @@ const music = document.getElementById("bgMusic");
 const nameInput = document.getElementById("nameInput");
 const popup = document.getElementById("login-popup");
 
-/* ENTER KEY SUPPORT */
-nameInput.addEventListener("keydown", e => {
-  if (e.key === "Enter") unlock();
+/* ================= INPUT FIX ================= */
+nameInput.focus();
+nameInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    unlock();
+  }
 });
 
-/* LOAD PARTIALS */
+/* ================= LOAD PARTIALS ================= */
 async function load(id, file) {
   document.getElementById(id).innerHTML =
     await fetch(file).then(r => r.text());
 }
-
 load("story-container", "./partials/story.html");
 load("memories-container", "./partials/memories.html");
 load("letter-container", "./partials/letter.html");
 
-/* NAVIGATION */
+/* ================= NAVIGATION ================= */
 function showScene(i) {
   scenes.forEach(s => s.classList.remove("active"));
   scenes[i].classList.add("active");
@@ -40,30 +42,36 @@ function prevScene() {
 }
 backBtn.onclick = prevScene;
 
-/* LOGIN */
+/* ================= LOGIN FLOW ================= */
 function unlock() {
   const v = nameInput.value.trim().toLowerCase();
+  const error = document.getElementById("error");
+
   if (v === SECRET) {
+    error.innerText = "";
+
     music.volume = 0.35;
     music.play().catch(() => {});
+
     popup.classList.add("show");
+
     setTimeout(() => {
       popup.classList.remove("show");
       nextScene();
-    }, 2500);
+    }, 2600);
+
   } else {
-    document.getElementById("error").innerText =
-      "Not for you 🙂";
+    error.innerText = "Hmm… this page isn’t meant for you 🙂";
   }
 }
 
-/* MUSIC */
+/* ================= MUSIC ================= */
 muteBtn.onclick = () => {
   music.muted = !music.muted;
   muteBtn.textContent = music.muted ? "🔇" : "🔊";
 };
 
-/* PHOTOS */
+/* ================= PHOTOS ================= */
 const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758489/Sanju-1_x6t8eh.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758489/SanKP-9_whwphg.jpg",
