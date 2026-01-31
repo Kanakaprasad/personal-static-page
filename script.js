@@ -12,7 +12,6 @@ const music = document.getElementById("bgMusic");
 const muteBtn = document.getElementById("muteBtn");
 let muted = false;
 
-/* 🎵 Music map */
 const musicMap = {
   hero: "./music/intro.mp3",
   1: "./music/intro.mp3",
@@ -23,7 +22,6 @@ const musicMap = {
   6: "./music/ending.mp3"
 };
 
-/* ❤️ Lottie Hearts */
 lottie.loadAnimation({
   container: document.getElementById("lottie-hearts"),
   renderer: "svg",
@@ -32,7 +30,7 @@ lottie.loadAnimation({
   path: "https://assets10.lottiefiles.com/packages/lf20_jppxqf.json"
 });
 
-/* 📸 PHOTOS (THIS WAS MISSING) */
+/* ALL PHOTOS */
 const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/Sanju-1_x6t8eh.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/SanKP-9_whwphg.jpg",
@@ -41,25 +39,30 @@ const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758482/Sanju-4_r0xjpd.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758480/Sanju-7_iksay0.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758479/Sanju-8_zlcbhy.jpg",
-  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758476/SanKP-2_yqisgv.jpg"
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758476/SanKP-2_yqisgv.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758474/Sanju-3_noksgw.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758469/SanKP-3_xa8ckt.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758467/SanKP-10_szafd3.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758467/SanKP-4_r7eflo.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758466/Sanju-6_mweqgu.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758463/SanKP-1_yb6czj.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758463/SanKP-6_ilbntr.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758462/SanKP-8_dqvuie.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758458/SanKP-7_zn4n5s.jpg"
 ];
 
-/* 🖼️ Render photos */
 const photoCards = document.getElementById("photoCards");
 
 photos.forEach(src => {
   const card = document.createElement("div");
   card.className = "photo-card";
-
   const img = document.createElement("img");
   img.src = src;
   img.loading = "lazy";
-
   card.appendChild(img);
   photoCards.appendChild(card);
 });
 
-/* 🔐 Login */
 enterBtn.onclick = () => {
   if (input.value.trim().toLowerCase() === SECRET) {
     loginScreen.style.display = "none";
@@ -72,14 +75,12 @@ input.addEventListener("keydown", e => {
   if (e.key === "Enter") enterBtn.click();
 });
 
-/* ▶ Start */
 function startJourney() {
   heroScreen.style.display = "none";
   content.style.display = "block";
   playMusic(1);
 }
 
-/* 🧭 Navigation */
 function nextStep() {
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
@@ -94,7 +95,6 @@ function prevStep() {
   playMusic(currentStep);
 }
 
-/* 🎵 Music */
 function playMusic(key) {
   if (muted) return;
   music.src = musicMap[key];
