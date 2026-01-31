@@ -68,7 +68,7 @@ html, body {
   background: radial-gradient(circle, rgba(255,120,160,0.45), transparent 70%);
   filter: blur(50px);
   animation: glowPulse 4s infinite;
-  pointer-events: none; /* ✅ FIX: allow clicking input */
+  pointer-events: none;
 }
 
 @keyframes glowPulse {
@@ -206,57 +206,79 @@ html, body {
   font-size: 2.5rem;
 }
 
-/* ================= HERO BALLOON VALENTINE DESIGN ================= */
+/* ================= HERO – HANGING LETTER VALENTINE DESIGN ================= */
 
 .hero-scene {
   position: relative;
   overflow: hidden;
 }
 
-.hero-balloons {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-balloons .balloon {
-  position: absolute;
-  bottom: -120px;
-  width: 80px;
-  height: 100px;
+/* BIG HEART BALLOON */
+.main-heart-balloon {
+  width: 260px;
+  height: 230px;
   background: linear-gradient(135deg,#ff6b9c,#ff3d7f);
   border-radius: 50% 50% 45% 45%;
-  opacity: 0.35;
-  animation: floatUp 18s linear infinite;
+  margin-bottom: 30px;
+  animation: heartFloat 5s ease-in-out infinite;
 }
 
-.hero-balloons .balloon::after {
+@keyframes heartFloat {
+  50% { transform: translateY(-12px); }
+}
+
+.balloon-text {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: #fff;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+/* HANGING LETTERS */
+.hanging-letters {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.hang {
+  position: relative;
+  animation: swing 3.5s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+.hang::before {
   content: "";
   position: absolute;
+  top: -50px;
   left: 50%;
-  bottom: -60px;
   width: 2px;
-  height: 60px;
-  background: rgba(0,0,0,0.15);
+  height: 50px;
+  background: rgba(0,0,0,0.25);
 }
 
-.hero-balloons .balloon:nth-child(1) { left: 10%; animation-delay: 0s; }
-.hero-balloons .balloon:nth-child(2) { left: 30%; animation-delay: 4s; }
-.hero-balloons .balloon:nth-child(3) { left: 50%; animation-delay: 8s; }
-.hero-balloons .balloon:nth-child(4) { left: 70%; animation-delay: 2s; }
-.hero-balloons .balloon:nth-child(5) { left: 90%; animation-delay: 6s; }
+.hang span {
+  display: block;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
 
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0;
-  }
-  10% { opacity: 0.35; }
-  100% {
-    transform: translateY(-120vh) rotate(8deg);
-    opacity: 0;
-  }
+.hang.heart span {
+  background: #ffe3ec;
+}
+
+@keyframes swing {
+  0% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+  100% { transform: rotate(-3deg); }
 }
 
 .hero-title,
