@@ -2,153 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Just for You ❤️</title>
+  <title>Only For You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
 
   <!-- Lottie -->
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- 💖 Hearts -->
-<div id="lottie-hearts"></div>
+<!-- Background Hearts -->
+<div id="lottie-bg"></div>
 
-<!-- 🎵 Music -->
+<!-- Music -->
 <audio id="bgMusic" loop></audio>
 <button id="muteBtn" class="mute-btn">🔊</button>
 
-<!-- 🔐 Login -->
-<section class="login-screen" id="loginScreen">
-  <div class="login-card">
+<!-- Back -->
+<button id="backBtn" class="back-btn">←</button>
+
+<!-- SCENE 0: LOGIN -->
+<section class="scene active" id="scene-0">
+  <div class="glass-card">
     <h1>Hello 🌸</h1>
     <p>This space opens only for one special person</p>
     <input id="nameInput" placeholder="Enter your name…" />
-    <button id="enterBtn">Unlock 💖</button>
+    <span id="errorText"></span>
+    <button class="primary" id="unlockBtn">Unlock 💖</button>
   </div>
 </section>
 
-<!-- 💫 Hero -->
-<section class="hero" id="heroScreen">
+<!-- SCENE 1: HERO -->
+<section class="scene" id="scene-1">
   <h1 class="hero-title">
-    <span>Sanjana</span>
-    <span class="heart">❤️</span>
-    <span>KP</span>
+    Sanjana <span class="heart">❤️</span> KP
   </h1>
-  <p class="hero-sub">Happy Valentine’s Day, my love 💌</p>
-  <button class="primary" onclick="startJourney()">There’s something I want you to feel…</button>
+  <p class="hero-sub">
+    This isn’t a website.<br>
+    This is something I made only for you.
+  </p>
+  <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
-<!-- 🌙 Content -->
-<div id="content">
+<!-- SCENE 2: STORY -->
+<section class="scene" id="scene-2">
+  <div class="story-box" id="storyBox"></div>
+  <button class="primary" onclick="nextStory()">Continue</button>
+</section>
 
-  <!-- Step 1 -->
-  <section class="step active" id="step1">
+<!-- SCENE 3: PHOTOS -->
+<section class="scene" id="scene-3">
+  <h2>Memories 💖</h2>
+  <div id="photoStage"></div>
+  <div id="photoGrid" class="photo-grid"></div>
+  <button class="primary" id="photoNextBtn" onclick="nextScene()" disabled>
+    Our Future →
+  </button>
+</section>
+
+<!-- SCENE 4: PROPOSAL -->
+<section class="scene proposal" id="scene-4">
+  <h2>My Promise 💍</h2>
+  <p class="proposal-text">
+    Sanjana,<br><br>
+    I want to take you to my home,<br>
+    stand with you in front of my family,<br>
+    and build our life together.<br><br>
+    Will you marry me?
+  </p>
+  <div class="proposal-actions">
+    <button class="primary" onclick="nextScene()">Yes ❤️</button>
+    <button class="primary" onclick="nextScene()">Always ❤️</button>
+  </div>
+</section>
+
+<!-- SCENE 5: LETTER -->
+<section class="scene" id="scene-5">
+  <div class="letter">
     <p>
-      This is not a website.<br>
-      This is something I made, slowly, with intention… only for you.
+      Ee page idu illi mugiyutte,<br>
+      aadre namma jeevana kathe illi mugiyalla.
     </p>
-    <button class="primary" onclick="nextStep()">Go a little deeper ❤️</button>
-  </section>
-
-  <!-- Step 2 -->
-  <section class="step" id="step2">
-    <p>
-      Ninna hesaru type madidmele ee page open aagodu coincidence alla.<br><br>
-      Idhu intention.<br>
-      Idhu feeling.
+    <p class="signature">
+      Always yours,<br>
+      KP ❤️
     </p>
-    <div class="nav">
-      <button class="secondary" onclick="prevStep()">← Back</button>
-      <button class="primary" onclick="nextStep()">Show me memories 💭</button>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Photos -->
-  <section class="step" id="step3">
-    <h2>Little pieces of my heart 💖</h2>
-    <div id="photoStage"></div>
-    <div id="photoGrid" class="cards"></div>
-
-    <div class="nav">
-      <button class="secondary" onclick="prevStep()">← Back</button>
-      <button class="primary" onclick="nextStep()">Our story 📖</button>
-    </div>
-  </section>
-
-  <!-- Story -->
-  <section class="step story-section" id="step4">
-    <h2>Our Story 💫</h2>
-
-    <div class="story-card">
-      <p>
-        Hi nanna preethiya hendati.<br>
-        Ninna gandan kade inda Happy Valentine’s Day 💌
-      </p>
-
-      <p>
-        Ninu nanna life ge bandamele life itself change aaythu.
-        Ee story simple aagi start aagilla, but adhu deep aagi grow aaythu.
-      </p>
-
-      <p>
-        21st December nanna jeevanadalli special day.
-        Aa dina navu ibru life long jothe irbeku anta decide madiddu.
-        Bhaya, happiness, nervousness — ellavu ondhe time alli anisutthu.
-      </p>
-
-      <p>
-        1st January night nanna life alli unforgettable.
-        2025 end ninna jothe, 2026 start ninna jothe.
-        Aa moment, aa kiss — lifetime memory.
-      </p>
-
-      <p>
-        Ninna jothe irbeku anta feeling nanna jeevanada biggest gift.
-        Trip plans, future plans, family dreams — ella ninna jothe.
-      </p>
-
-      <p>
-        Tumba bega ninna namma manege karkondu hogbeku.
-        Ninna nodidre avru khushi aagtare anta nange poora nammake ide.
-      </p>
-    </div>
-
-    <div class="nav">
-      <button class="secondary" onclick="prevStep()">← Back</button>
-      <button class="primary" onclick="nextStep()">One question 💍</button>
-    </div>
-  </section>
-
-  <!-- Proposal -->
-  <section class="step proposal-section" id="step5">
-    <h2>Will you be my Valentine… again? 💖</h2>
-    <div class="proposal-actions">
-      <button class="primary" onclick="nextStep()">Yes 💕</button>
-      <button class="primary" onclick="nextStep()">Always yes 🥺❤️</button>
-    </div>
-    <button class="secondary" onclick="prevStep()">← Back</button>
-  </section>
-
-  <!-- Letter -->
-  <section class="step letter-section" id="step6">
-    <h2>My love letter 💌</h2>
-    <div class="letter">
-      <p>
-        Nanna life alli ninu irbeku anta nanna manasu heluttide.
-        Ee page adakke.
-      </p>
-      <p class="signature">Always yours,<br>KP ❤️</p>
-    </div>
-    <button class="secondary" onclick="prevStep()">← Back</button>
-  </section>
-
-</div>
-
-<script src="./script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
