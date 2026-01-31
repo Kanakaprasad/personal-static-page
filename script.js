@@ -1,11 +1,29 @@
 const SECRET = "sanjana";
 let current = 0;
-const scenes = document.querySelectorAll(".scene");
 
+const scenes = document.querySelectorAll(".scene");
 const backBtn = document.getElementById("backBtn");
 const muteBtn = document.getElementById("muteBtn");
 const music = document.getElementById("bgMusic");
+const nameInput = document.getElementById("nameInput");
+const popup = document.getElementById("login-popup");
 
+/* ENTER KEY SUPPORT */
+nameInput.addEventListener("keydown", e => {
+  if (e.key === "Enter") unlock();
+});
+
+/* LOAD PARTIALS */
+async function load(id, file) {
+  document.getElementById(id).innerHTML =
+    await fetch(file).then(r => r.text());
+}
+
+load("story-container", "./partials/story.html");
+load("memories-container", "./partials/memories.html");
+load("letter-container", "./partials/letter.html");
+
+/* NAVIGATION */
 function showScene(i) {
   scenes.forEach(s => s.classList.remove("active"));
   scenes[i].classList.add("active");
@@ -22,29 +40,28 @@ function prevScene() {
 }
 backBtn.onclick = prevScene;
 
+/* LOGIN */
 function unlock() {
-  const v = document.getElementById("nameInput").value.trim().toLowerCase();
+  const v = nameInput.value.trim().toLowerCase();
   if (v === SECRET) {
     music.volume = 0.35;
-    music.play().catch(()=>{});
-    nextScene();
+    music.play().catch(() => {});
+    popup.classList.add("show");
+    setTimeout(() => {
+      popup.classList.remove("show");
+      nextScene();
+    }, 2500);
   } else {
-    document.getElementById("error").innerText = "Not for you 🙂";
+    document.getElementById("error").innerText =
+      "Not for you 🙂";
   }
 }
 
+/* MUSIC */
 muteBtn.onclick = () => {
   music.muted = !music.muted;
   muteBtn.textContent = music.muted ? "🔇" : "🔊";
 };
-
-async function load(id, file) {
-  document.getElementById(id).innerHTML = await fetch(file).then(r=>r.text());
-}
-
-load("story-container","./partials/story.html");
-load("memories-container","./partials/memories.html");
-load("letter-container","./partials/letter.html");
 
 /* PHOTOS */
 const photos = [
@@ -81,16 +98,15 @@ function startPhotoSequence() {
     const img = new Image();
     img.src = photos[p];
     img.className = "stage-photo";
-    stage.innerHTML = "";
     stage.appendChild(img);
 
     setTimeout(() => {
       img.classList.add("shrink");
       setTimeout(() => {
-        const c = document.createElement("div");
-        c.className = "photo-card";
-        c.innerHTML = `<img src="${photos[p]}">`;
-        grid.appendChild(c);
+        const card = document.createElement("div");
+        card.className = "photo-card";
+        card.innerHTML = `<img src="${photos[p]}">`;
+        grid.appendChild(card);
         p++;
         next();
       }, 1500);
