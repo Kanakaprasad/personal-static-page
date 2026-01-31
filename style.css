@@ -68,6 +68,7 @@ html, body {
   background: radial-gradient(circle, rgba(255,120,160,0.45), transparent 70%);
   filter: blur(50px);
   animation: glowPulse 4s infinite;
+  pointer-events: none; /* ✅ FIX: allow clicking input */
 }
 
 @keyframes glowPulse {
@@ -75,6 +76,8 @@ html, body {
 }
 
 .login-card {
+  position: relative;
+  z-index: 2;
   background: rgba(255,255,255,0.96);
   padding: 56px 48px;
   border-radius: 36px;
