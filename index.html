@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<!-- 🌌 BACKGROUND LAYERS -->
+<!-- 🌌 BACKGROUND -->
 <div id="bg-gradient"></div>
 <div id="bg-vignette"></div>
 <div id="bg-hearts"></div>
@@ -23,13 +23,11 @@
 <!-- 🎵 MUSIC -->
 <audio id="bgMusic" src="music/story.mp3" loop></audio>
 <button id="muteBtn">🔊</button>
-
-<!-- 🔙 BACK -->
 <button id="backBtn">←</button>
 
 <!-- ================= SCENES ================= -->
 
-<!-- SCENE 0: LOGIN -->
+<!-- LOGIN -->
 <section class="scene active" id="scene-0">
   <div class="glass-card">
     <h1>Hello 🌸</h1>
@@ -40,77 +38,63 @@
   </div>
 </section>
 
-<!-- SCENE 1: HERO -->
+<!-- HERO -->
 <section class="scene" id="scene-1">
   <h1 class="hero-title">Sanjana <span>❤️</span> KP</h1>
-  <p class="hero-sub">
-    This isn’t a website.<br>
-    This is my heart, written slowly.
-  </p>
+  <p class="hero-sub">This isn’t a website. This is my heart.</p>
   <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
-<!-- SCENE 2: INTRO -->
-<section class="scene" id="scene-2">
-  <p class="whisper">
-    Some stories are not told fast.<br>
-    They are felt… one moment at a time.
-  </p>
-  <button class="primary" onclick="nextScene()">Go on</button>
+<!-- STORY PAGE -->
+<section class="scene scrollable" id="scene-2">
+  <div class="story-box">
+<pre>
+Hi, Nanna Preethiya hendatige ninna gandan kade inda Happy Valentine's Day 💌 
+
+Let's start my one of the best chaper in my life and ninu nanna life ge bandiddu and ninna love madidde nange best ever experience and feeling
+
+
+Yellinda start madbeku gottagtilla but I've to start,
+
+21st Dec , date will be day to remember forever, that's the day we've to decided to leave together forever and that's the day navu ibru madve ago plan madiddu, that's day nanu obne allade nangu ondu family ide anta adanna taleli itkondu yelladannu vichar madok start madide, and avatte for the first time nanu astondu full low voice nalli and kai shake madta and bhaya dalli mathadiddu anisutte 😁, aa tara yavattu experience agirlilla nange, thanks for the experience 😊
+
+
+Nange ondu hemme ide Nanu ninna select madi madve agidke namma appa amma proud agtare anta and avre heltare like, nave hudugi huduki select madidre kanaka ga inta hudugi hudkoke agta irlilla anta because astondu ollevla na nane select madini 😊
+
+
+One of the best night andre nange 1st jan 2026 year night,  I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne emd madide and 2026 na ninna jote ne start madide, and unexpectedly that kiss will be my best ever kiss agutte and nanu lifelong mariyall adanna, hinge yella year nu end agli and start agli till.my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona, like ninu helidange Keral or bere yelladru hogi alli celebration madona, nange otnalli ninu irbeku nanna jote aste sak
+
+
+En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide and adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise 🥺, just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu sorry, adastu bega nimma manege baroke, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu
+</pre>
+  </div>
+  <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
-<!-- SCENE 3: STORY -->
+<!-- PHOTOS PAGE -->
 <section class="scene" id="scene-3">
-  <div class="story-box" id="storyBox"></div>
-  <button class="primary" onclick="revealNextParagraph()">Continue</button>
-</section>
-
-<!-- SCENE 4: PHOTOS -->
-<section class="scene" id="scene-4">
-  <h2 class="section-title">Memories 💖</h2>
+  <h2 class="section-title">Our Memories 💖</h2>
   <div id="photoStage"></div>
-  <div id="photoGrid" class="photo-grid"></div>
-  <button class="primary" id="photoNextBtn" disabled onclick="nextScene()">
-    Our Future →
-  </button>
+  <button class="primary" id="photoNextBtn" disabled onclick="nextScene()">Continue</button>
 </section>
 
-<!-- SCENE 5: PAUSE -->
-<section class="scene" id="scene-5">
-  <p class="whisper">
-    Everything I am…<br>
-    led me to you.
-  </p>
-  <button class="primary" onclick="nextScene()">❤️</button>
-</section>
-
-<!-- SCENE 6: PROPOSAL -->
-<section class="scene proposal" id="scene-6">
+<!-- PROPOSAL -->
+<section class="scene" id="scene-4">
   <h2>My Promise 💍</h2>
   <p class="proposal-text">
     Sanjana,<br><br>
-    I want to walk you into my home,<br>
+    I want to take you to my home,<br>
     stand with you in front of my family,<br>
-    and build our forever — together.<br><br>
+    and build our forever together.<br><br>
     Will you marry me?
   </p>
-  <div class="proposal-actions">
-    <button class="primary" onclick="nextScene()">Yes ❤️</button>
-    <button class="primary" onclick="nextScene()">Always ❤️</button>
-  </div>
+  <button class="primary" onclick="nextScene()">Yes ❤️</button>
 </section>
 
-<!-- SCENE 7: LETTER -->
-<section class="scene" id="scene-7">
+<!-- END -->
+<section class="scene" id="scene-5">
   <div class="letter">
-    <p>
-      This page ends here,<br>
-      but our story never will.
-    </p>
-    <p class="signature">
-      Always yours,<br>
-      KP ❤️
-    </p>
+    <p>Always yours,<br>KP ❤️</p>
   </div>
 </section>
 
