@@ -1,34 +1,169 @@
-*{box-sizing:border-box}
-html,body{margin:0;height:100%;font-family:Poppins,sans-serif;overflow:hidden}
+* { box-sizing: border-box; }
 
-#bg-valentine{position:fixed;inset:0;background:linear-gradient(135deg,#ffd1dc,#ffe9ef);z-index:-2}
-#bg-hearts-layer{position:fixed;inset:0;background-image:radial-gradient(circle,rgba(255,90,140,.25) 2px,transparent 3px);background-size:120px 120px;animation:float 70s linear infinite;z-index:-1}
-@keyframes float{to{background-position:0 -3000px}}
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
 
-.scene{position:fixed;inset:0;display:none;justify-content:center;align-items:center;flex-direction:column;padding:60px 20px;text-align:center}
-.scene.active{display:flex}
-.scene.scrollable{overflow-y:auto}
+/* ---------- BACKGROUND ---------- */
 
-.login-card{background:#fff;padding:40px;border-radius:26px}
-.hero-title{font-size:3.4rem;display:flex;gap:16px}
-.heart{animation:pulse 2s infinite}
-@keyframes pulse{50%{transform:scale(1.3)}}
+#bg-valentine {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg,#ffd1dc,#ffe9ef);
+  z-index: -3;
+}
 
-.primary{padding:14px 40px;border-radius:999px;border:none;background:#ff5c8d;color:#fff;cursor:pointer}
+#bg-hearts-layer {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,90,140,0.25) 2px, transparent 3px);
+  background-size: 120px 120px;
+  animation: floatHearts 70s linear infinite;
+  z-index: -2;
+}
 
-.mute-btn,.back-btn{position:fixed;top:20px;background:#fff;border-radius:50%;padding:10px;border:none;cursor:pointer}
-.mute-btn{right:20px}
-.back-btn{left:20px}
+@keyframes floatHearts {
+  to { background-position: 0 -3000px; }
+}
 
-.story-wrapper{max-width:820px;margin:auto}
-.story-card{background:#fff;padding:46px;border-radius:30px;text-align:left;font-family:Playfair Display,serif;line-height:2;white-space:pre-wrap}
+/* ---------- GLOBAL UI ---------- */
 
-#photoStage{width:70vw;height:65vh;display:flex;align-items:center;justify-content:center}
-.stage-photo{max-width:100%;max-height:100%;border-radius:26px;transition:1.5s}
-.stage-photo.shrink{transform:scale(.35) translateY(280px);opacity:0}
+.mute-btn, .back-btn {
+  position: fixed;
+  top: 20px;
+  background: rgba(255,255,255,0.75);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  z-index: 50;
+}
 
-.photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;max-width:1100px;margin-top:30px}
-.photo-card{border-radius:18px;overflow:hidden}
-.photo-card img{width:100%;height:100%;object-fit:cover}
+.mute-btn { right: 20px; }
+.back-btn { left: 20px; }
 
-.letter{font-family:Dancing Script,cursive;font-size:2.6rem}
+/* ---------- SCENES ---------- */
+
+.scene {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.scene.active { display: flex; }
+.scene.scrollable { overflow-y: auto; }
+
+/* ---------- LOGIN ---------- */
+
+.login-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255,120,160,0.35), transparent 70%);
+  filter: blur(40px);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  50% { transform: scale(1.15); opacity: 0.7; }
+}
+
+.login-card.romantic {
+  position: relative;
+  background: rgba(255,255,255,0.9);
+  padding: 50px 46px;
+  border-radius: 34px;
+  max-width: 420px;
+  box-shadow: 0 50px 120px rgba(0,0,0,0.2);
+  backdrop-filter: blur(20px);
+}
+
+.login-heart {
+  font-size: 2.2rem;
+  animation: pulse 2s infinite;
+}
+
+.login-title {
+  margin-top: 10px;
+  font-size: 2.1rem;
+  font-weight: 600;
+}
+
+.login-title span {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-top: 6px;
+}
+
+.login-sub {
+  margin: 18px 0 22px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.login-input:focus {
+  border-color: #ff6b9c;
+}
+
+.login-error {
+  color: #e0003c;
+  font-size: 0.85rem;
+  min-height: 20px;
+}
+
+.login-btn {
+  margin-top: 16px;
+  width: 100%;
+}
+
+.login-hint {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: #777;
+  font-style: italic;
+}
+
+/* ---------- SHARED ---------- */
+
+.primary {
+  padding: 14px 40px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg,#ff5c8d,#ff87ab);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.hero-title {
+  font-size: 3.4rem;
+  display: flex;
+  gap: 16px;
+}
+
+.heart { animation: pulse 2s infinite; }
+
+@keyframes pulse {
+  50% { transform: scale(1.3); }
+}

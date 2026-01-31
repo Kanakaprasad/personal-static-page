@@ -5,56 +5,94 @@
   <title>Only For You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600&family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <!-- Lottie -->
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
+<!-- Background -->
 <div id="bg-valentine"></div>
 <div id="bg-hearts-layer"></div>
 
+<!-- Music -->
 <audio id="bgMusic" src="./music/story.mp3" loop></audio>
 <button id="muteBtn" class="mute-btn">🔊</button>
 <button id="backBtn" class="back-btn">←</button>
 
-<section class="scene active">
-  <div class="login-card">
-    <h1>Hello 🌸</h1>
-    <p>This space opens only for one special person</p>
-    <input id="nameInput" placeholder="Enter your name…" />
-    <p id="error"></p>
-    <button class="primary" onclick="unlock()">Unlock 💖</button>
+<!-- ================= LOGIN SCENE ================= -->
+<section class="scene active" id="scene-0">
+  <div class="login-glow"></div>
+
+  <div class="login-card romantic">
+    <div class="login-heart">❤️</div>
+
+    <h1 class="login-title">
+      Hey…  
+      <span>Are you the one?</span>
+    </h1>
+
+    <p class="login-sub">
+      This little corner of the internet<br>
+      was made for <strong>one heart only</strong>.
+    </p>
+
+    <input
+      id="nameInput"
+      class="login-input"
+      placeholder="Type your name softly…"
+      autocomplete="off"
+    />
+
+    <p id="error" class="login-error"></p>
+
+    <button class="primary login-btn" onclick="unlock()">
+      Let me in 💗
+    </button>
+
+    <p class="login-hint">
+      (Only one name will work 😉)
+    </p>
   </div>
 </section>
 
+<!-- ================= HERO ================= -->
 <section class="scene">
-  <h1 class="hero-title">Sanjana <span class="heart">❤️</span> KP</h1>
+  <h1 class="hero-title">
+    Sanjana <span class="heart">❤️</span> KP
+  </h1>
   <p>Happy Valentine’s Day</p>
   <button class="primary" onclick="nextScene()">Begin</button>
 </section>
 
+<!-- ================= STORY ================= -->
 <section class="scene scrollable">
   <div id="story-container"></div>
   <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
+<!-- ================= MEMORIES ================= -->
 <section class="scene">
   <div id="memories-container"></div>
   <button id="photoNextBtn" class="primary" disabled onclick="nextScene()">Continue</button>
 </section>
 
+<!-- ================= PROPOSAL ================= -->
 <section class="scene">
   <h2>My Promise 💍</h2>
   <p class="proposal-text">Will you marry me?</p>
   <button class="primary" onclick="nextScene()">Yes ❤️</button>
 </section>
 
+<!-- ================= LETTER ================= -->
 <section class="scene">
   <div id="letter-container"></div>
 </section>
 
-<script src="script.js"></script>
+<script src="./script.js"></script>
 </body>
 </html>
