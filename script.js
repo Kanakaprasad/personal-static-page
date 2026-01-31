@@ -8,12 +8,10 @@ const music = document.getElementById("bgMusic");
 const nameInput = document.getElementById("nameInput");
 const popup = document.getElementById("login-popup");
 
-/* ================= INPUT FIX ================= */
+/* ================= INPUT ================= */
 nameInput.focus();
 nameInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    unlock();
-  }
+  if (e.key === "Enter") unlock();
 });
 
 /* ================= LOAD PARTIALS ================= */
@@ -57,11 +55,11 @@ function unlock() {
 
     setTimeout(() => {
       popup.classList.remove("show");
-      nextScene();
+      showScene(1);
     }, 2600);
 
   } else {
-    error.innerText = "Hmm… this page isn’t meant for you 🙂";
+    error.innerText = "Hmm… this isn’t meant for you 🙂";
   }
 }
 

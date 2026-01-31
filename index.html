@@ -25,30 +25,24 @@
 <section class="scene active">
   <div class="login-glow"></div>
 
-  <div class="login-card romantic">
+  <div class="login-card" id="loginCard">
     <div class="login-heart">❤️</div>
 
     <h1 class="login-title">
       Hey you…
-      <span>I was secretly hoping it’s you</span>
+      <span>I made something, hoping it’s you.</span>
     </h1>
-
-    <p class="login-sub">
-      This page isn’t public.<br>
-      It opens only when the <b>right name</b> is typed.
-    </p>
 
     <input
       id="nameInput"
       class="login-input"
-      placeholder="Type your name here…"
+      placeholder="Say my favourite name"
       autocomplete="off"
     />
 
     <p id="error" class="login-error"></p>
 
-    <button class="primary login-btn" onclick="unlock()">Unlock my heart 💗</button>
-    <p class="login-hint">Try pressing Enter after typing 😉</p>
+    <button class="primary" onclick="unlock()">Let me in ❤️</button>
   </div>
 
   <!-- POPUP -->
@@ -56,8 +50,8 @@
     <div class="popup-card">
       <div class="popup-heart">💖</div>
       <p class="popup-text">
-        Of course it’s you, Sanjana…<br>
-        I was waiting just for you ❤️
+        Of course it’s you, Sanjana.<br>
+        I was waiting.
       </p>
     </div>
   </div>
@@ -68,8 +62,11 @@
   <h1 class="hero-title">
     Sanjana <span class="heart">❤️</span> KP
   </h1>
-  <p>Happy Valentine’s Day, my love 💌</p>
-  <button class="primary" onclick="nextScene()">Begin our story</button>
+  <p class="hero-sub">
+    This isn’t a website.<br>
+    It’s something I felt.
+  </p>
+  <button class="primary" onclick="nextScene()">Let me show you</button>
 </section>
 
 <!-- STORY -->
