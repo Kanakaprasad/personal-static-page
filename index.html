@@ -5,14 +5,17 @@
   <title>Just for You ❤️</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Lottie -->
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-  <!-- ❤️ Background Hearts -->
+  <!-- ❤️ Hearts -->
   <div id="lottie-hearts"></div>
 
   <!-- 🎵 Music -->
@@ -37,14 +40,15 @@
         <span class="heart">❤️</span>
         <span>KP</span>
       </h1>
-      <p class="hero-sub">Happy Valentine’s Day, my love</p>
-      <button class="primary" onclick="startJourney()">There’s something I want to ask you…</button>
+      <p class="hero-sub">Happy Valentine’s Day, my love 💌</p>
+      <button class="primary" onclick="startJourney()">There’s something I want to tell you…</button>
     </div>
   </section>
 
   <!-- 🌙 CONTENT -->
   <div id="content">
 
+    <!-- STEP 1 -->
     <section class="step active" id="step1">
       <p>This is not a website.<br>This is something I made… just for you.</p>
       <div class="nav">
@@ -52,6 +56,7 @@
       </div>
     </section>
 
+    <!-- STEP 2 -->
     <section class="step" id="step2">
       <p>
         Ninna hesaru type madidmele,<br>
@@ -65,6 +70,7 @@
       </div>
     </section>
 
+    <!-- STEP 3 -->
     <section class="step" id="step3">
       <h2>Little pieces of my heart 💖</h2>
       <div class="cards" id="photoCards"></div>
@@ -74,17 +80,72 @@
       </div>
     </section>
 
+    <!-- STORY -->
     <section class="step story-section" id="step4">
       <h2>Our Story 💫</h2>
-      <div class="story-content">
-        <p>(You will write your full story here.)</p>
+
+      <div class="story-card">
+        <p><strong>Hi, Nanna Preethiya hendatige</strong><br>
+        ninna gandan kade inda <strong>Happy Valentine’s Day 💌</strong></p>
+
+        <p>
+          Let's start my one of the best chapter in my life and ninu nanna life ge
+          bandiddu and ninna love madidde nange best ever experience and feeling.
+        </p>
+
+        <p>
+          Yellinda start madbeku gottagtilla but I've to start.
+        </p>
+
+        <p>
+          <strong>21st Dec</strong> — day to remember forever.
+          Aa dina navu ibru life long jothe irbeku anta decide madiddu.
+          First time low voice alli, kai shake madta bhaya dalli mathadiddu 😁
+        </p>
+
+        <p>
+          Nange ondu hemme ide — nanu ninna select madi madve agidke
+          namma appa amma proud agtare anta.
+          Avru heltare:
+          <em>“Naave hudugi hudkidre Kanaka inta hudugi siglilla anta.”</em> 💕
+        </p>
+
+        <p>
+          <strong>1st Jan 2026 night</strong> —
+          unexpected but unforgettable.
+          2025 na ninna jothe end madide,
+          2026 na ninna jothe start madide.
+          Aa kiss… nanna life long maribeku anta anisutilla 💖
+        </p>
+
+        <p>
+          Ee year plan aglilla,
+          next year definitely trip hogona —
+          Kerala athava bere yalladru.
+          Nange jagala beda, nanna jothe ninu idre saaku ❤️
+        </p>
+
+        <p>
+          Ee Feb 14th nalli helbeku —
+          very soon ninna namma urige karkondu hogbeku.
+          Ninna nodidre namma maneli opkontare promise 🥺
+        </p>
+
+        <p>
+          Adastu bega ready agu —
+          ninna gandan manege baroke,
+          nimma atte-mavana nodoke,
+          avra jothe mathadoke 💍
+        </p>
       </div>
+
       <div class="nav">
         <button class="secondary" onclick="prevStep()">← Back</button>
         <button class="primary" onclick="nextStep()">One Question 💍</button>
       </div>
     </section>
 
+    <!-- PROPOSAL -->
     <section class="step proposal-section" id="step5">
       <h2>Will you be my Valentine… again? 💖</h2>
       <div class="proposal-actions">
@@ -94,10 +155,11 @@
       <button class="secondary" onclick="prevStep()">← Back</button>
     </section>
 
+    <!-- LETTER -->
     <section class="step letter-section" id="step6">
       <h2>My Love Letter to You 💌</h2>
       <div class="letter">
-        <p>(Your love letter goes here.)</p>
+        <p>(We can refine this together next.)</p>
         <p class="signature">Forever yours,<br>KP ❤️</p>
       </div>
       <button class="secondary" onclick="prevStep()">← Back</button>
