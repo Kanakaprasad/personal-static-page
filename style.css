@@ -206,79 +206,76 @@ html, body {
   font-size: 2.5rem;
 }
 
-/* ================= HERO – HANGING LETTER VALENTINE DESIGN ================= */
+/* ================= HERO / HOME – ROMANTIC UPGRADE ================= */
 
 .hero-scene {
   position: relative;
   overflow: hidden;
 }
 
-/* BIG HEART BALLOON */
-.main-heart-balloon {
-  width: 260px;
-  height: 230px;
-  background: linear-gradient(135deg,#ff6b9c,#ff3d7f);
-  border-radius: 50% 50% 45% 45%;
-  margin-bottom: 30px;
-  animation: heartFloat 5s ease-in-out infinite;
+/* Floating hearts (subtle & elegant) */
+.hero-scene::before,
+.hero-scene::after {
+  content: "❤";
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.25;
+  animation: heartFloat 14s linear infinite;
+}
+
+.hero-scene::before {
+  left: 15%;
+  bottom: -10%;
+  animation-delay: 0s;
+}
+
+.hero-scene::after {
+  left: 75%;
+  bottom: -15%;
+  animation-delay: 6s;
 }
 
 @keyframes heartFloat {
-  50% { transform: translateY(-12px); }
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-130vh) scale(1.2); }
 }
 
-.balloon-text {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
+/* Hero title animation */
+.hero-title {
   font-family: 'Playfair Display', serif;
-  color: #fff;
-  font-size: 1.3rem;
-  letter-spacing: 2px;
+  font-size: 3rem;
+  margin-bottom: 18px;
+  letter-spacing: 3px;
+  animation: titleReveal 1.8s ease forwards;
 }
 
-/* HANGING LETTERS */
-.hanging-letters {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 30px;
+@keyframes titleReveal {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hang {
-  position: relative;
-  animation: swing 3.5s ease-in-out infinite;
-  transform-origin: top center;
+/* Hero sub text */
+.hero-sub {
+  max-width: 480px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: subReveal 2.4s ease forwards;
 }
 
-.hang::before {
-  content: "";
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  width: 2px;
-  height: 50px;
-  background: rgba(0,0,0,0.25);
+@keyframes subReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.hang span {
-  display: block;
-  background: #fff;
-  padding: 10px 14px;
-  border-radius: 12px;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+/* Call-to-action pulse */
+.primary.pulse {
+  animation: pulse 2.2s infinite;
 }
 
-.hang.heart span {
-  background: #ffe3ec;
-}
-
-@keyframes swing {
-  0% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
-  100% { transform: rotate(-3deg); }
+@keyframes pulse {
+  50% { transform: scale(1.06); }
 }
 
 .hero-title,
