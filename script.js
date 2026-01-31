@@ -12,7 +12,7 @@ const music = document.getElementById("bgMusic");
 const muteBtn = document.getElementById("muteBtn");
 let muted = false;
 
-/* Music map */
+/* 🎵 Music map */
 const musicMap = {
   hero: "./music/intro.mp3",
   1: "./music/intro.mp3",
@@ -23,7 +23,7 @@ const musicMap = {
   6: "./music/ending.mp3"
 };
 
-/* Hearts */
+/* ❤️ Lottie Hearts */
 lottie.loadAnimation({
   container: document.getElementById("lottie-hearts"),
   renderer: "svg",
@@ -32,7 +32,34 @@ lottie.loadAnimation({
   path: "https://assets10.lottiefiles.com/packages/lf20_jppxqf.json"
 });
 
-/* Login */
+/* 📸 PHOTOS (THIS WAS MISSING) */
+const photos = [
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/Sanju-1_x6t8eh.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/SanKP-9_whwphg.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758484/SanKP-5_dbjx0a.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758483/Sanju-2_kz1yqa.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758482/Sanju-4_r0xjpd.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758480/Sanju-7_iksay0.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758479/Sanju-8_zlcbhy.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758476/SanKP-2_yqisgv.jpg"
+];
+
+/* 🖼️ Render photos */
+const photoCards = document.getElementById("photoCards");
+
+photos.forEach(src => {
+  const card = document.createElement("div");
+  card.className = "photo-card";
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.loading = "lazy";
+
+  card.appendChild(img);
+  photoCards.appendChild(card);
+});
+
+/* 🔐 Login */
 enterBtn.onclick = () => {
   if (input.value.trim().toLowerCase() === SECRET) {
     loginScreen.style.display = "none";
@@ -45,14 +72,14 @@ input.addEventListener("keydown", e => {
   if (e.key === "Enter") enterBtn.click();
 });
 
-/* Start */
+/* ▶ Start */
 function startJourney() {
   heroScreen.style.display = "none";
   content.style.display = "block";
   playMusic(1);
 }
 
-/* Navigation */
+/* 🧭 Navigation */
 function nextStep() {
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
@@ -67,12 +94,12 @@ function prevStep() {
   playMusic(currentStep);
 }
 
-/* Music */
+/* 🎵 Music */
 function playMusic(key) {
   if (muted) return;
   music.src = musicMap[key];
   music.volume = 0.6;
-  music.play().catch(()=>{});
+  music.play().catch(() => {});
 }
 
 muteBtn.onclick = () => {
