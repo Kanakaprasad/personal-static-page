@@ -4,13 +4,13 @@ let currentStep = 1;
 const loginScreen = document.getElementById("loginScreen");
 const heroScreen = document.getElementById("heroScreen");
 const content = document.getElementById("content");
-
 const input = document.getElementById("nameInput");
 const enterBtn = document.getElementById("enterBtn");
-
 const music = document.getElementById("bgMusic");
 const muteBtn = document.getElementById("muteBtn");
+
 let muted = false;
+let photosAnimated = false;
 
 const musicMap = {
   hero: "./music/intro.mp3",
@@ -30,7 +30,6 @@ lottie.loadAnimation({
   path: "https://assets10.lottiefiles.com/packages/lf20_jppxqf.json"
 });
 
-/* ALL PHOTOS */
 const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/Sanju-1_x6t8eh.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758489/SanKP-9_whwphg.jpg",
@@ -51,17 +50,36 @@ const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/v1769758458/SanKP-7_zn4n5s.jpg"
 ];
 
-const photoCards = document.getElementById("photoCards");
+const preview = document.getElementById("photoPreview");
+const grid = document.getElementById("photoCards");
 
-photos.forEach(src => {
-  const card = document.createElement("div");
-  card.className = "photo-card";
-  const img = document.createElement("img");
-  img.src = src;
-  img.loading = "lazy";
-  card.appendChild(img);
-  photoCards.appendChild(card);
-});
+function animatePhotos() {
+  let i = 0;
+  function next() {
+    if (i >= photos.length) return;
+    const img = document.createElement("img");
+    img.src = photos[i];
+    img.className = "preview-img";
+    preview.appendChild(img);
+
+    setTimeout(() => {
+      img.classList.add("shrink");
+      const card = document.createElement("div");
+      card.className = "photo-card";
+      const finalImg = document.createElement("img");
+      finalImg.src = photos[i];
+      card.appendChild(finalImg);
+      grid.appendChild(card);
+
+      setTimeout(() => {
+        img.remove();
+        i++;
+        next();
+      }, 800);
+    }, 400);
+  }
+  next();
+}
 
 enterBtn.onclick = () => {
   if (input.value.trim().toLowerCase() === SECRET) {
@@ -70,10 +88,6 @@ enterBtn.onclick = () => {
     playMusic("hero");
   }
 };
-
-input.addEventListener("keydown", e => {
-  if (e.key === "Enter") enterBtn.click();
-});
 
 function startJourney() {
   heroScreen.style.display = "none";
@@ -85,6 +99,12 @@ function nextStep() {
   document.getElementById(`step${currentStep}`).classList.remove("active");
   currentStep++;
   document.getElementById(`step${currentStep}`).classList.add("active");
+
+  if (currentStep === 3 && !photosAnimated) {
+    animatePhotos();
+    photosAnimated = true;
+  }
+
   playMusic(currentStep);
 }
 
@@ -99,7 +119,7 @@ function playMusic(key) {
   if (muted) return;
   music.src = musicMap[key];
   music.volume = 0.6;
-  music.play().catch(() => {});
+  music.play().catch(()=>{});
 }
 
 muteBtn.onclick = () => {

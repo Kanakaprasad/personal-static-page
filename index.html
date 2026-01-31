@@ -12,12 +12,14 @@
 </head>
 <body>
 
+  <!-- Background hearts -->
   <div id="lottie-hearts"></div>
 
+  <!-- Music -->
   <audio id="bgMusic" loop></audio>
   <button id="muteBtn" class="mute-btn">🔊</button>
 
-  <!-- LOGIN -->
+  <!-- Login -->
   <div class="login-screen" id="loginScreen">
     <div class="login-card">
       <h1>Hello 🌸</h1>
@@ -27,7 +29,7 @@
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero" id="heroScreen">
     <div class="hero-inner">
       <h1 class="hero-title">
@@ -36,25 +38,22 @@
         <span>KP</span>
       </h1>
       <p class="hero-sub">Happy Valentine’s Day, my love</p>
-      <button class="primary" onclick="startJourney()">I want to tell you something</button>
+      <button class="primary" onclick="startJourney()">I want to show you something</button>
     </div>
   </section>
 
+  <!-- Content -->
   <div id="content">
 
     <section class="step active" id="step1">
-      <p>This is not a website.  
-      This is something I made, only for you.</p>
-      <div class="nav">
-        <button class="primary" onclick="nextStep()">Continue ❤️</button>
-      </div>
+      <p>This is not a website.<br>This is something I made, only for you.</p>
+      <button class="primary" onclick="nextStep()">Continue ❤️</button>
     </section>
 
     <section class="step" id="step2">
       <p>
-        Ninna hesaru type madidmele ee page open aagodu coincidence alla.  
-        Idhu intention.  
-        Idhu feeling.
+        Ninna hesaru type madidmele ee page open aagodu coincidence alla.<br>
+        Idhu intention. Idhu feeling.
       </p>
       <div class="nav">
         <button class="secondary" onclick="prevStep()">← Back</button>
@@ -62,8 +61,10 @@
       </div>
     </section>
 
+    <!-- Photos -->
     <section class="step" id="step3">
       <h2>Little pieces of my heart 💖</h2>
+      <div id="photoPreview"></div>
       <div class="cards" id="photoCards"></div>
       <div class="nav">
         <button class="secondary" onclick="prevStep()">← Back</button>
@@ -71,70 +72,24 @@
       </div>
     </section>
 
-    <section class="step story-section" id="step4">
+    <!-- Story -->
+    <section class="step" id="step4">
       <h2>Our Story 💫</h2>
-
       <div class="story-card">
-        <p>
-          Hi nanna preethiya hendati.  
-          Ninna gandan kade inda Happy Valentine’s Day.
-        </p>
-
-        <p>
-          Ee story start madbeku andre nange swalpa kashta.  
-          Yaake andre ninu nanna life ge bandmele life itself change aagide.  
-          Ninna jothe irbeku anta feeling nange first time real aagi anisutte.
-        </p>
-
-        <p>
-          21st December nange life long maribeda anta date.  
-          Aa dina navu ibru jothe irbeku anta decide madiddu.  
-          Aa moment nalli nanu bhaya, happiness, excitement ellavu ondhe time alli feel madiddu.  
-          Kai shake madta low voice alli mathadiddu ivattigu nenapidre smile barthe.
-        </p>
-
-        <p>
-          Ninna select madi madve agidke nange tumba hemme ide.  
-          Namma appa amma nanna mele proud aaguttare anta nange poorthi vishwasa ide.  
-          Avru ninna nodidre definitely ista padtare.
-        </p>
-
-        <p>
-          1st January night nanna life alli special.  
-          2025 na ninna jothe end madide,  
-          2026 na ninna jothe start madide.  
-          Aa kiss nanna life alli best moment aagide.  
-          Lifelong adanna maribeku anta anisutilla.
-        </p>
-
-        <p>
-          Ee year swalpa hectic aaythu, yellu hogoke aglilla.  
-          Aadre next year definitely trip hogona.  
-          Ninu helidange Kerala athava bere yalladru.  
-          Place important alla, nanna jothe ninu irbeku aste saaku.
-        </p>
-
-        <p>
-          Ee Valentine’s Day nalli ondu maath helbeku.  
-          Very soon ninna namma manege karkondu hogbeku anta plan ide.  
-          Ninna nodidre namma maneli ellaru kushi aaguttare anta nange poorthi nambe.
-        </p>
-
-        <p>
-          Adastu bega ready aagu.  
-          Ninna gandan manege baroke.  
-          Nimma atte mavana nodoke.  
-          Avra jothe jeevana start madoke.
-        </p>
+        <p>Hi nanna preethiya hendati. Ninna gandan kade inda Happy Valentine’s Day.</p>
+        <p>Ninu nanna life ge bandmele life itself change aaythu. Ee story simple aagi start aagatte.</p>
+        <p>21st December nanna jeevanadalli special. Aa dina navu ibru jothe irbeku anta decide madiddu.</p>
+        <p>1st January night nanna life alli unforgettable. 2025 end ninna jothe, 2026 start ninna jothe.</p>
+        <p>Ninna jothe irbeku anta feeling nanna jeevanada biggest gift.</p>
       </div>
-
       <div class="nav">
         <button class="secondary" onclick="prevStep()">← Back</button>
         <button class="primary" onclick="nextStep()">One question</button>
       </div>
     </section>
 
-    <section class="step proposal-section" id="step5">
+    <!-- Proposal -->
+    <section class="step" id="step5">
       <h2>Will you be my Valentine again?</h2>
       <div class="proposal-actions">
         <button class="primary" onclick="nextStep()">Yes ❤️</button>
@@ -143,15 +98,11 @@
       <button class="secondary" onclick="prevStep()">← Back</button>
     </section>
 
-    <section class="step letter-section" id="step6">
+    <!-- Letter -->
+    <section class="step" id="step6">
       <h2>My love letter 💌</h2>
       <div class="letter">
-        <p>
-          Ee letter simple aagi idru honest.  
-          Nanna life alli ninu irbeku anta nanna manasu heluttide.  
-          Adanna word alli express madoke swalpa kashta,  
-          aadre feeling real.
-        </p>
+        <p>Nanna life alli ninu irbeku anta nanna manasu heluttide. Ee page adakke.</p>
         <p class="signature">Always yours,<br>KP ❤️</p>
       </div>
       <button class="secondary" onclick="prevStep()">← Back</button>
