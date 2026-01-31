@@ -15,19 +15,18 @@
 </head>
 <body>
 
-<!-- 🌌 BACKGROUND -->
+<!-- Background Layers -->
 <div id="bg-gradient"></div>
 <div id="bg-vignette"></div>
 <div id="bg-hearts"></div>
 
-<!-- 🎵 MUSIC -->
+<!-- Music -->
 <audio id="bgMusic" src="music/story.mp3" loop></audio>
 <button id="muteBtn">🔊</button>
 <button id="backBtn">←</button>
 
-<!-- ================= SCENES ================= -->
+<!-- ========== SCENES ========== -->
 
-<!-- LOGIN -->
 <section class="scene active" id="scene-0">
   <div class="glass-card">
     <h1>Hello 🌸</h1>
@@ -38,16 +37,15 @@
   </div>
 </section>
 
-<!-- HERO -->
 <section class="scene" id="scene-1">
   <h1 class="hero-title">Sanjana <span>❤️</span> KP</h1>
   <p class="hero-sub">This isn’t a website. This is my heart.</p>
   <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
-<!-- STORY PAGE -->
 <section class="scene scrollable" id="scene-2">
-  <div class="story-box">
+  <div class="story-wrapper">
+    <div class="story-box">
 <pre>
 Hi, Nanna Preethiya hendatige ninna gandan kade inda Happy Valentine's Day 💌 
 
@@ -62,28 +60,26 @@ Yellinda start madbeku gottagtilla but I've to start,
 Nange ondu hemme ide Nanu ninna select madi madve agidke namma appa amma proud agtare anta and avre heltare like, nave hudugi huduki select madidre kanaka ga inta hudugi hudkoke agta irlilla anta because astondu ollevla na nane select madini 😊
 
 
-One of the best night andre nange 1st jan 2026 year night,  I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne emd madide and 2026 na ninna jote ne start madide, and unexpectedly that kiss will be my best ever kiss agutte and nanu lifelong mariyall adanna, hinge yella year nu end agli and start agli till.my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona, like ninu helidange Keral or bere yelladru hogi alli celebration madona, nange otnalli ninu irbeku nanna jote aste sak
+One of the best night andre nange 1st jan 2026 year night, I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide, and unexpectedly that kiss will be my best ever kiss agutte and nanu lifelong mariyalla adanna, hinge yella year nu end agli and start agli till my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona, like ninu helidange Kerala or bere yalladru hogi alli celebration madona, nange ottinalli ninu irbeku nanna jote aste sak
 
 
-En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide and adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise 🥺, just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu sorry, adastu bega nimma manege baroke, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu
+En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide and adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise 🥺, just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2–3 months nalle maneli heltini and adastu bega namma manege baroke ready agu, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu
 </pre>
+    </div>
   </div>
   <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
-<!-- PHOTOS PAGE -->
 <section class="scene" id="scene-3">
-  <h2 class="section-title">Our Memories 💖</h2>
+  <h2>Our Memories 💖</h2>
   <div id="photoStage"></div>
   <button class="primary" id="photoNextBtn" disabled onclick="nextScene()">Continue</button>
 </section>
 
-<!-- PROPOSAL -->
 <section class="scene" id="scene-4">
   <h2>My Promise 💍</h2>
   <p class="proposal-text">
-    Sanjana,<br><br>
-    I want to take you to my home,<br>
+    I want to walk you into my home,<br>
     stand with you in front of my family,<br>
     and build our forever together.<br><br>
     Will you marry me?
@@ -91,10 +87,9 @@ En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or tw
   <button class="primary" onclick="nextScene()">Yes ❤️</button>
 </section>
 
-<!-- END -->
 <section class="scene" id="scene-5">
   <div class="letter">
-    <p>Always yours,<br>KP ❤️</p>
+    Always yours,<br>KP ❤️
   </div>
 </section>
 
