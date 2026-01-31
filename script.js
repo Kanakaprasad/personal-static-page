@@ -1,3 +1,7 @@
+/* =========================
+   GLOBAL STATE
+========================= */
+
 const SECRET = "sanjana";
 let currentScene = 0;
 
@@ -6,12 +10,20 @@ const backBtn = document.getElementById("backBtn");
 const muteBtn = document.getElementById("muteBtn");
 const music = document.getElementById("bgMusic");
 
+/* =========================
+   SCENE NAVIGATION
+========================= */
+
 function showScene(index) {
   scenes.forEach(s => s.classList.remove("active"));
   scenes[index].classList.add("active");
   currentScene = index;
+
   backBtn.style.display = index === 0 ? "none" : "block";
-  if (index === 3) startPhotos();
+
+  if (index === 4) {
+    startPhotoSequence();
+  }
 }
 
 function nextScene() {
@@ -26,26 +38,51 @@ function prevScene() {
   }
 }
 
-backBtn.onclick = prevScene;
+backBtn.addEventListener("click", prevScene);
+
+/* =========================
+   LOGIN
+========================= */
 
 function unlock() {
-  const name = document.getElementById("nameInput").value.trim().toLowerCase();
-  if (name === SECRET) {
+  const val = document.getElementById("nameInput").value.trim().toLowerCase();
+  const error = document.getElementById("error");
+
+  if (val === SECRET) {
+    error.innerText = "";
     music.volume = 0.35;
     music.play().catch(() => {});
     nextScene();
   } else {
-    document.getElementById("error").innerText =
-      "This page is waiting for someone else…";
+    error.innerText = "This page is waiting for someone else…";
   }
 }
 
-muteBtn.onclick = () => {
+/* =========================
+   MUSIC
+========================= */
+
+muteBtn.addEventListener("click", () => {
   music.muted = !music.muted;
   muteBtn.textContent = music.muted ? "🔇" : "🔊";
-};
+});
 
-/* Optimized Cloudinary photos */
+/* =========================
+   LOTTIE – BALLOONS
+========================= */
+
+lottie.loadAnimation({
+  container: document.getElementById("lottie-balloons"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "https://assets10.lottiefiles.com/packages/lf20_6cfdxl.json"
+});
+
+/* =========================
+   PHOTO SEQUENCE (HEAVY)
+========================= */
+
 const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758489/Sanju-1_x6t8eh.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758489/SanKP-9_whwphg.jpg",
@@ -60,25 +97,59 @@ const photos = [
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758467/SanKP-10_szafd3.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758466/Sanju-6_mweqgu.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758463/SanKP-1_yb6czj.jpg",
+  "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758463/SanKP-6_ilbntr.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758462/SanKP-8_dqvuie.jpg",
   "https://res.cloudinary.com/dlsp49kl5/image/upload/w_1200,q_auto,f_auto/v1769758458/SanKP-7_zn4n5s.jpg"
 ];
 
-const stage = document.getElementById("photoStage");
-const nextBtn = document.getElementById("photoNextBtn");
+const photoStage = document.getElementById("photoStage");
+const photoGrid = document.getElementById("photoGrid");
+const photoNextBtn = document.getElementById("photoNextBtn");
 
-function startPhotos() {
-  stage.innerHTML = "";
-  photos.forEach((src, i) => {
-    setTimeout(() => {
-      const img = new Image();
-      img.src = src;
-      img.className = "stage-photo";
-      stage.innerHTML = "";
-      stage.appendChild(img);
-      if (i === photos.length - 1) {
-        nextBtn.disabled = false;
-      }
-    }, i * 3500);
+let photoIndex = 0;
+
+function preloadImages() {
+  photos.forEach(src => {
+    const img = new Image();
+    img.src = src;
   });
+}
+
+function startPhotoSequence() {
+  photoStage.innerHTML = "";
+  photoGrid.innerHTML = "";
+  photoIndex = 0;
+  photoNextBtn.disabled = true;
+
+  preloadImages();
+  playNextPhoto();
+}
+
+function playNextPhoto() {
+  if (photoIndex >= photos.length) {
+    photoNextBtn.disabled = false;
+    return;
+  }
+
+  const src = photos[photoIndex];
+  const img = document.createElement("img");
+  img.src = src;
+  img.className = "stage-photo";
+
+  photoStage.innerHTML = "";
+  photoStage.appendChild(img);
+
+  setTimeout(() => {
+    img.classList.add("shrink");
+
+    setTimeout(() => {
+      const card = document.createElement("div");
+      card.className = "photo-card";
+      card.innerHTML = `<img src="${src}" />`;
+      photoGrid.appendChild(card);
+
+      photoIndex++;
+      playNextPhoto();
+    }, 1600);
+  }, 3200);
 }

@@ -6,29 +6,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display&family=Dancing+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600&family=Dancing+Script&display=swap" rel="stylesheet">
 
   <!-- Lottie -->
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-<!-- Background Layers -->
-<div id="bg-gradient"></div>
-<div id="bg-vignette"></div>
-<div id="bg-hearts"></div>
+<!-- ================= GLOBAL BACKGROUND LAYERS ================= -->
 
-<!-- Music -->
-<audio id="bgMusic" src="music/story.mp3" loop></audio>
-<button id="muteBtn">🔊</button>
-<button id="backBtn">←</button>
+<!-- Valentine Gradient Base -->
+<div id="bg-valentine"></div>
 
-<!-- ========== SCENES ========== -->
+<!-- Floating Hearts Layer -->
+<div id="bg-hearts-layer"></div>
 
+<!-- SVG Love Path (global, animated via CSS/JS) -->
+<div id="love-path-wrapper">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -5 278 56">
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="1.6" />
+    </filter>
+    <g transform="translate(29.1 -127.42)">
+      <path id="love-line"
+        d="M-28.73 167.2c26.43 9.21 68.46-9.46 85.45-12.03 18.45-2.78 32.82 4.86 28.75 9.83-3.82 4.66-25.77-21.18-14.81-31.5
+           9.54-8.98 17.64 10.64 16.42 17.06-1.51-6.2 2.95-26.6 14.74-22.11
+           11.7 4.46-4.33 49.03-15.44 44.08-6.97-3.1 15.44-16.26 26.1-16
+           23.03.56 55.6 27.51 126.63 3.36"
+        pathLength="1" />
+      <path id="love-point" filter="url(#blur)"
+        d="M-28.73 167.2c26.43 9.21 68.46-9.46 85.45-12.03 18.45-2.78 32.82 4.86 28.75 9.83-3.82 4.66-25.77-21.18-14.81-31.5
+           9.54-8.98 17.64 10.64 16.42 17.06-1.51-6.2 2.95-26.6 14.74-22.11
+           11.7 4.46-4.33 49.03-15.44 44.08-6.97-3.1 15.44-16.26 26.1-16
+           23.03.56 55.6 27.51 126.63 3.36"
+        pathLength="1" />
+    </g>
+  </svg>
+</div>
+
+<!-- Lottie Balloons (used in hero + photos scenes) -->
+<div id="lottie-balloons"></div>
+
+<!-- ================= MUSIC ================= -->
+<audio id="bgMusic" src="./music/story.mp3" loop></audio>
+<button id="muteBtn" class="mute-btn">🔊</button>
+
+<!-- ================= NAV ================= -->
+<button id="backBtn" class="back-btn">←</button>
+
+<!-- ================= SCENES ================= -->
+
+<!-- 🔐 SCENE 0: LOGIN -->
 <section class="scene active" id="scene-0">
-  <div class="glass-card">
+  <div class="login-card">
     <h1>Hello 🌸</h1>
     <p>This space opens only for one special person</p>
     <input id="nameInput" placeholder="Enter your name…" />
@@ -37,15 +69,35 @@
   </div>
 </section>
 
+<!-- 💖 SCENE 1: HERO -->
 <section class="scene" id="scene-1">
-  <h1 class="hero-title">Sanjana <span>❤️</span> KP</h1>
-  <p class="hero-sub">This isn’t a website. This is my heart.</p>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span>Sanjana</span>
+      <span class="heart">❤️</span>
+      <span>KP</span>
+    </h1>
+    <p class="hero-sub">
+      Happy Valentine’s Day<br>
+      This is not a website — this is my heart.
+    </p>
+    <button class="primary" onclick="nextScene()">Begin</button>
+  </div>
+</section>
+
+<!-- 🌸 SCENE 2: INTRO / PAUSE -->
+<section class="scene" id="scene-2">
+  <p class="whisper">
+    Some stories are not rushed.<br>
+    They are felt… slowly.
+  </p>
   <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
-<section class="scene scrollable" id="scene-2">
+<!-- 📖 SCENE 3: STORY (SCROLLABLE, UNTOUCHED TEXT) -->
+<section class="scene scrollable" id="scene-3">
   <div class="story-wrapper">
-    <div class="story-box">
+    <div class="story-card">
 <pre>
 Hi, Nanna Preethiya hendatige ninna gandan kade inda Happy Valentine's Day 💌 
 
@@ -60,39 +112,47 @@ Yellinda start madbeku gottagtilla but I've to start,
 Nange ondu hemme ide Nanu ninna select madi madve agidke namma appa amma proud agtare anta and avre heltare like, nave hudugi huduki select madidre kanaka ga inta hudugi hudkoke agta irlilla anta because astondu ollevla na nane select madini 😊
 
 
-One of the best night andre nange 1st jan 2026 year night, I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide, and unexpectedly that kiss will be my best ever kiss agutte and nanu lifelong mariyalla adanna, hinge yella year nu end agli and start agli till my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona, like ninu helidange Kerala or bere yalladru hogi alli celebration madona, nange ottinalli ninu irbeku nanna jote aste sak
+One of the best night andre nange 1st jan 2026 year night,  I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide, and unexpectedly that kiss will be my best ever kiss agutte and nanu lifelong mariyalla adanna, hinge yella year nu end agli and start agli till my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona, like ninu helidange Kerala or bere yalladru hogi alli celebration madona, nange ottinalli ninu irbeku nanna jote aste sak
 
 
-En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide and adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise 🥺, just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2–3 months nalle maneli heltini and adastu bega namma manege baroke ready agu, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu
+En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide and adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise 🥺, just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu
 </pre>
     </div>
   </div>
   <button class="primary" onclick="nextScene()">Continue</button>
 </section>
 
-<section class="scene" id="scene-3">
-  <h2>Our Memories 💖</h2>
+<!-- 🖼️ SCENE 4: PHOTOS (SLOW, HEAVY LOGIC IN JS) -->
+<section class="scene" id="scene-4">
+  <h2 class="section-title">Our Memories 💖</h2>
   <div id="photoStage"></div>
+  <div id="photoGrid" class="photo-grid"></div>
   <button class="primary" id="photoNextBtn" disabled onclick="nextScene()">Continue</button>
 </section>
 
-<section class="scene" id="scene-4">
+<!-- 💍 SCENE 5: PROPOSAL -->
+<section class="scene proposal" id="scene-5">
   <h2>My Promise 💍</h2>
   <p class="proposal-text">
+    Sanjana,<br><br>
     I want to walk you into my home,<br>
     stand with you in front of my family,<br>
     and build our forever together.<br><br>
     Will you marry me?
   </p>
-  <button class="primary" onclick="nextScene()">Yes ❤️</button>
-</section>
-
-<section class="scene" id="scene-5">
-  <div class="letter">
-    Always yours,<br>KP ❤️
+  <div class="proposal-actions">
+    <button class="primary" onclick="nextScene()">Yes ❤️</button>
+    <button class="primary" onclick="nextScene()">Always ❤️</button>
   </div>
 </section>
 
-<script src="script.js"></script>
+<!-- 💌 SCENE 6: END -->
+<section class="scene" id="scene-6">
+  <div class="letter">
+    <p>Always yours,<br>KP ❤️</p>
+  </div>
+</section>
+
+<script src="./script.js"></script>
 </body>
 </html>
