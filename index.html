@@ -1,108 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Only For You ❤️</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;600&family=Dancing+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Only For You 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- BACKGROUND -->
+<!-- Background -->
 <div id="bg-valentine"></div>
 <div id="bg-hearts-layer"></div>
 
-<!-- MUSIC -->
-<audio id="bgMusic" src="./music/story.mp3" loop></audio>
-<button id="muteBtn" class="mute-btn">🔊</button>
-<button id="backBtn" class="back-btn">←</button>
+<!-- UI Controls -->
+<button class="back-btn" id="backBtn" style="display:none;">←</button>
+<button class="mute-btn" id="muteBtn">🔊</button>
 
-<!-- ================= SCENES ================= -->
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+  <source src="./music/intro.mp3" type="audio/mpeg">
+</audio>
 
-<!-- LOGIN -->
-<section class="scene active">
+<!-- LOGIN SCENE -->
+<div class="scene active">
   <div class="login-glow"></div>
-
   <div class="login-card">
-    <h1 class="login-title">
-      Hey you…
-      <span>I made something, hoping it’s you.</span>
-    </h1>
-
-    <input
-      id="nameInput"
-      class="login-input"
-      placeholder="Say my favourite name"
-      autocomplete="off"
-    />
-
-    <p id="error" class="login-error"></p>
-
-    <button class="primary" onclick="unlock()">Let me in ❤️</button>
+    <h1 style="margin-bottom:12px; font-size:2rem; color:#ff3d7f;">Hey you... I made something, hoping it's you.</h1>
+    <p style="margin-bottom:24px; color:#777; font-size:0.95rem;">Say my favourite name</p>
+    <input 
+      type="text" 
+      id="nameInput" 
+      placeholder="Type the name..." 
+      style="width:100%; padding:14px; border-radius:12px; border:2px solid #ffc0d0; font-size:1rem; margin-bottom:10px; outline:none; transition:0.3s;"
+      onfocus="this.style.borderColor='#ff6b9c'"
+      onblur="this.style.borderColor='#ffc0d0'"
+    >
+    <p id="error" style="color:#ff3d7f; font-size:0.9rem; min-height:20px; margin-bottom:16px;"></p>
+    <button class="primary" onclick="unlock()">Let me in 💕</button>
   </div>
+</div>
 
-  <div id="login-popup" class="login-popup">
-    <div class="popup-card">
-      <p class="popup-text">
-        Of course it’s you, Sanjana.<br>
-        I was waiting.
-      </p>
+<!-- LOGIN SUCCESS POPUP -->
+<div class="login-popup" id="login-popup">
+  <div class="popup-card">
+    <h2 style="font-size:2.2rem; margin-bottom:16px; color:#ff3d7f;">Of course it's you, Sanjana.</h2>
+    <p style="font-size:1.1rem; color:#555;">I was waiting.</p>
+  </div>
+</div>
+
+<!-- HOME -->
+<div class="scene hero-scene">
+  <!-- Floating Hearts Graphics -->
+  <div class="hero-heart hero-heart-1">💕</div>
+  <div class="hero-heart hero-heart-2">💗</div>
+  <div class="hero-heart hero-heart-3">💖</div>
+  <div class="hero-heart hero-heart-4">❤️</div>
+  <div class="hero-heart hero-heart-5">💝</div>
+  
+  <!-- Light Particles -->
+  <div class="particle particle-1"></div>
+  <div class="particle particle-2"></div>
+  <div class="particle particle-3"></div>
+  <div class="particle particle-4"></div>
+  <div class="particle particle-5"></div>
+  <div class="particle particle-6"></div>
+  
+  <!-- Glow Effect -->
+  <div class="hero-glow"></div>
+  
+  <!-- Main Content -->
+  <div class="hero-content">
+    <div class="hero-date">February 14, 2026</div>
+    
+    <h1 class="hero-title">
+      Happy Valentine's Day<br>
+      <span class="hero-name">Sanju</span> 💖
+    </h1>
+    
+    <p class="hero-sub">
+      This didn't start as a plan.<br>
+      It started as a feeling...<br>
+      and somehow, it became <strong>us</strong>.<br><br>
+      Today, I want to take you through<br>
+      the most beautiful journey of my life —<br>
+      <em>our story, our memories, our forever.</em>
+    </p>
+    
+    <button class="primary pulse" onclick="nextScene()">
+      Begin Our Story ✨
+    </button>
+    
+    <!-- Bottom Signature -->
+    <div class="hero-signature">
+      <span class="sig-name">Sanjana</span>
+      <span class="sig-heart">❤️</span>
+      <span class="sig-name">KP</span>
     </div>
   </div>
-</section>
-
-<!-- HERO / HOME -->
-<section class="scene hero-scene">
-
-  <!-- FLOATING HEARTS -->
-  <div class="floating-hearts">
-    <span>❤️</span>
-    <span>💖</span>
-    <span>💗</span>
-    <span>❤️</span>
-    <span>💞</span>
-    <span>❤️</span>
-  </div>
-
-  <h1 class="hero-title">
-    Sanjana <span class="heart">❤️</span> KP
-  </h1>
-
-  <p class="hero-sub">
-    This didn’t start as a plan.<br>
-    It started as a feeling…<br>
-    and somehow, it became <b>us</b>.
-  </p>
-
-  <button class="primary pulse" onclick="nextScene()">Let me show you</button>
-</section>
+</div>
 
 <!-- STORY -->
-<section class="scene scrollable">
-  <div id="story-container"></div>
-  <button class="primary" onclick="nextScene()">Continue</button>
-</section>
+<div class="scene scrollable">
+  <div class="story-card" id="story-container">
+    <!-- Loaded from partials/story.html -->
+  </div>
+  <button class="primary" onclick="nextScene()" style="margin-top:30px;">Continue 💖</button>
+</div>
 
-<!-- MEMORIES -->
-<section class="scene">
-  <div id="memories-container"></div>
-  <button id="photoNextBtn" class="primary" disabled onclick="nextScene()">Continue</button>
-</section>
+<!-- PHOTOS / MEMORIES -->
+<div class="scene scrollable">
+  <h2 style="font-size:2.5rem; margin-bottom:30px;">Our Beautiful Memories 📸</h2>
+  <div id="photoStage" style="display:flex; justify-content:center; margin-bottom:40px;"></div>
+  <div id="photoGrid" class="photo-grid"></div>
+  <button class="primary" id="photoNextBtn" onclick="nextScene()" disabled style="margin-top:40px; opacity:0.5;">Next 💕</button>
+</div>
 
 <!-- PROPOSAL -->
-<section class="scene">
-  <h2>My Promise 💍</h2>
-  <p>Will you marry me?</p>
-  <button class="primary" onclick="nextScene()">Yes ❤️</button>
-</section>
+<div class="scene">
+  <h1 style="font-size:3rem; margin-bottom:30px;">Will You Marry Me? 💍</h1>
+  <p style="font-size:1.3rem; max-width:600px; line-height:1.9; margin-bottom:40px;">
+    Sanjana, I want to spend every Valentine's Day, every moment, every breath with you.
+    Will you be my forever?
+  </p>
+  <button class="primary" onclick="nextScene()">Yes, Always 💖</button>
+</div>
 
 <!-- LETTER -->
-<section class="scene">
-  <div id="letter-container"></div>
-</section>
+<div class="scene">
+  <div id="letter-container" class="letter">
+    <!-- Loaded from partials/letter.html -->
+  </div>
+</div>
 
-<script src="./script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

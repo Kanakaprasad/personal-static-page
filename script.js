@@ -1,4 +1,5 @@
 const SECRET = "sanjana";
+
 let current = 0;
 
 const scenes = document.querySelectorAll(".scene");
@@ -19,6 +20,7 @@ async function load(id, file) {
   document.getElementById(id).innerHTML =
     await fetch(file).then(r => r.text());
 }
+
 load("story-container", "./partials/story.html");
 load("memories-container", "./partials/memories.html");
 load("letter-container", "./partials/letter.html");
@@ -35,29 +37,28 @@ function showScene(i) {
 function nextScene() {
   if (current < scenes.length - 1) showScene(current + 1);
 }
+
 function prevScene() {
   if (current > 0) showScene(current - 1);
 }
+
 backBtn.onclick = prevScene;
 
 /* LOGIN FLOW */
 function unlock() {
   const v = nameInput.value.trim().toLowerCase();
   const error = document.getElementById("error");
-
   if (v === SECRET) {
     error.innerText = "";
     music.volume = 0.35;
     music.play().catch(() => {});
     popup.classList.add("show");
-
     setTimeout(() => {
       popup.classList.remove("show");
       showScene(1);
     }, 2600);
-
   } else {
-    error.innerText = "Hmm… this isn’t meant for you 🙂";
+    error.innerText = "Hmm… this isn't meant for you 🙂";
   }
 }
 
@@ -87,6 +88,7 @@ const photos = [
 ];
 
 let p = 0;
+
 function startPhotoSequence() {
   const stage = document.getElementById("photoStage");
   const grid = document.getElementById("photoGrid");
@@ -99,6 +101,7 @@ function startPhotoSequence() {
       document.getElementById("photoNextBtn").disabled = false;
       return;
     }
+
     const img = new Image();
     img.src = photos[p];
     img.className = "stage-photo";
@@ -109,12 +112,13 @@ function startPhotoSequence() {
       setTimeout(() => {
         const card = document.createElement("div");
         card.className = "photo-card";
-        card.innerHTML = `<img src="${photos[p]}">`;
+        card.innerHTML = `<img src="${photos[p]}" style="width:100%; border-radius:12px;">`;
         grid.appendChild(card);
         p++;
         next();
       }, 1500);
     }, 3000);
   }
+
   next();
 }
