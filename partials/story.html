@@ -7,6 +7,10 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #ffe5ec 0%, #ffd6e0 25%, #ffe9ef 50%, #fff0f3 75%, #ffe5ec 100%);
@@ -16,7 +20,7 @@
             overflow-y: auto;
             position: relative;
             min-height: 100vh;
-            padding: 40px 20px 60px 20px;
+            padding: 30px 20px 60px 20px;
         }
 
         @keyframes gradientShift {
@@ -69,14 +73,15 @@
         /* Greeting Header */
         .greeting-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
+            margin-top: 20px;
             animation: fadeInDown 1.5s ease;
             position: relative;
         }
 
         .greeting-title {
             font-family: 'Playfair Display', serif;
-            font-size: 3.8rem;
+            font-size: 3.5rem;
             background: linear-gradient(135deg, #ff3d7f 0%, #ff6b9c 50%, #ff3d7f 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -348,7 +353,12 @@
         /* Responsive */
         @media (max-width: 768px) {
             body {
-                padding: 20px 15px 40px 15px;
+                padding: 20px 15px 50px 15px;
+            }
+
+            .greeting-header {
+                margin-top: 10px;
+                margin-bottom: 40px;
             }
 
             .story-card {
@@ -356,7 +366,7 @@
             }
 
             .greeting-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
 
             .greeting-subtitle {
@@ -431,6 +441,18 @@
     </div>
 
     <script>
+        // Force scroll to top on page load
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        });
+
+        // Also ensure scroll to top immediately
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
         // Create floating hearts
         const heartsContainer = document.getElementById('heartsBackground');
         const heartEmojis = ['❤️', '💕', '💖', '💗', '💓', '💝'];
