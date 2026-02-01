@@ -1,4 +1,3 @@
-/* ===================== ORIGINAL CSS (UNCHANGED) ===================== */
 * { box-sizing: border-box; }
 
 html, body {
@@ -92,41 +91,6 @@ html, body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.login-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.1rem;
-  margin-bottom: 24px;
-}
-
-.login-title span {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 400;
-  margin-top: 10px;
-  opacity: 0.85;
-}
-
-.login-input {
-  width: 100%;
-  padding: 16px;
-  border-radius: 16px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  outline: none;
-  margin-bottom: 18px;
-}
-
-.login-input:focus {
-  border-color: #ff6b9c;
-  box-shadow: 0 0 0 3px rgba(255,107,156,0.25);
-}
-
-.login-error {
-  min-height: 18px;
-  color: #ff4d6d;
-  font-size: 0.9rem;
-}
-
 /* BUTTON */
 .primary {
   padding: 14px 28px;
@@ -207,55 +171,108 @@ html, body {
   font-size: 2.5rem;
 }
 
-/* ===================== NEW ADDITION – FLOATING NAME WHISPERS ===================== */
+/* ================= HERO / HOME – FIXED FLOATING NAMES ================= */
 
-/* container (no HTML needed) */
 .hero-scene {
   position: relative;
   overflow: hidden;
 }
 
-/* individual floating names */
-.hero-scene::before,
-.hero-scene::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* left side names */
+/* LEFT STREAM */
 .hero-scene::before {
-  content: "Sanju 💖  Sanji ✨  Dear 🌸  Sanjana ❤️  My Dear 💕";
+  content: "Sanju 💖   Sanji ✨   Dear 🌸   Sanjana ❤️";
+  position: absolute;
+  bottom: -40%;
+  left: 8%;
   font-family: 'Dancing Script', cursive;
   font-size: 1.4rem;
   color: rgba(255,90,130,0.18);
-  position: absolute;
-  left: 8%;
-  bottom: -30%;
   white-space: nowrap;
-  animation: floatLeftNames 36s linear infinite;
+  animation: floatLeft 36s linear infinite;
+  pointer-events: none;
 }
 
-/* right side names */
+/* RIGHT STREAM */
 .hero-scene::after {
-  content: "Hendti 🥺❤️  Bangara  Chinni  Darling  SanKP";
+  content: "My Dear 💕   Hendti 🥺❤️   Bangara   Chinni   Darling   SanKP";
+  position: absolute;
+  bottom: -60%;
+  left: 65%;
   font-family: 'Dancing Script', cursive;
   font-size: 1.5rem;
-  color: rgba(255,90,130,0.16);
-  position: absolute;
-  left: 65%;
-  bottom: -40%;
+  color: rgba(255,90,130,0.15);
   white-space: nowrap;
-  animation: floatRightNames 30s linear infinite;
+  animation: floatRight 30s linear infinite;
+  pointer-events: none;
 }
 
-@keyframes floatLeftNames {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-160vh); }
+/* CENTER RANDOM STREAM */
+.hero-title::before {
+  content: "Sanju 💖   Sanjana ❤️   My Dear 💕";
+  position: absolute;
+  bottom: -80%;
+  left: -120%;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  color: rgba(255,90,130,0.12);
+  white-space: nowrap;
+  animation: floatCenter 42s linear infinite;
+  pointer-events: none;
 }
 
-@keyframes floatRightNames {
+@keyframes floatLeft {
   from { transform: translateY(0); }
-  to   { transform: translateY(-180vh); }
+  to { transform: translateY(-170vh); }
+}
+
+@keyframes floatRight {
+  from { transform: translateY(0); }
+  to { transform: translateY(-190vh); }
+}
+
+@keyframes floatCenter {
+  from { transform: translate(0, 0); }
+  to { transform: translate(120vw, -180vh); }
+}
+
+/* Hero title */
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  animation: titleReveal 1.8s ease forwards;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes titleReveal {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero sub text */
+.hero-sub {
+  max-width: 520px;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: subReveal 2.4s ease forwards;
+  z-index: 2;
+}
+
+@keyframes subReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CTA pulse */
+.primary.pulse {
+  animation: pulse 2.2s infinite;
+  z-index: 2;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.06); }
 }
