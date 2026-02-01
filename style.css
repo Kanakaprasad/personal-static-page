@@ -575,7 +575,7 @@ html, body {
   align-items: center;
   justify-content: center;
   max-width: 700px;
-  padding: 10px 25px 20px;
+  padding: 8px 25px 18px;
   margin: 0 auto;
   height: 100%;
 }
@@ -586,7 +586,7 @@ html, body {
   font-size: 1.05rem;
   font-style: italic;
   color: rgba(80,80,80,0.9);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   opacity: 0;
   animation: quoteFadeIn 2s ease forwards 0.2s;
   text-align: center;
@@ -621,7 +621,7 @@ html, body {
   animation: signatureFadeIn 2s ease forwards 0.8s;
   opacity: 0;
   z-index: 10;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   position: relative;
 }
 
@@ -687,8 +687,8 @@ html, body {
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-weight: 900;
-  font-size: 3rem;
-  margin-bottom: 18px;
+  font-size: 2.8rem;
+  margin-bottom: 14px;
   letter-spacing: 1.5px;
   position: relative;
   z-index: 2;
@@ -731,7 +731,7 @@ html, body {
 
 .hero-name {
   color: #ff3d7f;
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   display: inline-block;
   animation: nameRevealGlow 1.5s ease forwards 2s, nameGlow 3s ease-in-out infinite 3.5s;
   opacity: 0;
@@ -739,11 +739,23 @@ html, body {
   letter-spacing: 2px;
 }
 
+/* Special styling for "Sanju" - more adorable and stylish */
+.hero-name-special {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #ff3d7f 0%, #ff6b9c 50%, #ff3d7f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 15px rgba(255,90,140,0.5));
+}
+
 .name-accent {
   display: inline-block;
-  font-size: 3rem;
+  font-size: 2.8rem;
   margin-left: 8px;
-  animation: accentPop 0.6s ease forwards 2.8s;
+  animation: accentPop 0.6s ease forwards 2.8s, heartPulseAccent 2s ease-in-out infinite 4s;
   opacity: 0;
   transform: scale(0);
 }
@@ -754,6 +766,11 @@ html, body {
   100% { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
+@keyframes heartPulseAccent {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(5deg); }
+}
+
 @keyframes nameRevealGlow {
   from { opacity: 0; transform: translateY(30px) scale(0.85); }
   to { opacity: 1; transform: translateY(0) scale(1); }
@@ -761,24 +778,20 @@ html, body {
 
 @keyframes nameGlow {
   0%, 100% { 
-    text-shadow: 0 0 20px rgba(255,60,120,0.5),
-                 0 0 40px rgba(255,60,120,0.3),
-                 0 4px 20px rgba(255,90,140,0.4);
+    filter: drop-shadow(0 0 15px rgba(255,90,140,0.5));
   }
   50% { 
-    text-shadow: 0 0 30px rgba(255,60,120,0.8),
-                 0 0 50px rgba(255,60,120,0.5),
-                 0 0 60px rgba(255,60,120,0.3),
-                 0 6px 25px rgba(255,90,140,0.6);
+    filter: drop-shadow(0 0 25px rgba(255,90,140,0.8))
+            drop-shadow(0 0 35px rgba(255,60,120,0.6));
   }
 }
 
 /* Enhanced Subtitle with Line-by-Line Animation */
 .hero-sub {
-  max-width: 600px;
-  font-size: 1rem;
-  line-height: 1.75;
-  margin-bottom: 20px;
+  max-width: 620px;
+  font-size: 0.96rem;
+  line-height: 1.7;
+  margin-bottom: 16px;
   z-index: 2;
   color: #4a4a4a;
 }
@@ -795,8 +808,15 @@ html, body {
 .sub-line-4 { animation: lineReveal 0.8s ease forwards 3.2s; }
 .sub-line-5 { animation: lineReveal 0.8s ease forwards 3.4s; }
 .sub-line-6 { animation: lineReveal 0.8s ease forwards 3.6s; }
+.sub-line-7 { animation: lineReveal 0.8s ease forwards 3.9s; }
+.sub-line-8 { animation: lineReveal 0.8s ease forwards 4.1s; }
+.sub-line-9 { animation: lineReveal 0.8s ease forwards 4.3s; }
 
 .sub-spacer {
+  margin-top: 8px;
+}
+
+.sub-spacer-2 {
   margin-top: 10px;
 }
 
@@ -819,7 +839,7 @@ html, body {
 
 /* Button with Shimmer Effect */
 .hero-cta-btn {
-  animation: btnReveal 1.2s ease forwards 4s, pulseEnhanced 2.5s ease-in-out infinite 5.5s;
+  animation: btnReveal 1.2s ease forwards 4.8s, pulseEnhanced 2.5s ease-in-out infinite 6.3s;
   z-index: 50;
   font-size: 1rem;
   padding: 14px 36px;
@@ -834,7 +854,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .btn-shimmer {
@@ -844,7 +864,7 @@ html, body {
   width: 50%;
   height: 200%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  animation: shimmer 3s infinite 5s;
+  animation: shimmer 3s infinite 6.3s;
   transform: skewX(-25deg);
 }
 
@@ -861,7 +881,7 @@ html, body {
 .btn-icon {
   position: relative;
   z-index: 2;
-  animation: iconSpin 2s ease-in-out infinite 5.5s;
+  animation: iconSpin 2s ease-in-out infinite 6.8s;
 }
 
 @keyframes iconSpin {
@@ -893,10 +913,10 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  margin-top: 12px;
+  gap: 4px;
+  margin-top: 10px;
   opacity: 0;
-  animation: hintFadeIn 1.5s ease forwards 5s;
+  animation: hintFadeIn 1.5s ease forwards 5.5s;
   margin-bottom: 0px;
 }
 
@@ -909,7 +929,7 @@ html, body {
 
 .hint-arrow {
   font-size: 1.4rem;
-  animation: arrowBounce 2s ease-in-out infinite 6s;
+  animation: arrowBounce 2s ease-in-out infinite 6.5s;
   color: rgba(255,90,140,0.7);
 }
 
@@ -930,13 +950,13 @@ html, body {
   }
   
   .opening-quote {
-    font-size: 0.95rem;
-    margin-bottom: 10px;
+    font-size: 0.92rem;
+    margin-bottom: 8px;
   }
   
   .hero-title {
-    font-size: 2.2rem;
-    margin-bottom: 14px;
+    font-size: 2rem;
+    margin-bottom: 10px;
   }
   
   .title-word {
@@ -944,22 +964,22 @@ html, body {
   }
   
   .hero-name {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
   }
   
   .name-accent {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
   
   .hero-sub {
-    font-size: 0.92rem;
-    line-height: 1.65;
-    margin-bottom: 16px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 14px;
   }
   
   .hero-signature {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
   }
   
   .hero-cta-btn {
@@ -976,37 +996,15 @@ html, body {
   }
 }
 
-@media (max-height: 700px) {
+@media (max-height: 750px) {
   .hero-content {
-    transform: scale(0.92);
+    transform: scale(0.88);
   }
-  
-  .opening-quote {
-    font-size: 0.9rem;
-    margin-bottom: 8px;
-  }
-  
-  .hero-title {
-    font-size: 2.4rem;
-    margin-bottom: 14px;
-  }
-  
-  .hero-name {
-    font-size: 3rem;
-  }
-  
-  .hero-sub {
-    font-size: 0.95rem;
-    margin-bottom: 16px;
-  }
-  
-  .hero-signature {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-  }
-  
-  .curiosity-hint {
-    margin-top: 10px;
+}
+
+@media (max-height: 650px) {
+  .hero-content {
+    transform: scale(0.78);
   }
 }
 
