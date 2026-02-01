@@ -1,3 +1,4 @@
+/* ===================== ORIGINAL CSS (UNCHANGED) ===================== */
 * { box-sizing: border-box; }
 
 html, body {
@@ -206,80 +207,55 @@ html, body {
   font-size: 2.5rem;
 }
 
-/* ================= HERO / HOME – EMOTIONAL UPGRADE (ADDED) ================= */
+/* ===================== NEW ADDITION – FLOATING NAME WHISPERS ===================== */
 
+/* container (no HTML needed) */
 .hero-scene {
   position: relative;
   overflow: hidden;
 }
 
-/* Floating romantic names */
-.hero-scene::before {
-  content:
-    "Sanju 💖\A Sanji ✨\A Dear 🌸\A Sanjana ❤️\A My Dear 💕\A Hendti 🥺❤️\A Bangara\A Chinni\A Darling\A SanKP";
-  white-space: pre;
+/* individual floating names */
+.hero-scene::before,
+.hero-scene::after {
+  content: "";
   position: absolute;
-  bottom: -70%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.6rem;
-  line-height: 2.3;
-  color: rgba(255, 90, 130, 0.18);
-  animation: namesFloat 32s linear infinite;
+  inset: 0;
   pointer-events: none;
-  z-index: 1;
 }
 
-@keyframes namesFloat {
-  from { transform: translate(-50%, 0); }
-  to { transform: translate(-50%, -150vh); }
+/* left side names */
+.hero-scene::before {
+  content: "Sanju 💖  Sanji ✨  Dear 🌸  Sanjana ❤️  My Dear 💕";
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: rgba(255,90,130,0.18);
+  position: absolute;
+  left: 8%;
+  bottom: -30%;
+  white-space: nowrap;
+  animation: floatLeftNames 36s linear infinite;
 }
 
-/* Hero title */
-.hero-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  margin-bottom: 20px;
-  letter-spacing: 3px;
-  animation: titleReveal 1.8s ease forwards;
-  z-index: 2;
+/* right side names */
+.hero-scene::after {
+  content: "Hendti 🥺❤️  Bangara  Chinni  Darling  SanKP";
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  color: rgba(255,90,130,0.16);
+  position: absolute;
+  left: 65%;
+  bottom: -40%;
+  white-space: nowrap;
+  animation: floatRightNames 30s linear infinite;
 }
 
-@keyframes titleReveal {
-  from { opacity: 0; transform: translateY(25px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes floatLeftNames {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-160vh); }
 }
 
-/* Hero sub text */
-.hero-sub {
-  max-width: 520px;
-  font-size: 1.15rem;
-  line-height: 1.9;
-  margin-bottom: 30px;
-  opacity: 0;
-  animation: subReveal 2.4s ease forwards;
-  z-index: 2;
-}
-
-@keyframes subReveal {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* CTA pulse */
-.primary.pulse {
-  animation: pulse 2.2s infinite;
-  z-index: 2;
-}
-
-@keyframes pulse {
-  50% { transform: scale(1.06); }
-}
-
-.hero-title,
-.hero-sub,
-.hero-scene .primary {
-  position: relative;
-  z-index: 2;
+@keyframes floatRightNames {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-180vh); }
 }
