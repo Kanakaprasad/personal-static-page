@@ -7,7 +7,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        #story-container {
+        body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #ffe5ec 0%, #ffd6e0 25%, #ffe9ef 50%, #fff0f3 75%, #ffe5ec 100%);
             background-size: 400% 400%;
@@ -58,7 +58,7 @@
         }
 
         /* Container */
-        .story-container-inner {
+        .story-container {
             position: relative;
             z-index: 1;
             max-width: 900px;
@@ -69,7 +69,7 @@
         .greeting-header {
             text-align: center;
             margin-bottom: 50px;
-            animation: fadeInDown 1.2s ease;
+            animation: fadeInDown 1.5s ease;
         }
 
         .greeting-title {
@@ -100,22 +100,20 @@
             50% { transform: scale(1); }
         }
 
-        /* Story Cards */
-        .story-section {
+        /* Single Story Card */
+        .story-card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 30px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 15px 50px rgba(255, 90, 140, 0.2);
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(255, 90, 140, 0.25);
             border: 2px solid rgba(255, 140, 180, 0.3);
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 1s ease;
-            animation-fill-mode: both;
+            animation: fadeInUp 2s ease;
         }
 
-        .story-section::before {
+        .story-card::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -123,7 +121,7 @@
             width: 200%;
             height: 200%;
             background: radial-gradient(circle, rgba(255, 90, 140, 0.08), transparent 70%);
-            animation: rotateGlow 20s linear infinite;
+            animation: rotateGlow 25s linear infinite;
             pointer-events: none;
         }
 
@@ -131,16 +129,10 @@
             to { transform: rotate(360deg); }
         }
 
-        .story-section:nth-child(2) { animation-delay: 0.2s; }
-        .story-section:nth-child(3) { animation-delay: 0.4s; }
-        .story-section:nth-child(4) { animation-delay: 0.6s; }
-        .story-section:nth-child(5) { animation-delay: 0.8s; }
-        .story-section:nth-child(6) { animation-delay: 1s; }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -159,55 +151,41 @@
             }
         }
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
+        /* Story Content */
+        .story-content {
             position: relative;
             z-index: 1;
-        }
-
-        .section-icon {
-            font-size: 2rem;
-            animation: iconFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes iconFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(10deg); }
-        }
-
-        .section-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: #ff3d7f;
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(255, 90, 140, 0.3);
-        }
-
-        .section-content {
-            position: relative;
-            z-index: 1;
-            line-height: 1.9;
+            line-height: 2;
             color: #4a4a4a;
             font-size: 1.05rem;
         }
 
         .story-paragraph {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             opacity: 0;
-            animation: fadeIn 1s ease forwards;
+            animation: fadeInText 1.5s ease forwards;
         }
 
-        .story-paragraph:nth-child(1) { animation-delay: 0.3s; }
-        .story-paragraph:nth-child(2) { animation-delay: 0.5s; }
-        .story-paragraph:nth-child(3) { animation-delay: 0.7s; }
-        .story-paragraph:nth-child(4) { animation-delay: 0.9s; }
+        .story-paragraph:nth-child(1) { animation-delay: 0.5s; }
+        .story-paragraph:nth-child(2) { animation-delay: 1s; }
+        .story-paragraph:nth-child(3) { animation-delay: 1.5s; }
+        .story-paragraph:nth-child(4) { animation-delay: 2s; }
+        .story-paragraph:nth-child(5) { animation-delay: 2.5s; }
+        .story-paragraph:nth-child(6) { animation-delay: 3s; }
+        .story-paragraph:nth-child(7) { animation-delay: 3.5s; }
+        .story-paragraph:nth-child(8) { animation-delay: 4s; }
+        .story-paragraph:nth-child(9) { animation-delay: 4.5s; }
+        .story-paragraph:nth-child(10) { animation-delay: 5s; }
 
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .highlight {
@@ -227,8 +205,11 @@
 
         .divider {
             text-align: center;
-            margin: 30px 0;
+            margin: 35px 0;
             position: relative;
+            opacity: 0;
+            animation: fadeInText 1.5s ease forwards;
+            animation-delay: 1.5s;
         }
 
         .divider-line {
@@ -239,14 +220,14 @@
 
         .divider-heart {
             display: inline-block;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: #ff6b9c;
-            animation: heartPulse 2s ease-in-out infinite;
+            animation: heartPulse 2.5s ease-in-out infinite;
         }
 
         @keyframes heartPulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
+            50% { transform: scale(1.4); }
         }
 
         /* Emoji Decorations */
@@ -258,27 +239,36 @@
 
         /* Promise Box */
         .promise-box {
-            background: linear-gradient(135deg, rgba(255, 107, 156, 0.1), rgba(255, 61, 127, 0.1));
-            border-left: 4px solid #ff3d7f;
-            padding: 20px;
+            background: linear-gradient(135deg, rgba(255, 107, 156, 0.12), rgba(255, 61, 127, 0.12));
+            border-left: 5px solid #ff3d7f;
+            padding: 25px;
             border-radius: 15px;
-            margin: 25px 0;
+            margin: 30px 0;
             position: relative;
             z-index: 1;
+            opacity: 0;
+            animation: fadeInText 1.5s ease forwards;
+            animation-delay: 3s;
         }
 
         .promise-box p {
-            margin: 10px 0;
+            margin: 12px 0;
             font-style: italic;
             color: #666;
+            line-height: 1.8;
+        }
+
+        .promise-box strong {
+            color: #ff3d7f;
+            font-size: 1.1rem;
         }
 
         /* Sparkles */
         .sparkle {
             position: absolute;
-            font-size: 1rem;
+            font-size: 1.2rem;
             opacity: 0;
-            animation: sparkleAnim 2s ease-in-out infinite;
+            animation: sparkleAnim 3s ease-in-out infinite;
             pointer-events: none;
         }
 
@@ -288,19 +278,19 @@
                 transform: scale(0.5) rotate(0deg);
             }
             50% {
-                opacity: 0.8;
-                transform: scale(1.2) rotate(180deg);
+                opacity: 0.9;
+                transform: scale(1.3) rotate(180deg);
             }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            #story-container {
+            body {
                 padding: 20px 15px;
             }
 
-            .story-section {
-                padding: 25px 20px;
+            .story-card {
+                padding: 30px 25px;
             }
 
             .greeting-title {
@@ -311,12 +301,13 @@
                 font-size: 1.3rem;
             }
 
-            .section-title {
-                font-size: 1.5rem;
+            .story-content {
+                font-size: 0.95rem;
+                line-height: 1.8;
             }
 
-            .section-content {
-                font-size: 0.95rem;
+            .story-paragraph {
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -325,7 +316,7 @@
     <!-- Floating Hearts Background -->
     <div class="hearts-bg" id="heartsBackground"></div>
 
-    <div class="story-container-inner">
+    <div class="story-container">
         <!-- Greeting Header -->
         <div class="greeting-header">
             <h1 class="greeting-title">
@@ -334,101 +325,59 @@
             <p class="greeting-subtitle">Let's start my one of the best chapter in my life</p>
         </div>
 
-        <!-- Opening Section -->
-        <div class="story-section">
-            <div class="section-header">
-                <span class="section-icon">💕</span>
-                <h2 class="section-title">The Beginning of Us</h2>
-                <span class="section-icon">💕</span>
-            </div>
-            <div class="section-content">
+        <!-- Single Story Card with All Content -->
+        <div class="story-card">
+            <div class="story-content">
                 <p class="story-paragraph">
                     And ninu nanna life ge bandiddu and ninna love madidde nange <span class="highlight">best ever experience and feeling</span> <span class="emoji-accent">😊</span>
                 </p>
-            </div>
-        </div>
 
-        <!-- December 21st - The Day That Changed Everything -->
-        <div class="story-section">
-            <div class="section-header">
-                <span class="section-icon">📅</span>
-                <h2 class="section-title">The Day Everything Changed</h2>
-                <span class="section-icon">✨</span>
-            </div>
-            <div class="section-content">
-                <p class="story-paragraph">
-                    Yellinda start madbeku gottagtilla but I've to start...
-                </p>
                 <div class="divider">
                     <div class="divider-line"></div>
                     <span class="divider-heart">❤️</span>
                     <div class="divider-line"></div>
                 </div>
+
                 <p class="story-paragraph">
-                    <span class="date-highlight">21st Dec</span>, date will be day to remember forever, that's the day we've to decided to leave together forever and that's the day navu ibru madve ago plan madiddu, that's day nanu obne allade nangu ondu family ide anta adanna taleli itkondu yelladannu vichar madok start madide
+                    Yellinda start madbeku gottagtilla but I've to start, <span class="date-highlight">21st Dec</span>, date will be day to remember forever, that's the day we've to decided to leave together forever and that's the day navu ibru madve ago plan madiddu, that's day nanu obne allade nangu ondu family ide anta adanna taleli itkondu yelladannu vichar madok start madide.
                 </p>
+
                 <p class="story-paragraph">
                     And avatte for the first time nanu astondu full low voice nalli and kai shake madta and bhaya dalli mathadiddu anisutte <span class="emoji-accent">😁</span>, aa tara yavattu experience agirlilla nange, thanks for the experience <span class="emoji-accent">😊</span>
                 </p>
-            </div>
-        </div>
 
-        <!-- Proud Moment -->
-        <div class="story-section">
-            <div class="section-header">
-                <span class="section-icon">🌟</span>
-                <h2 class="section-title">My Pride & Joy</h2>
-                <span class="section-icon">💖</span>
-            </div>
-            <div class="section-content">
                 <p class="story-paragraph">
                     Nange ondu hemme ide Nanu ninna select madi madve agidke namma appa amma <span class="highlight">proud agtare</span> anta and avre heltare like, nave hudugi huduki select madidre kanaka ga inta hudugi hudkoke agta irlilla anta because astondu ollevla na nane select madini <span class="emoji-accent">😊</span>
                 </p>
-            </div>
-        </div>
 
-        <!-- The Best Night - January 1st, 2026 -->
-        <div class="story-section">
-            <div class="section-header">
-                <span class="section-icon">🎆</span>
-                <h2 class="section-title">One of the Best Nights</h2>
-                <span class="section-icon">💋</span>
-            </div>
-            <div class="section-content">
                 <p class="story-paragraph">
-                    One of the best night andre nange <span class="date-highlight">1st jan 2026 year night</span>, I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide
+                    One of the best night andre nange <span class="date-highlight">1st jan 2026 year night</span>, I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide.
                 </p>
+
                 <p class="story-paragraph">
-                    And unexpectedly <span class="highlight">that kiss will be my best ever kiss agutte</span> and nanu lifelong mariyalla adanna En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide
+                    And unexpectedly <span class="highlight">that kiss will be my best ever kiss agutte</span> and nanu lifelong mariyalla adanna En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide.
                 </p>
+
                 <div class="promise-box">
                     <p><strong>My Promise:</strong></p>
-                    <p>Hinge yella year nu end agli and start agli till my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona</p>
-                    <p>Like ninu helidange Keral or bere yelladru hogi alli celebration madona, nange otnalli ninu irbeku nanna jote aste saku <span class="emoji-accent">❤️</span></p>
+                    <p>Hinge yella year nu end agli and start agli till my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona. Like ninu helidange Keral or bere yelladru hogi alli celebration madona, nange otnalli ninu irbeku nanna jote aste saku <span class="emoji-accent">❤️</span></p>
                 </div>
-            </div>
-        </div>
 
-        <!-- Future Plans -->
-        <div class="story-section">
-            <div class="section-header">
-                <span class="section-icon">💍</span>
-                <h2 class="section-title">Our Forever Together</h2>
-                <span class="section-icon">🏡</span>
-            </div>
-            <div class="section-content">
                 <p class="story-paragraph">
                     And adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise <span class="emoji-accent">🥺</span>
                 </p>
+
                 <p class="story-paragraph">
-                    Just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu
+                    Just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu.
                 </p>
+
                 <div class="divider">
                     <div class="divider-line"></div>
                     <span class="divider-heart">💑</span>
                     <div class="divider-line"></div>
                 </div>
-                <p class="story-paragraph" style="text-align: center; font-size: 1.15rem; font-style: italic; color: #ff3d7f;">
+
+                <p class="story-paragraph" style="text-align: center; font-size: 1.15rem; font-style: italic; color: #ff3d7f; margin-top: 30px;">
                     Sorry, adastu bega <span class="highlight">nimma manege baroke</span>, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu <span class="emoji-accent">❤️</span>
                 </p>
             </div>
@@ -462,18 +411,17 @@
             setTimeout(createFloatingHeart, i * 400);
         }
 
-        // Add sparkles to sections
-        document.querySelectorAll('.story-section').forEach((section, index) => {
-            for (let i = 0; i < 3; i++) {
-                const sparkle = document.createElement('div');
-                sparkle.className = 'sparkle';
-                sparkle.textContent = '✨';
-                sparkle.style.top = Math.random() * 80 + '%';
-                sparkle.style.left = Math.random() * 80 + '%';
-                sparkle.style.animationDelay = (i * 0.7) + 's';
-                section.appendChild(sparkle);
-            }
-        });
+        // Add sparkles to the card
+        const storyCard = document.querySelector('.story-card');
+        for (let i = 0; i < 8; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = '✨';
+            sparkle.style.top = Math.random() * 90 + '%';
+            sparkle.style.left = Math.random() * 90 + '%';
+            sparkle.style.animationDelay = (i * 0.5) + 's';
+            storyCard.appendChild(sparkle);
+        }
     </script>
 </body>
 </html>
