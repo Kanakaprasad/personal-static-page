@@ -191,9 +191,8 @@ html, body {
 .hero-scene {
   position: fixed;
   inset: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 30px 20px !important;
+  overflow: hidden;
+  padding: 15px 20px !important;
 }
 
 /* Romantic Overlay Filter */
@@ -574,28 +573,29 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   max-width: 700px;
-  padding: 30px 25px 50px;
-  margin: 40px auto 60px;
+  padding: 10px 25px 20px;
+  margin: 0 auto;
+  height: 100%;
 }
 
 /* Opening Quote */
 .opening-quote {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-style: italic;
   color: rgba(80,80,80,0.9);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   opacity: 0;
   animation: quoteFadeIn 2s ease forwards 0.2s;
   text-align: center;
   max-width: 550px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .quote-mark {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: rgba(255,90,140,0.5);
   font-weight: 600;
   margin: 0 5px;
@@ -616,12 +616,12 @@ html, body {
   align-items: center;
   gap: 12px;
   font-family: 'Dancing Script', cursive;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   color: rgba(255,90,140,0.9);
   animation: signatureFadeIn 2s ease forwards 0.8s;
   opacity: 0;
   z-index: 10;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   position: relative;
 }
 
@@ -654,7 +654,7 @@ html, body {
 
 .sig-heart {
   animation: heartBeat 1.5s ease-in-out infinite 2s;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   display: inline-block;
 }
 
@@ -687,12 +687,12 @@ html, body {
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-weight: 900;
-  font-size: 3.4rem;
-  margin-bottom: 25px;
+  font-size: 3rem;
+  margin-bottom: 18px;
   letter-spacing: 1.5px;
   position: relative;
   z-index: 2;
-  line-height: 1.3;
+  line-height: 1.25;
   color: #2d2d2d;
 }
 
@@ -731,7 +731,7 @@ html, body {
 
 .hero-name {
   color: #ff3d7f;
-  font-size: 4rem;
+  font-size: 3.5rem;
   display: inline-block;
   animation: nameRevealGlow 1.5s ease forwards 2s, nameGlow 3s ease-in-out infinite 3.5s;
   opacity: 0;
@@ -741,7 +741,7 @@ html, body {
 
 .name-accent {
   display: inline-block;
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-left: 8px;
   animation: accentPop 0.6s ease forwards 2.8s;
   opacity: 0;
@@ -776,9 +776,9 @@ html, body {
 /* Enhanced Subtitle with Line-by-Line Animation */
 .hero-sub {
   max-width: 600px;
-  font-size: 1.08rem;
-  line-height: 1.9;
-  margin-bottom: 30px;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 20px;
   z-index: 2;
   color: #4a4a4a;
 }
@@ -797,7 +797,7 @@ html, body {
 .sub-line-6 { animation: lineReveal 0.8s ease forwards 3.6s; }
 
 .sub-spacer {
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 @keyframes lineReveal {
@@ -821,8 +821,8 @@ html, body {
 .hero-cta-btn {
   animation: btnReveal 1.2s ease forwards 4s, pulseEnhanced 2.5s ease-in-out infinite 5.5s;
   z-index: 50;
-  font-size: 1.1rem;
-  padding: 16px 40px;
+  font-size: 1rem;
+  padding: 14px 36px;
   box-shadow: 0 8px 30px rgba(255,60,120,0.35);
   position: relative;
   overflow: hidden;
@@ -834,7 +834,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .btn-shimmer {
@@ -893,22 +893,22 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 22px;
+  gap: 6px;
+  margin-top: 12px;
   opacity: 0;
   animation: hintFadeIn 1.5s ease forwards 5s;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 
 .hint-text {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: rgba(255,90,140,0.8);
   font-style: italic;
   letter-spacing: 0.5px;
 }
 
 .hint-arrow {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   animation: arrowBounce 2s ease-in-out infinite 6s;
   color: rgba(255,90,140,0.7);
 }
@@ -926,15 +926,17 @@ html, body {
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .hero-scene {
-    padding: 20px 15px !important;
+    padding: 10px 15px !important;
   }
   
   .opening-quote {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
   }
   
   .hero-title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+    margin-bottom: 14px;
   }
   
   .title-word {
@@ -942,25 +944,27 @@ html, body {
   }
   
   .hero-name {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
   }
   
   .name-accent {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   
   .hero-sub {
-    font-size: 0.95rem;
-    line-height: 1.75;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-bottom: 16px;
   }
   
   .hero-signature {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
   }
   
   .hero-cta-btn {
-    font-size: 1rem;
-    padding: 14px 32px;
+    font-size: 0.95rem;
+    padding: 12px 30px;
   }
   
   .petal {
@@ -974,36 +978,35 @@ html, body {
 
 @media (max-height: 700px) {
   .hero-content {
-    margin-top: 30px;
-    margin-bottom: 40px;
+    transform: scale(0.92);
   }
   
   .opening-quote {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
   }
   
   .hero-title {
-    font-size: 2.6rem;
-    margin-bottom: 20px;
+    font-size: 2.4rem;
+    margin-bottom: 14px;
   }
   
   .hero-name {
-    font-size: 3.2rem;
+    font-size: 3rem;
   }
   
   .hero-sub {
-    font-size: 1rem;
-    margin-bottom: 25px;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
   }
   
   .hero-signature {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
   }
   
   .curiosity-hint {
-    margin-top: 18px;
+    margin-top: 10px;
   }
 }
 
