@@ -1,17 +1,479 @@
-<div class="story-wrapper">
-  <div class="story-card">
-Hi, Nanna Preethiya hendatige ninna gandan kade inda Happy Valentine's Day 💌
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-Let's start my one of the best chaper in my life and ninu nanna life ge bandiddu and ninna love madidde nange best ever experience and feeling
+        #story-container {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffd6e0 25%, #ffe9ef 50%, #fff0f3 75%, #ffe5ec 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
 
-Yellinda start madbeku gottagtilla but I've to start,
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
 
-21st Dec , date will be day to remember forever, that's the day we've to decided to leave together forever and that's the day navu ibru madve ago plan madiddu, that's day nanu obne allade nangu ondu family ide anta adanna taleli itkondu yelladannu vichar madok start madide, and avatte for the first time nanu astondu full low voice nalli and kai shake madta and bhaya dalli mathadiddu anisutte 😁, aa tara yavattu experience agirlilla nange, thanks for the experience 😊
+        /* Floating Hearts Background */
+        .hearts-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
 
-Nange ondu hemme ide Nanu ninna select madi madve agidke namma appa amma proud agtare anta and avre heltare like, nave hudugi huduki select madidre kanaka ga inta hudugi hudkoke agta irlilla anta because astondu ollevla na nane select madini 😊
+        .floating-heart {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.15;
+            animation: floatHeart 15s linear infinite;
+            color: #ff6b9c;
+        }
 
-One of the best night andre nange 1st jan 2026 year night, I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide, and unexpectedly that kiss will be my best ever kiss agutte and nanu lifelong mariyalla adanna
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.15;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
 
-En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide and adre ivagle namma maneyali heltini, andre avrigu kushi agli
-  </div>
-</div>
+        /* Container */
+        .story-container-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Greeting Header */
+        .greeting-header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1.2s ease;
+        }
+
+        .greeting-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #ff3d7f;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(255, 90, 140, 0.3);
+            line-height: 1.3;
+        }
+
+        .greeting-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            color: #ff6b9c;
+            margin-bottom: 10px;
+        }
+
+        .valentines-emoji {
+            font-size: 2.5rem;
+            display: inline-block;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        /* Story Cards */
+        .story-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 50px rgba(255, 90, 140, 0.2);
+            border: 2px solid rgba(255, 140, 180, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease;
+            animation-fill-mode: both;
+        }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 90, 140, 0.08), transparent 70%);
+            animation: rotateGlow 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotateGlow {
+            to { transform: rotate(360deg); }
+        }
+
+        .story-section:nth-child(2) { animation-delay: 0.2s; }
+        .story-section:nth-child(3) { animation-delay: 0.4s; }
+        .story-section:nth-child(4) { animation-delay: 0.6s; }
+        .story-section:nth-child(5) { animation-delay: 0.8s; }
+        .story-section:nth-child(6) { animation-delay: 1s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-icon {
+            font-size: 2rem;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(10deg); }
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #ff3d7f;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(255, 90, 140, 0.3);
+        }
+
+        .section-content {
+            position: relative;
+            z-index: 1;
+            line-height: 1.9;
+            color: #4a4a4a;
+            font-size: 1.05rem;
+        }
+
+        .story-paragraph {
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .story-paragraph:nth-child(1) { animation-delay: 0.3s; }
+        .story-paragraph:nth-child(2) { animation-delay: 0.5s; }
+        .story-paragraph:nth-child(3) { animation-delay: 0.7s; }
+        .story-paragraph:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .highlight {
+            color: #ff3d7f;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(255, 90, 140, 0.2);
+        }
+
+        .date-highlight {
+            background: linear-gradient(135deg, #ff6b9c 0%, #ff3d7f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            font-size: 1.15rem;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .divider-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 90, 140, 0.3), transparent);
+            margin: 20px 0;
+        }
+
+        .divider-heart {
+            display: inline-block;
+            font-size: 1.5rem;
+            color: #ff6b9c;
+            animation: heartPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Emoji Decorations */
+        .emoji-accent {
+            font-size: 1.3rem;
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        /* Promise Box */
+        .promise-box {
+            background: linear-gradient(135deg, rgba(255, 107, 156, 0.1), rgba(255, 61, 127, 0.1));
+            border-left: 4px solid #ff3d7f;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 25px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .promise-box p {
+            margin: 10px 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            font-size: 1rem;
+            opacity: 0;
+            animation: sparkleAnim 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkleAnim {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.5) rotate(0deg);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2) rotate(180deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #story-container {
+                padding: 20px 15px;
+            }
+
+            .story-section {
+                padding: 25px 20px;
+            }
+
+            .greeting-title {
+                font-size: 2rem;
+            }
+
+            .greeting-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-content {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-bg" id="heartsBackground"></div>
+
+    <div class="story-container-inner">
+        <!-- Greeting Header -->
+        <div class="greeting-header">
+            <h1 class="greeting-title">
+                Hi, Nanna Preethiya hendatige<br>ninna gandan kade inda<br>Happy Valentine's Day <span class="valentines-emoji">💌</span>
+            </h1>
+            <p class="greeting-subtitle">Let's start my one of the best chapter in my life</p>
+        </div>
+
+        <!-- Opening Section -->
+        <div class="story-section">
+            <div class="section-header">
+                <span class="section-icon">💕</span>
+                <h2 class="section-title">The Beginning of Us</h2>
+                <span class="section-icon">💕</span>
+            </div>
+            <div class="section-content">
+                <p class="story-paragraph">
+                    And ninu nanna life ge bandiddu and ninna love madidde nange <span class="highlight">best ever experience and feeling</span> <span class="emoji-accent">😊</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- December 21st - The Day That Changed Everything -->
+        <div class="story-section">
+            <div class="section-header">
+                <span class="section-icon">📅</span>
+                <h2 class="section-title">The Day Everything Changed</h2>
+                <span class="section-icon">✨</span>
+            </div>
+            <div class="section-content">
+                <p class="story-paragraph">
+                    Yellinda start madbeku gottagtilla but I've to start...
+                </p>
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <span class="divider-heart">❤️</span>
+                    <div class="divider-line"></div>
+                </div>
+                <p class="story-paragraph">
+                    <span class="date-highlight">21st Dec</span>, date will be day to remember forever, that's the day we've to decided to leave together forever and that's the day navu ibru madve ago plan madiddu, that's day nanu obne allade nangu ondu family ide anta adanna taleli itkondu yelladannu vichar madok start madide
+                </p>
+                <p class="story-paragraph">
+                    And avatte for the first time nanu astondu full low voice nalli and kai shake madta and bhaya dalli mathadiddu anisutte <span class="emoji-accent">😁</span>, aa tara yavattu experience agirlilla nange, thanks for the experience <span class="emoji-accent">😊</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Proud Moment -->
+        <div class="story-section">
+            <div class="section-header">
+                <span class="section-icon">🌟</span>
+                <h2 class="section-title">My Pride & Joy</h2>
+                <span class="section-icon">💖</span>
+            </div>
+            <div class="section-content">
+                <p class="story-paragraph">
+                    Nange ondu hemme ide Nanu ninna select madi madve agidke namma appa amma <span class="highlight">proud agtare</span> anta and avre heltare like, nave hudugi huduki select madidre kanaka ga inta hudugi hudkoke agta irlilla anta because astondu ollevla na nane select madini <span class="emoji-accent">😊</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- The Best Night - January 1st, 2026 -->
+        <div class="story-section">
+            <div class="section-header">
+                <span class="section-icon">🎆</span>
+                <h2 class="section-title">One of the Best Nights</h2>
+                <span class="section-icon">💋</span>
+            </div>
+            <div class="section-content">
+                <p class="story-paragraph">
+                    One of the best night andre nange <span class="date-highlight">1st jan 2026 year night</span>, I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide
+                </p>
+                <p class="story-paragraph">
+                    And unexpectedly <span class="highlight">that kiss will be my best ever kiss agutte</span> and nanu lifelong mariyalla adanna En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide
+                </p>
+                <div class="promise-box">
+                    <p><strong>My Promise:</strong></p>
+                    <p>Hinge yella year nu end agli and start agli till my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona</p>
+                    <p>Like ninu helidange Keral or bere yelladru hogi alli celebration madona, nange otnalli ninu irbeku nanna jote aste saku <span class="emoji-accent">❤️</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Plans -->
+        <div class="story-section">
+            <div class="section-header">
+                <span class="section-icon">💍</span>
+                <h2 class="section-title">Our Forever Together</h2>
+                <span class="section-icon">🏡</span>
+            </div>
+            <div class="section-content">
+                <p class="story-paragraph">
+                    And adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise <span class="emoji-accent">🥺</span>
+                </p>
+                <p class="story-paragraph">
+                    Just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu
+                </p>
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <span class="divider-heart">💑</span>
+                    <div class="divider-line"></div>
+                </div>
+                <p class="story-paragraph" style="text-align: center; font-size: 1.15rem; font-style: italic; color: #ff3d7f;">
+                    Sorry, adastu bega <span class="highlight">nimma manege baroke</span>, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu <span class="emoji-accent">❤️</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        const heartsContainer = document.getElementById('heartsBackground');
+        const heartEmojis = ['❤️', '💕', '💖', '💗', '💓', '💝'];
+        
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (10 + Math.random() * 10) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 20000);
+        }
+
+        // Create hearts periodically
+        setInterval(createFloatingHeart, 2000);
+
+        // Initial hearts
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFloatingHeart, i * 400);
+        }
+
+        // Add sparkles to sections
+        document.querySelectorAll('.story-section').forEach((section, index) => {
+            for (let i = 0; i < 3; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.textContent = '✨';
+                sparkle.style.top = Math.random() * 80 + '%';
+                sparkle.style.left = Math.random() * 80 + '%';
+                sparkle.style.animationDelay = (i * 0.7) + 's';
+                section.appendChild(sparkle);
+            }
+        });
+    </script>
+</body>
+</html>
