@@ -3,210 +3,234 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Only For You 💖</title>
+  <title>Only For You 💕</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="bg-valentine"></div>
+  <div id="bg-hearts-layer"></div>
 
-<!-- Background -->
-<div id="bg-valentine"></div>
-<div id="bg-hearts-layer"></div>
+  <button class="mute-btn" id="muteBtn">🔊</button>
+  <button class="back-btn" id="backBtn" style="display:none;">←</button>
 
-<!-- UI Controls -->
-<button class="back-btn" id="backBtn" style="display:none;">←</button>
-<button class="mute-btn" id="muteBtn">🔊</button>
+  <audio id="bgMusic" loop>
+    <source src="./assets/memories.mp3" type="audio/mpeg">
+  </audio>
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-  <source src="./music/intro.mp3" type="audio/mpeg">
-</audio>
-
-<!-- LOGIN SCENE -->
-<div class="scene active">
-  <div class="login-glow"></div>
-  <div class="login-card">
-    <h1 style="margin-bottom:12px; font-size:2rem; color:#ff3d7f;">Hey you... I made something, hoping it's you.</h1>
-    <p style="margin-bottom:24px; color:#777; font-size:0.95rem;">Say my favourite name</p>
-    <input 
-      type="text" 
-      id="nameInput" 
-      placeholder="Type the name..." 
-      style="width:100%; padding:14px; border-radius:12px; border:2px solid #ffc0d0; font-size:1rem; margin-bottom:10px; outline:none; transition:0.3s;"
-      onfocus="this.style.borderColor='#ff6b9c'"
-      onblur="this.style.borderColor='#ffc0d0'"
-    >
-    <p id="error" style="color:#ff3d7f; font-size:0.9rem; min-height:20px; margin-bottom:16px;"></p>
-    <button class="primary" onclick="unlock()">Let me in 💕</button>
-  </div>
-</div>
-
-<!-- LOGIN SUCCESS POPUP -->
-<div class="login-popup" id="login-popup">
-  <div class="popup-card">
-    <h2 style="font-size:2.2rem; margin-bottom:16px; color:#ff3d7f;">Of course it's you, Sanjana.</h2>
-    <p style="font-size:1.1rem; color:#555;">I was waiting.</p>
-  </div>
-</div>
-
-<!-- HOME -->
-<div class="scene hero-scene">
-  
-  <!-- Rose Petals (Multiple) -->
-  <div class="petal petal-1">🌸</div>
-  <div class="petal petal-2">🌸</div>
-  <div class="petal petal-3">🌸</div>
-  <div class="petal petal-4">🌸</div>
-  <div class="petal petal-5">🌸</div>
-  <div class="petal petal-6">🌸</div>
-  <div class="petal petal-7">🌸</div>
-  <div class="petal petal-8">🌸</div>
-  
-  <!-- Sparkles -->
-  <div class="sparkle sparkle-1">✨</div>
-  <div class="sparkle sparkle-2">✨</div>
-  <div class="sparkle sparkle-3">✨</div>
-  <div class="sparkle sparkle-4">✨</div>
-  <div class="sparkle sparkle-5">✨</div>
-  
-  <!-- Floating Hearts Graphics -->
-  <div class="hero-heart hero-heart-1">💕</div>
-  <div class="hero-heart hero-heart-2">💗</div>
-  <div class="hero-heart hero-heart-3">💖</div>
-  <div class="hero-heart hero-heart-4">❤️</div>
-  <div class="hero-heart hero-heart-5">💝</div>
-  
-  <!-- Light Particles -->
-  <div class="particle particle-1"></div>
-  <div class="particle particle-2"></div>
-  <div class="particle particle-3"></div>
-  <div class="particle particle-4"></div>
-  <div class="particle particle-5"></div>
-  <div class="particle particle-6"></div>
-  
-  <!-- Multiple Glow Effects -->
-  <div class="hero-glow hero-glow-1"></div>
-  <div class="hero-glow hero-glow-2"></div>
-  
-  <!-- Romantic Overlay -->
-  <div class="romantic-overlay"></div>
-  
-  <!-- Main Content -->
-  <div class="hero-content">
+  <!-- ===================== LOGIN SCENE (ENHANCED) ===================== -->
+  <div class="scene active" id="loginScene">
+    <div class="login-glow"></div>
+    <div class="login-glow login-glow-2"></div>
     
-    <!-- Opening Quote with Fade -->
-    <div class="opening-quote">
-      <span class="quote-mark">"</span>
-      <span class="quote-text">In a world full of temporary things, you are a perpetual feeling</span>
-      <span class="quote-mark">"</span>
+    <!-- Floating romantic elements -->
+    <div class="login-heart login-heart-1">💕</div>
+    <div class="login-heart login-heart-2">💖</div>
+    <div class="login-heart login-heart-3">💗</div>
+    <div class="login-sparkle login-sparkle-1">✨</div>
+    <div class="login-sparkle login-sparkle-2">✨</div>
+    
+    <div class="login-card">
+      <!-- Romantic Opening Line -->
+      <div class="login-quote">
+        <span class="quote-mark">"</span>
+        <span class="quote-text">In a world full of temporary things, you are a perpetual feeling</span>
+        <span class="quote-mark">"</span>
+      </div>
+      
+      <!-- Main Heading -->
+      <h1 class="login-title">
+        <span class="login-title-line">Hey you...</span>
+        <span class="login-title-main">I made something,</span>
+        <span class="login-title-sub">hoping it's you.</span>
+      </h1>
+
+      <!-- Curiosity Line -->
+      <p class="login-curiosity">
+        Say my favourite name 💭
+      </p>
+
+      <!-- Input Field -->
+      <input
+        type="text"
+        id="nameInput"
+        class="input-field"
+        placeholder="Type the name..."
+        autocomplete="off"
+      />
+      
+      <p class="error-msg" id="error"></p>
+
+      <!-- Button -->
+      <button class="primary" onclick="unlock()">
+        <span class="btn-text">Let me in</span>
+        <span class="btn-icon">✨</span>
+      </button>
+
+      <!-- Footer Hint -->
+      <p class="login-hint">
+        <span class="hint-lock">🔒</span> 
+        This is meant for someone special
+      </p>
     </div>
-    
-    <!-- Signature with Heart Trail -->
-    <div class="hero-signature">
-      <span class="sig-name sig-name-1">Sanjana</span>
-      <span class="sig-heart-group">
-        <span class="sig-heart">❤️</span>
-        <span class="heart-trail">💕</span>
-      </span>
-      <span class="sig-name sig-name-2">KP</span>
+  </div>
+
+  <!-- ===================== POPUP ===================== -->
+  <div class="login-popup" id="login-popup">
+    <div class="popup-card">
+      <h2 style="font-size:2.2rem; margin:0 0 16px; color:#ff3d7f; font-family:'Dancing Script', cursive;">
+        Of course it's you, Sanjana.
+      </h2>
+      <p style="font-size:1.1rem; color:#666; margin:0;">
+        I was waiting.
+      </p>
     </div>
+  </div>
+
+  <!-- ===================== HOME/HERO SCENE ===================== -->
+  <div class="scene hero-scene scrollable" id="homeScene">
+    <!-- Romantic decorations -->
+    <div class="romantic-overlay"></div>
     
-    <!-- Title with unified styling -->
-    <h1 class="hero-title-unified">
-      <span class="title-line-main">Happy Valentine's Day</span>
-      <span class="title-name-main">Sanju 💖</span>
-    </h1>
-    
-    <!-- Story Card -->
-    <div class="story-card-romantic">
-      <div class="card-inner">
-        <div class="card-header">
-          <span class="card-icon">💕</span>
-          <span class="card-title">From TL to Forever</span>
-          <span class="card-icon">💕</span>
+    <!-- Rose petals -->
+    <div class="petal petal-1">🌸</div>
+    <div class="petal petal-2">🌸</div>
+    <div class="petal petal-3">🌸</div>
+    <div class="petal petal-4">🌸</div>
+    <div class="petal petal-5">🌸</div>
+    <div class="petal petal-6">🌸</div>
+    <div class="petal petal-7">🌸</div>
+    <div class="petal petal-8">🌸</div>
+
+    <!-- Sparkles -->
+    <div class="sparkle sparkle-1">✨</div>
+    <div class="sparkle sparkle-2">✨</div>
+    <div class="sparkle sparkle-3">✨</div>
+    <div class="sparkle sparkle-4">✨</div>
+    <div class="sparkle sparkle-5">✨</div>
+
+    <!-- Floating hearts -->
+    <div class="hero-heart hero-heart-1">💕</div>
+    <div class="hero-heart hero-heart-2">💖</div>
+    <div class="hero-heart hero-heart-3">💗</div>
+    <div class="hero-heart hero-heart-4">💓</div>
+    <div class="hero-heart hero-heart-5">💝</div>
+
+    <!-- Light particles -->
+    <div class="particle particle-1"></div>
+    <div class="particle particle-2"></div>
+    <div class="particle particle-3"></div>
+    <div class="particle particle-4"></div>
+    <div class="particle particle-5"></div>
+    <div class="particle particle-6"></div>
+
+    <!-- Glow effects -->
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+
+    <!-- Main content -->
+    <div class="hero-content">
+      <!-- Opening Quote -->
+      <div class="opening-quote">
+        <span class="quote-mark">"</span>
+        <span class="quote-text">In a world full of temporary things, you are a perpetual feeling</span>
+        <span class="quote-mark">"</span>
+      </div>
+
+      <!-- Signature -->
+      <div class="hero-signature">
+        <span class="sig-name sig-name-1">Sanjana</span>
+        <div class="sig-heart-group">
+          <span class="sig-heart">💕</span>
+          <span class="heart-trail">💕</span>
         </div>
-        
-        <div class="story-content">
-          <p class="story-line story-line-1">This was never a plan.</p>
-          <p class="story-line story-line-2">It started with KT sessions, Linux commands, AWS cloud talks at midnight,</p>
-          <p class="story-line story-line-3">birthday celebrations, team lunches, and those quiet meetings where our eyes met a little longer.</p>
-          
-          <div class="story-divider">
-            <span class="divider-heart">❤️</span>
+        <span class="sig-name sig-name-2">KP</span>
+      </div>
+
+      <!-- Title -->
+      <div class="hero-title-unified">
+        <span class="title-line-main">Happy Valentine's Day</span>
+        <span class="title-name-main">Sanju 💕</span>
+      </div>
+
+      <!-- Story Card -->
+      <div class="story-card-romantic">
+        <div class="card-inner">
+          <div class="card-header">
+            <span class="card-icon">💕</span>
+            <h3 class="card-title">From TL to Forever 💕</h3>
+            <span class="card-icon">💕</span>
           </div>
           
-          <p class="story-line story-line-4">Then came the temples, the park walks, the late-night calls that never wanted to end,</p>
-          <p class="story-line story-line-5">the silly jokes, the deep conversations, the caring texts, the gentle hugs.</p>
-          <p class="story-line story-line-6">Somewhere between being your TL and becoming <strong>yours</strong>, it became <strong>us</strong>.</p>
-          
-          <div class="story-divider">
-            <span class="divider-heart">💝</span>
+          <div class="story-content">
+            <p class="story-line story-line-1">This was never a plan.</p>
+            <p class="story-line story-line-2">It started with KT sessions, Linux commands, AWS cloud talks at midnight,</p>
+            <p class="story-line story-line-3">birthday celebrations, team lunches, and those quiet meetings where our eyes met a little longer.</p>
+            
+            <div class="story-divider">
+              <span class="divider-heart">💕</span>
+            </div>
+            
+            <p class="story-line story-line-4">Then came the temples, the park walks, the late-night calls that never wanted to end,</p>
+            <p class="story-line story-line-5">the silly jokes, the deep conversations, the caring texts, the gentle hugs.</p>
+            <p class="story-line story-line-6">Somewhere between being your TL and becoming <strong>yours</strong>, it became <strong>us</strong>.</p>
+            
+            <div class="story-divider">
+              <span class="divider-heart">💕</span>
+            </div>
+            
+            <p class="story-line story-line-7">Tonight, I want to hold your hand through this screen,</p>
+            <p class="story-line story-line-8">and walk you through every heartbeat, every stolen glance, every promise.</p>
+            
+            <p class="story-line story-line-9 story-emphasis">
+              <em>Our story. Our memories. Our almost, now turning into forever.</em>
+            </p>
           </div>
           
-          <p class="story-line story-line-7">Tonight, I want to hold your hand through this screen,</p>
-          <p class="story-line story-line-8">and walk you through every heartbeat, every stolen glance, every promise.</p>
-          <p class="story-line story-line-9 story-emphasis"><em>Our story. Our memories. Our almost, now turning into forever.</em></p>
-        </div>
-        
-        <div class="card-footer">
-          <span class="footer-decoration">✨</span>
-          <span class="footer-text">Forever Yours</span>
-          <span class="footer-decoration">✨</span>
+          <div class="card-footer">
+            <span class="footer-decoration">✨</span>
+            <span class="footer-text">Forever Yours</span>
+            <span class="footer-decoration">✨</span>
+          </div>
         </div>
       </div>
+
+      <!-- CTA Button -->
+      <button class="primary hero-cta-btn" onclick="nextScene()">
+        <span class="btn-shimmer"></span>
+        <span class="btn-text">Begin Our Story</span>
+        <span class="btn-icon">✨</span>
+      </button>
+
+      <!-- Curiosity Hint -->
+      <div class="curiosity-hint">
+        <p class="hint-text">Something special awaits you...</p>
+        <span class="hint-arrow">↓</span>
+      </div>
     </div>
-    
-    <!-- Button with Shimmer Effect -->
-    <button class="primary hero-cta-btn" onclick="nextScene()">
-      <span class="btn-shimmer"></span>
-      <span class="btn-text">Begin Our Story</span>
-      <span class="btn-icon">✨</span>
+  </div>
+
+  <!-- OTHER SCENES (story, memories, letter) loaded dynamically -->
+  <div class="scene scrollable" id="storyScene">
+    <div id="story-container"></div>
+    <button class="primary" onclick="nextScene()">Next: Our Memories →</button>
+  </div>
+
+  <div class="scene scrollable" id="memoriesScene">
+    <div id="photoStage"></div>
+    <div id="memories-container"></div>
+    <div class="photo-grid" id="photoGrid"></div>
+    <button class="primary" id="photoNextBtn" onclick="nextScene()" disabled>
+      Next: A Letter For You →
     </button>
-    
-    <!-- Curiosity Teaser -->
-    <div class="curiosity-hint">
-      <span class="hint-text">Something special awaits you...</span>
-      <span class="hint-arrow">↓</span>
-    </div>
-    
   </div>
-</div>
 
-<!-- STORY -->
-<div class="scene scrollable">
-  <div class="story-card" id="story-container">
-    <!-- Loaded from partials/story.html -->
+  <div class="scene scrollable" id="letterScene">
+    <div id="letter-container"></div>
   </div>
-  <button class="primary" onclick="nextScene()" style="margin-top:30px;">Continue 💖</button>
-</div>
 
-<!-- PHOTOS / MEMORIES -->
-<div class="scene scrollable">
-  <h2 style="font-size:2.5rem; margin-bottom:30px;">Our Beautiful Memories 📸</h2>
-  <div id="photoStage" style="display:flex; justify-content:center; margin-bottom:40px;"></div>
-  <div id="photoGrid" class="photo-grid"></div>
-  <button class="primary" id="photoNextBtn" onclick="nextScene()" disabled style="margin-top:40px; opacity:0.5;">Next 💕</button>
-</div>
-
-<!-- PROPOSAL -->
-<div class="scene">
-  <h1 style="font-size:3rem; margin-bottom:30px;">Will You Marry Me? 💍</h1>
-  <p style="font-size:1.3rem; max-width:600px; line-height:1.9; margin-bottom:40px;">
-    Sanjana, I want to spend every Valentine's Day, every moment, every breath with you.
-    Will you be my forever?
-  </p>
-  <button class="primary" onclick="nextScene()">Yes, Always 💖</button>
-</div>
-
-<!-- LETTER -->
-<div class="scene">
-  <div id="letter-container" class="letter">
-    <!-- Loaded from partials/letter.html -->
-  </div>
-</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

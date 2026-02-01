@@ -170,6 +170,26 @@ pointer-events: none;
 
 
 
+/* EXTRA LOGIN GLOW FOR RICHER LOOK (ADDED) */
+
+.login-glow.login-glow-2 {
+
+width: 380px;
+
+height: 380px;
+
+background: radial-gradient(circle, rgba(255,150,190,0.35), transparent 70%);
+
+animation: glowPulse 5s infinite 1s;
+
+top: 45%;
+
+left: 52%;
+
+}
+
+
+
 @keyframes glowPulse {
 
 50% { transform: scale(1.15); opacity: 0.7; }
@@ -195,6 +215,242 @@ max-width: 420px;
 box-shadow: 0 60px 140px rgba(0,0,0,0.25);
 
 animation: fadeUp 1.2s ease;
+
+/* make card slightly softer for professional look (ADDED) */
+
+border: 2px solid rgba(255,140,180,0.25);
+
+backdrop-filter: blur(10px);
+
+}
+
+
+
+/* OPTIONAL: LOGIN QUOTE + HEADING SUPPORT (ADDED SAFE BLOCKS) */
+
+.login-quote {
+
+font-family: 'Cormorant Garamond', serif;
+
+font-size: 1rem;
+
+font-style: italic;
+
+color: rgba(100,100,100,0.85);
+
+margin-bottom: 24px;
+
+line-height: 1.6;
+
+}
+
+.login-quote .quote-mark {
+
+font-size: 1.6rem;
+
+color: rgba(255,90,140,0.6);
+
+font-weight: 600;
+
+margin: 0 4px;
+
+}
+
+.login-title {
+
+margin: 0 0 20px 0;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+gap: 4px;
+
+}
+
+.login-title-line {
+
+font-size: 1.1rem;
+
+font-weight: 400;
+
+color: #666;
+
+}
+
+.login-title-main {
+
+font-family: 'Playfair Display', serif;
+
+font-size: 2rem;
+
+font-weight: 700;
+
+color: #ff3d7f;
+
+text-shadow: 0 4px 12px rgba(255,90,140,0.2);
+
+}
+
+.login-title-sub {
+
+font-family: 'Dancing Script', cursive;
+
+font-size: 1.5rem;
+
+font-weight: 600;
+
+color: #ff6b9c;
+
+}
+
+.login-curiosity {
+
+font-size: 1.05rem;
+
+color: #888;
+
+margin: 0 0 18px 0;
+
+font-weight: 500;
+
+}
+
+.input-field {
+
+width: 100%;
+
+padding: 14px 18px;
+
+border: 2px solid rgba(255,140,180,0.35);
+
+border-radius: 16px;
+
+font-size: 1rem;
+
+font-family: 'Poppins', sans-serif;
+
+color: #333;
+
+background: rgba(255,250,252,0.6);
+
+transition: all 0.3s ease;
+
+margin-bottom: 12px;
+
+}
+
+.input-field:focus {
+
+outline: none;
+
+border-color: #ff6b9c;
+
+background: rgba(255,255,255,0.9);
+
+box-shadow: 0 0 0 4px rgba(255,90,140,0.1);
+
+}
+
+.input-field::placeholder {
+
+color: #aaa;
+
+font-style: italic;
+
+}
+
+.error-msg {
+
+color: #ff3d7f;
+
+font-size: 0.9rem;
+
+margin: 0 0 16px 0;
+
+min-height: 20px;
+
+font-weight: 500;
+
+}
+
+.login-hint {
+
+margin: 20px 0 0 0;
+
+font-size: 0.88rem;
+
+color: #999;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+gap: 6px;
+
+}
+
+.hint-lock { font-size: 1rem; }
+
+
+
+/* small floating hearts on login (ADDED) */
+
+.login-heart {
+
+position: absolute;
+
+font-size: 2rem;
+
+opacity: 0.2;
+
+pointer-events: none;
+
+animation: loginHeartFloat 6s ease-in-out infinite;
+
+}
+
+.login-heart-1 { top: 15%; left: 10%; }
+
+.login-heart-2 { top: 25%; right: 12%; }
+
+.login-heart-3 { bottom: 20%; left: 15%; }
+
+@keyframes loginHeartFloat {
+
+0%,100%{transform:translateY(0) rotate(0deg);}
+
+50%{transform:translateY(-20px) rotate(10deg);}
+
+}
+
+.login-sparkle {
+
+position:absolute;
+
+font-size:1.3rem;
+
+opacity:0;
+
+pointer-events:none;
+
+animation:loginSparkle 3s ease-in-out infinite;
+
+}
+
+.login-sparkle-1{top:30%;right:20%;animation-delay:1s;}
+
+.login-sparkle-2{bottom:30%;left:20%;animation-delay:2.5s;}
+
+@keyframes loginSparkle{
+
+0%,100%{opacity:0;transform:scale(0.5) rotate(0deg);}
+
+50%{opacity:0.8;transform:scale(1.2) rotate(180deg);}
 
 }
 
@@ -1148,13 +1404,13 @@ flex-direction: column;
 
 align-items: center;
 
-/* CHANGED: start from top so quote is always visible */
+/* start from top so quote is always visible */
 
 justify-content: flex-start;
 
 max-width: 700px;
 
-padding: 8px 25px 18px;
+padding: 10px 28px 20px;
 
 margin: 0 auto;
 
@@ -1164,21 +1420,19 @@ min-height: 100%;
 
 
 
-/* Opening Quote */
+/* Opening Quote – slightly bigger */
 
 .opening-quote {
 
 font-family: 'Cormorant Garamond', serif;
 
-/* CHANGED: smaller so it fits on all screens */
-
-font-size: 0.95rem;
+font-size: 1.05rem;
 
 font-style: italic;
 
 color: rgba(80,80,80,0.9);
 
-margin-bottom: 8px;
+margin-bottom: 10px;
 
 opacity: 0;
 
@@ -1186,13 +1440,11 @@ animation: quoteFadeIn 2s ease forwards 0.2s;
 
 text-align: center;
 
-/* CHANGED: full width, add padding */
-
 max-width: 100%;
 
-line-height: 1.4;
+line-height: 1.5;
 
-padding: 0 10px;
+padding: 0 12px;
 
 }
 
@@ -1200,13 +1452,13 @@ padding: 0 10px;
 
 .quote-mark {
 
-font-size: 1.5rem;
+font-size: 1.7rem;
 
 color: rgba(255,90,140,0.5);
 
 font-weight: 600;
 
-margin: 0 3px;
+margin: 0 4px;
 
 }
 
@@ -1214,7 +1466,7 @@ margin: 0 3px;
 
 .quote-text {
 
-letter-spacing: 0.2px;
+letter-spacing: 0.3px;
 
 }
 
@@ -1242,7 +1494,7 @@ gap: 12px;
 
 font-family: 'Dancing Script', cursive;
 
-font-size: 1.5rem;
+font-size: 1.6rem;
 
 color: rgba(255,90,140,0.9);
 
@@ -1252,7 +1504,7 @@ opacity: 0;
 
 z-index: 10;
 
-margin-bottom: 10px;
+margin-bottom: 12px;
 
 position: relative;
 
@@ -1318,7 +1570,7 @@ display: inline-flex;
 
 animation: heartBeat 1.5s ease-in-out infinite 2s;
 
-font-size: 1.5rem;
+font-size: 1.6rem;
 
 display: inline-block;
 
@@ -1334,7 +1586,7 @@ left: -8px;
 
 top: -8px;
 
-font-size: 1rem;
+font-size: 1.1rem;
 
 opacity: 0;
 
@@ -1588,11 +1840,13 @@ drop-shadow(0 0 35px rgba(255,60,120,0.6));
 
 max-width: 620px;
 
-font-size: 0.96rem;
+/* slightly bigger for readability */
 
-line-height: 1.7;
+font-size: 1rem;
 
-margin-bottom: 16px;
+line-height: 1.8;
+
+margin-bottom: 18px;
 
 z-index: 2;
 
@@ -1690,9 +1944,9 @@ animation: btnReveal 1.2s ease forwards 4.8s, pulseEnhanced 2.5s ease-in-out inf
 
 z-index: 50;
 
-font-size: 1rem;
+font-size: 1.05rem;
 
-padding: 14px 36px;
+padding: 15px 38px;
 
 box-shadow: 0 8px 30px rgba(255,60,120,0.35);
 
@@ -1714,9 +1968,9 @@ display: flex;
 
 align-items: center;
 
-gap: 10px;
+gap: 12px;
 
-margin-top: 6px;
+margin-top: 8px;
 
 }
 
@@ -1758,7 +2012,7 @@ transform: skewX(-25deg);
 
 position: relative;
 
-z-index: 2;
+zindex: 2;
 
 }
 
@@ -1850,7 +2104,7 @@ margin-bottom: 0px;
 
 .hint-text {
 
-font-size: 0.85rem;
+font-size: 0.9rem;
 
 color: rgba(255,90,140,0.8);
 
@@ -1904,7 +2158,7 @@ font-weight: 900;
 
 text-align: center;
 
-margin-bottom: 12px;
+margin-bottom: 14px;
 
 position: relative;
 
@@ -1916,7 +2170,7 @@ flex-direction: column;
 
 align-items: center;
 
-gap: 2px;
+gap: 4px;
 
 }
 
@@ -1924,11 +2178,11 @@ gap: 2px;
 
 .title-line-main {
 
-font-size: 2.5rem;
+font-size: 2.8rem;
 
 color: #2d2d2d;
 
-letter-spacing: 1.2px;
+letter-spacing: 1.5px;
 
 opacity: 0;
 
@@ -1942,11 +2196,11 @@ text-shadow: 0 4px 20px rgba(255,90,140,0.2);
 
 .title-name-main {
 
-font-size: 2.5rem;
+font-size: 3rem;
 
 color: #ff3d7f;
 
-letter-spacing: 1.2px;
+letter-spacing: 1.5px;
 
 opacity: 0;
 
@@ -2002,9 +2256,9 @@ text-shadow: 0 0 26px rgba(255,60,120,0.7),
 
 width: 100%;
 
-max-width: 650px;
+max-width: 700px;
 
-margin: 0 auto 14px;
+margin: 0 auto 16px;
 
 opacity: 0;
 
@@ -2038,7 +2292,7 @@ rgba(255, 250, 252, 0.92) 100%);
 
 border-radius: 24px;
 
-padding: 18px 22px;
+padding: 20px 24px;
 
 box-shadow:
 
@@ -2124,7 +2378,7 @@ border-bottom: 1px solid rgba(255, 105, 180, 0.2);
 
 .card-icon {
 
-font-size: 1.2rem;
+font-size: 1.3rem;
 
 animation: iconFloat 3s ease-in-out infinite;
 
@@ -2150,7 +2404,7 @@ animation: iconFloat 3s ease-in-out infinite;
 
 font-family: 'Dancing Script', cursive;
 
-font-size: 1.3rem;
+font-size: 1.45rem;
 
 font-weight: 700;
 
@@ -2164,7 +2418,7 @@ text-shadow: 0 2px 8px rgba(255, 90, 140, 0.3);
 
 .story-content {
 
-line-height: 1.65;
+line-height: 1.7;
 
 color: #4a4a4a;
 
@@ -2174,9 +2428,9 @@ color: #4a4a4a;
 
 .story-line {
 
-margin: 0 0 6px 0;
+margin: 0 0 8px 0;
 
-font-size: 0.92rem;
+font-size: 1.02rem;
 
 opacity: 0;
 
@@ -2204,8 +2458,6 @@ animation: storyLineReveal 0.8s ease forwards;
 
 .story-line-9 { animation-delay: 5.0s; }
 
-
-
 @keyframes storyLineReveal {
 
 from { opacity: 0; transform: translateX(-15px); }
@@ -2232,7 +2484,7 @@ position: relative;
 
 display: inline-block;
 
-font-size: 1.1rem;
+font-size: 1.2rem;
 
 animation: heartPulse 2s ease-in-out infinite;
 
@@ -2266,7 +2518,7 @@ text-shadow: 0 0 12px rgba(255, 60, 120, 0.25);
 
 text-align: center;
 
-font-size: 0.98rem;
+font-size: 1.05rem;
 
 margin-top: 8px;
 
@@ -2312,7 +2564,7 @@ border-top: 1px solid rgba(255, 105, 180, 0.2);
 
 .footer-decoration {
 
-font-size: 1rem;
+font-size: 1.05rem;
 
 animation: sparkleRotate 3s ease-in-out infinite;
 
@@ -2338,7 +2590,7 @@ animation: sparkleRotate 3s ease-in-out infinite;
 
 font-family: 'Dancing Script', cursive;
 
-font-size: 1.05rem;
+font-size: 1.1rem;
 
 font-weight: 600;
 
@@ -2372,7 +2624,7 @@ height: auto;
 
 min-height: 100%;
 
-padding: 16px 16px 24px;
+padding: 18px 18px 24px;
 
 }
 
@@ -2384,7 +2636,7 @@ padding: 16px 16px 24px;
 
 max-width: 90%;
 
-margin: 8px auto 14px;
+margin: 10px auto 16px;
 
 }
 
@@ -2392,7 +2644,7 @@ margin: 8px auto 14px;
 
 .card-inner {
 
-padding: 14px 16px;
+padding: 16px 18px;
 
 }
 
@@ -2400,7 +2652,7 @@ padding: 14px 16px;
 
 .story-line {
 
-font-size: 0.86rem;
+font-size: 0.96rem;
 
 }
 
@@ -2410,11 +2662,11 @@ font-size: 0.86rem;
 
 .opening-quote {
 
-font-size: 0.82rem;
+font-size: 0.96rem;
 
-margin-bottom: 6px;
+margin-bottom: 8px;
 
-padding: 0 6px;
+padding: 0 8px;
 
 }
 
@@ -2422,7 +2674,7 @@ padding: 0 6px;
 
 .hero-title-unified {
 
-margin-bottom: 8px;
+margin-bottom: 10px;
 
 }
 
@@ -2432,7 +2684,7 @@ margin-bottom: 8px;
 
 .title-name-main {
 
-font-size: 1.9rem;
+font-size: 2.1rem;
 
 }
 
@@ -2478,9 +2730,9 @@ font-size: 2.1rem;
 
 .hero-sub {
 
-font-size: 0.88rem;
+font-size: 0.9rem;
 
-line-height: 1.6;
+line-height: 1.7;
 
 margin-bottom: 12px;
 
@@ -2490,9 +2742,9 @@ margin-bottom: 12px;
 
 .hero-signature {
 
-font-size: 1.2rem;
+font-size: 1.25rem;
 
-margin-bottom: 6px;
+margin-bottom: 8px;
 
 }
 
@@ -2502,11 +2754,11 @@ margin-bottom: 6px;
 
 .hero-cta-btn {
 
-font-size: 0.9rem;
+font-size: 0.95rem;
 
-padding: 11px 26px;
+padding: 12px 30px;
 
-margin-top: 4px;
+margin-top: 6px;
 
 }
 
@@ -2527,6 +2779,24 @@ font-size: 1.3rem;
 font-size: 0.9rem;
 
 }
+
+
+
+/* login card on mobile */
+
+.login-card {
+
+padding: 40px 32px;
+
+max-width: 90%;
+
+}
+
+.login-title-main { font-size: 1.7rem; }
+
+.login-title-sub { font-size: 1.3rem; }
+
+.login-curiosity { font-size: 0.98rem; }
 
 }
 
