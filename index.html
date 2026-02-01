@@ -6,7 +6,7 @@
   <title>Only For You 💖</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700;900&family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -53,6 +53,24 @@
 
 <!-- HOME -->
 <div class="scene hero-scene">
+  
+  <!-- Rose Petals (Multiple) -->
+  <div class="petal petal-1">🌸</div>
+  <div class="petal petal-2">🌸</div>
+  <div class="petal petal-3">🌸</div>
+  <div class="petal petal-4">🌸</div>
+  <div class="petal petal-5">🌸</div>
+  <div class="petal petal-6">🌸</div>
+  <div class="petal petal-7">🌸</div>
+  <div class="petal petal-8">🌸</div>
+  
+  <!-- Sparkles -->
+  <div class="sparkle sparkle-1">✨</div>
+  <div class="sparkle sparkle-2">✨</div>
+  <div class="sparkle sparkle-3">✨</div>
+  <div class="sparkle sparkle-4">✨</div>
+  <div class="sparkle sparkle-5">✨</div>
+  
   <!-- Floating Hearts Graphics -->
   <div class="hero-heart hero-heart-1">💕</div>
   <div class="hero-heart hero-heart-2">💗</div>
@@ -68,36 +86,70 @@
   <div class="particle particle-5"></div>
   <div class="particle particle-6"></div>
   
-  <!-- Glow Effect -->
-  <div class="hero-glow"></div>
+  <!-- Multiple Glow Effects -->
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+  
+  <!-- Romantic Overlay -->
+  <div class="romantic-overlay"></div>
   
   <!-- Main Content -->
   <div class="hero-content">
     
-    <!-- Signature FIRST (at top) -->
-    <div class="hero-signature">
-      <span class="sig-name">Sanjana</span>
-      <span class="sig-heart">❤️</span>
-      <span class="sig-name">KP</span>
+    <!-- Opening Quote with Fade -->
+    <div class="opening-quote">
+      <span class="quote-mark">"</span>
+      <span class="quote-text">In a world full of temporary things, you are a perpetual feeling</span>
+      <span class="quote-mark">"</span>
     </div>
     
+    <!-- Signature with Heart Trail -->
+    <div class="hero-signature">
+      <span class="sig-name sig-name-1">Sanjana</span>
+      <span class="sig-heart-group">
+        <span class="sig-heart">❤️</span>
+        <span class="heart-trail">💕</span>
+      </span>
+      <span class="sig-name sig-name-2">KP</span>
+    </div>
+    
+    <!-- Title with Letter Spacing Animation -->
     <h1 class="hero-title">
-      <span class="title-line-1">Happy Valentine's Day</span><br>
-      <span class="hero-name">Sanju</span> 💖
+      <span class="title-line-1">
+        <span class="title-word">Happy</span>
+        <span class="title-word">Valentine's</span>
+        <span class="title-word">Day</span>
+      </span>
+      <br>
+      <span class="hero-name-wrapper">
+        <span class="hero-name">Sanju</span>
+        <span class="name-accent">💖</span>
+      </span>
     </h1>
     
-    <p class="hero-sub">
-      This didn't start as a plan.<br>
-      It started as a feeling...<br>
-      and somehow, it became <strong>us</strong>.<br><br>
-      Today, I want to take you through<br>
-      the most beautiful journey of my life —<br>
-      <em>our story, our memories, our forever.</em>
-    </p>
+    <!-- Enhanced Subtitle with Line-by-Line Reveal -->
+    <div class="hero-sub">
+      <p class="sub-line sub-line-1">This didn't start as a plan.</p>
+      <p class="sub-line sub-line-2">It started as a feeling...</p>
+      <p class="sub-line sub-line-3">and somehow, it became <strong>us</strong>.</p>
+      <p class="sub-line sub-line-4 sub-spacer">Today, I want to take you through</p>
+      <p class="sub-line sub-line-5">the most beautiful journey of my life —</p>
+      <p class="sub-line sub-line-6"><em>our story, our memories, our forever.</em></p>
+    </div>
     
+    <!-- Button with Shimmer Effect -->
     <button class="primary hero-cta-btn" onclick="nextScene()">
-      Begin Our Story ✨
+      <span class="btn-shimmer"></span>
+      <span class="btn-text">Begin Our Story</span>
+      <span class="btn-icon">✨</span>
     </button>
+    
+    <!-- Curiosity Teaser -->
+    <div class="curiosity-hint">
+      <span class="hint-text">Something special awaits you...</span>
+      <span class="hint-arrow">↓</span>
+    </div>
+    
   </div>
 </div>
 
