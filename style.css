@@ -380,7 +380,11 @@ position: fixed;
 
 inset: 0;
 
-overflow: hidden;
+/* CHANGED: allow scroll so nothing gets cut */
+
+overflow-y: auto;
+
+overflow-x: hidden;
 
 padding: 15px 20px !important;
 
@@ -1144,7 +1148,9 @@ flex-direction: column;
 
 align-items: center;
 
-justify-content: center;
+/* CHANGED: start from top so quote is always visible */
+
+justify-content: flex-start;
 
 max-width: 700px;
 
@@ -1152,7 +1158,7 @@ padding: 8px 25px 18px;
 
 margin: 0 auto;
 
-height: 100%;
+min-height: 100%;
 
 }
 
@@ -1164,13 +1170,15 @@ height: 100%;
 
 font-family: 'Cormorant Garamond', serif;
 
-font-size: 1.05rem;
+/* CHANGED: smaller so it fits on all screens */
+
+font-size: 0.95rem;
 
 font-style: italic;
 
 color: rgba(80,80,80,0.9);
 
-margin-bottom: 10px;
+margin-bottom: 8px;
 
 opacity: 0;
 
@@ -1178,9 +1186,13 @@ animation: quoteFadeIn 2s ease forwards 0.2s;
 
 text-align: center;
 
-max-width: 550px;
+/* CHANGED: full width, add padding */
 
-line-height: 1.5;
+max-width: 100%;
+
+line-height: 1.4;
+
+padding: 0 10px;
 
 }
 
@@ -1188,13 +1200,13 @@ line-height: 1.5;
 
 .quote-mark {
 
-font-size: 1.8rem;
+font-size: 1.5rem;
 
 color: rgba(255,90,140,0.5);
 
 font-weight: 600;
 
-margin: 0 5px;
+margin: 0 3px;
 
 }
 
@@ -1202,7 +1214,7 @@ margin: 0 5px;
 
 .quote-text {
 
-letter-spacing: 0.3px;
+letter-spacing: 0.2px;
 
 }
 
@@ -2124,8 +2136,6 @@ animation: iconFloat 3s ease-in-out infinite;
 
 .card-icon:last-child { animation-delay: 1.5s; }
 
-
-
 @keyframes iconFloat {
 
 0%, 100% { transform: translateY(0) scale(1); }
@@ -2314,8 +2324,6 @@ animation: sparkleRotate 3s ease-in-out infinite;
 
 .footer-decoration:last-child { animation-delay: 1.5s; }
 
-
-
 @keyframes sparkleRotate {
 
 0%, 100% { transform: rotate(0deg) scale(1); }
@@ -2346,177 +2354,179 @@ text-shadow: 0 2px 6px rgba(255, 90, 140, 0.3);
 
 @media (max-width: 768px) {
 
-  /* allow more breathing room on mobile */
+/* allow more breathing room on mobile */
 
-  .hero-scene {
+.hero-scene {
 
-    padding: 10px 10px !important;
+padding: 10px 10px !important;
 
-  }
+}
 
 
 
-  /* make main content scroll naturally if taller than viewport */
+/* make main content scroll naturally if taller than viewport */
 
-  .hero-content {
+.hero-content {
 
-    height: auto;
+height: auto;
 
-    min-height: 100%;
+min-height: 100%;
 
-    padding: 16px 16px 24px;
+padding: 16px 16px 24px;
 
-  }
+}
 
 
 
-  /* slightly shrink story card so it fits fully */
+/* slightly shrink story card so it fits fully */
 
-  .story-card-romantic {
+.story-card-romantic {
 
-    max-width: 90%;
+max-width: 90%;
 
-    margin: 8px auto 14px;
+margin: 8px auto 14px;
 
-  }
+}
 
 
 
-  .card-inner {
+.card-inner {
 
-    padding: 14px 16px;
+padding: 14px 16px;
 
-  }
+}
 
 
 
-  .story-line {
+.story-line {
 
-    font-size: 0.86rem;
+font-size: 0.86rem;
 
-  }
+}
 
 
 
-  /* opening quote + titles */
+/* opening quote + titles */
 
-  .opening-quote {
+.opening-quote {
 
-    font-size: 0.9rem;
+font-size: 0.82rem;
 
-    margin-bottom: 6px;
+margin-bottom: 6px;
 
-  }
+padding: 0 6px;
 
+}
 
 
-  .hero-title-unified {
 
-    margin-bottom: 8px;
+.hero-title-unified {
 
-  }
+margin-bottom: 8px;
 
+}
 
 
-  .title-line-main,
 
-  .title-name-main {
+.title-line-main,
 
-    font-size: 1.9rem;
+.title-name-main {
 
-  }
+font-size: 1.9rem;
 
+}
 
 
-  /* old hero-title (kept for other scenes) */
 
-  .hero-title {
+/* old hero-title (kept for other scenes) */
 
-    font-size: 2rem;
+.hero-title {
 
-    margin-bottom: 10px;
+font-size: 2rem;
 
-  }
+margin-bottom: 10px;
 
+}
 
 
-  .title-word {
 
-    margin: 0 4px;
+.title-word {
 
-  }
+margin: 0 4px;
 
+}
 
 
-  .hero-name {
 
-    font-size: 2.4rem;
+.hero-name {
 
-  }
+font-size: 2.4rem;
 
+}
 
 
-  .name-accent {
 
-    font-size: 2.1rem;
+.name-accent {
 
-  }
+font-size: 2.1rem;
 
+}
 
 
-  /* text + signature */
 
-  .hero-sub {
+/* text + signature */
 
-    font-size: 0.88rem;
+.hero-sub {
 
-    line-height: 1.6;
+font-size: 0.88rem;
 
-    margin-bottom: 12px;
+line-height: 1.6;
 
-  }
+margin-bottom: 12px;
 
+}
 
 
-  .hero-signature {
 
-    font-size: 1.2rem;
+.hero-signature {
 
-    margin-bottom: 6px;
+font-size: 1.2rem;
 
-  }
+margin-bottom: 6px;
 
+}
 
 
-  /* button */
 
-  .hero-cta-btn {
+/* button */
 
-    font-size: 0.9rem;
+.hero-cta-btn {
 
-    padding: 11px 26px;
+font-size: 0.9rem;
 
-    margin-top: 4px;
+padding: 11px 26px;
 
-  }
+margin-top: 4px;
 
+}
 
 
-  /* decorations smaller so they don’t cover text */
 
-  .petal {
+/* decorations smaller so they don’t cover text */
 
-    font-size: 1.3rem;
+.petal {
 
-  }
+font-size: 1.3rem;
 
+}
 
 
-  .sparkle {
 
-    font-size: 0.9rem;
+.sparkle {
 
-  }
+font-size: 0.9rem;
+
+}
 
 }
 
