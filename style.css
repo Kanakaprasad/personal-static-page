@@ -2009,12 +2009,10 @@ transform: skewX(-25deg);
 
 
 .btn-text {
-
 position: relative;
-
-zindex: 2;
-
+z-index: 2;
 }
+
 
 
 
