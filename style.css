@@ -189,8 +189,10 @@ html, body {
 /* ==================== ULTIMATE ROMANTIC HERO PAGE ==================== */
 
 .hero-scene {
-  position: relative;
-  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 30px 20px !important;
 }
 
@@ -540,7 +542,7 @@ html, body {
   background: radial-gradient(circle, rgba(255,90,140,0.35), transparent 70%);
   filter: blur(70px);
   animation: glowPulseHero1 6s ease-in-out infinite;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -551,7 +553,7 @@ html, body {
   background: radial-gradient(circle, rgba(255,150,180,0.25), transparent 70%);
   filter: blur(60px);
   animation: glowPulseHero2 8s ease-in-out infinite;
-  top: 30%;
+  top: 20%;
   right: 10%;
 }
 
@@ -572,9 +574,10 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   max-width: 700px;
-  padding: 20px 25px;
+  padding: 30px 25px 50px;
+  margin: 40px auto 60px;
 }
 
 /* Opening Quote */
@@ -831,6 +834,7 @@ html, body {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .btn-shimmer {
@@ -890,9 +894,10 @@ html, body {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  margin-top: 25px;
+  margin-top: 22px;
   opacity: 0;
   animation: hintFadeIn 1.5s ease forwards 5s;
+  margin-bottom: 10px;
 }
 
 .hint-text {
@@ -968,6 +973,11 @@ html, body {
 }
 
 @media (max-height: 700px) {
+  .hero-content {
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+  
   .opening-quote {
     font-size: 0.95rem;
     margin-bottom: 15px;
@@ -993,7 +1003,7 @@ html, body {
   }
   
   .curiosity-hint {
-    margin-top: 20px;
+    margin-top: 18px;
   }
 }
 
