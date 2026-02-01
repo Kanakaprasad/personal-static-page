@@ -206,47 +206,44 @@ html, body {
   font-size: 2.5rem;
 }
 
-/* ================= HERO / HOME – ROMANTIC UPGRADE ================= */
+/* ================= HERO / HOME – EMOTIONAL UPGRADE (ADDED) ================= */
 
 .hero-scene {
   position: relative;
   overflow: hidden;
 }
 
-/* Floating hearts (subtle & elegant) */
-.hero-scene::before,
-.hero-scene::after {
-  content: "❤";
-  position: absolute;
-  font-size: 2rem;
-  opacity: 0.25;
-  animation: heartFloat 14s linear infinite;
-}
-
+/* Floating romantic names */
 .hero-scene::before {
-  left: 15%;
-  bottom: -10%;
-  animation-delay: 0s;
+  content:
+    "Sanju 💖\A Sanji ✨\A Dear 🌸\A Sanjana ❤️\A My Dear 💕\A Hendti 🥺❤️\A Bangara\A Chinni\A Darling\A SanKP";
+  white-space: pre;
+  position: absolute;
+  bottom: -70%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  line-height: 2.3;
+  color: rgba(255, 90, 130, 0.18);
+  animation: namesFloat 32s linear infinite;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.hero-scene::after {
-  left: 75%;
-  bottom: -15%;
-  animation-delay: 6s;
+@keyframes namesFloat {
+  from { transform: translate(-50%, 0); }
+  to { transform: translate(-50%, -150vh); }
 }
 
-@keyframes heartFloat {
-  from { transform: translateY(0) scale(1); }
-  to { transform: translateY(-130vh) scale(1.2); }
-}
-
-/* Hero title animation */
+/* Hero title */
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   letter-spacing: 3px;
   animation: titleReveal 1.8s ease forwards;
+  z-index: 2;
 }
 
 @keyframes titleReveal {
@@ -256,12 +253,13 @@ html, body {
 
 /* Hero sub text */
 .hero-sub {
-  max-width: 480px;
+  max-width: 520px;
   font-size: 1.15rem;
-  line-height: 1.8;
-  margin-bottom: 28px;
+  line-height: 1.9;
+  margin-bottom: 30px;
   opacity: 0;
   animation: subReveal 2.4s ease forwards;
+  z-index: 2;
 }
 
 @keyframes subReveal {
@@ -269,9 +267,10 @@ html, body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Call-to-action pulse */
+/* CTA pulse */
 .primary.pulse {
   animation: pulse 2.2s infinite;
+  z-index: 2;
 }
 
 @keyframes pulse {
