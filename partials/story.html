@@ -13,9 +13,10 @@
             background-size: 400% 400%;
             animation: gradientShift 20s ease infinite;
             overflow-x: hidden;
+            overflow-y: auto;
             position: relative;
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         @keyframes gradientShift {
@@ -68,24 +69,46 @@
         /* Greeting Header */
         .greeting-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             animation: fadeInDown 1.5s ease;
+            position: relative;
         }
 
         .greeting-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            color: #ff3d7f;
-            margin-bottom: 15px;
-            text-shadow: 0 4px 20px rgba(255, 90, 140, 0.3);
-            line-height: 1.3;
+            font-size: 3.8rem;
+            background: linear-gradient(135deg, #ff3d7f 0%, #ff6b9c 50%, #ff3d7f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            text-shadow: 0 8px 30px rgba(255, 90, 140, 0.5);
+            line-height: 1.2;
+            font-weight: 900;
+            letter-spacing: 2px;
+            position: relative;
         }
 
         .greeting-subtitle {
             font-family: 'Dancing Script', cursive;
-            font-size: 1.6rem;
-            color: #ff6b9c;
-            margin-bottom: 10px;
+            font-size: 2.2rem;
+            background: linear-gradient(90deg, #ff6b9c, #ff3d7f, #ff8fb3, #ff3d7f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 15px rgba(255, 90, 140, 0.35);
+            font-weight: 600;
+        }
+
+        .greeting-tagline {
+            font-size: 1.1rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 15px;
+            opacity: 0;
+            animation: fadeInText 1.5s ease forwards;
+            animation-delay: 1s;
         }
 
         .valentines-emoji {
@@ -102,15 +125,32 @@
 
         /* Single Story Card */
         .story-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: 0 20px 60px rgba(255, 90, 140, 0.25);
-            border: 2px solid rgba(255, 140, 180, 0.3);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 240, 245, 0.98) 50%, rgba(255, 255, 255, 0.98) 100%);
+            border-radius: 35px;
+            padding: 60px;
+            box-shadow: 
+                0 25px 80px rgba(255, 90, 140, 0.3),
+                0 10px 40px rgba(255, 107, 156, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 3px solid;
+            border-image: linear-gradient(135deg, rgba(255, 107, 156, 0.5), rgba(255, 61, 127, 0.5), rgba(255, 140, 180, 0.5)) 1;
+            backdrop-filter: blur(15px);
             position: relative;
             overflow: hidden;
-            animation: fadeInUp 2s ease;
+            animation: fadeInUp 2s ease, cardGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes cardGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 25px 80px rgba(255, 90, 140, 0.3),
+                    0 10px 40px rgba(255, 107, 156, 0.2);
+            }
+            50% {
+                box-shadow: 
+                    0 30px 90px rgba(255, 90, 140, 0.4),
+                    0 15px 50px rgba(255, 107, 156, 0.3);
+            }
         }
 
         .story-card::before {
@@ -120,9 +160,29 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 90, 140, 0.08), transparent 70%);
-            animation: rotateGlow 25s linear infinite;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 107, 156, 0.15), transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 61, 127, 0.12), transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 140, 180, 0.1), transparent 70%);
+            animation: rotateGlow 30s linear infinite;
             pointer-events: none;
+        }
+
+        .story-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 70%);
+            animation: shimmer 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         @keyframes rotateGlow {
@@ -155,15 +215,17 @@
         .story-content {
             position: relative;
             z-index: 1;
-            line-height: 2;
-            color: #4a4a4a;
-            font-size: 1.05rem;
+            line-height: 2.2;
+            color: #333;
+            font-size: 1.1rem;
+            text-align: justify;
         }
 
         .story-paragraph {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             opacity: 0;
-            animation: fadeInText 1.5s ease forwards;
+            animation: fadeInText 2s ease forwards;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
         }
 
         .story-paragraph:nth-child(1) { animation-delay: 0.5s; }
@@ -286,7 +348,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             body {
-                padding: 20px 15px;
+                padding: 30px 15px;
             }
 
             .story-card {
@@ -294,20 +356,25 @@
             }
 
             .greeting-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
             .greeting-subtitle {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+            }
+
+            .greeting-tagline {
+                font-size: 0.95rem;
             }
 
             .story-content {
-                font-size: 0.95rem;
-                line-height: 1.8;
+                font-size: 1rem;
+                line-height: 2;
+                text-align: left;
             }
 
             .story-paragraph {
-                margin-bottom: 20px;
+                margin-bottom: 25px;
             }
         }
     </style>
@@ -320,30 +387,32 @@
         <!-- Greeting Header -->
         <div class="greeting-header">
             <h1 class="greeting-title">
-                Hi, Nanna Preethiya hendatige<br>ninna gandan kade inda<br>Happy Valentine's Day <span class="valentines-emoji">💌</span>
+                Our Forever Story <span class="valentines-emoji">💕</span>
             </h1>
-            <p class="greeting-subtitle">Let's start my one of the best chapter in my life</p>
+            <p class="greeting-subtitle">From The Day You Walked Into My Life...</p>
+            <p class="greeting-tagline" style="opacity: 1; color: #ff6b9c; font-size: 1.15rem; margin-top: 20px; animation-delay: 0.5s;">
+                Every Moment With You Feels Like A Beautiful Dream Come True ✨
+            </p>
         </div>
 
         <!-- Single Story Card with All Content -->
         <div class="story-card">
             <div class="story-content">
-                <p class="story-paragraph">
-                    And ninu nanna life ge bandiddu and ninna love madidde nange <span class="highlight">best ever experience and feeling</span> <span class="emoji-accent">😊</span>
-                </p>
-
-                <div class="divider">
-                    <div class="divider-line"></div>
-                    <span class="divider-heart">❤️</span>
-                    <div class="divider-line"></div>
-                </div>
-
-                <p class="story-paragraph">
-                    Yellinda start madbeku gottagtilla but I've to start, <span class="date-highlight">21st Dec</span>, date will be day to remember forever, that's the day we've to decided to leave together forever and that's the day navu ibru madve ago plan madiddu, that's day nanu obne allade nangu ondu family ide anta adanna taleli itkondu yelladannu vichar madok start madide.
+                <p class="story-paragraph" style="text-align: center; font-size: 1.2rem; color: #ff6b9c; font-style: italic; margin-bottom: 35px;">
+                    Hi, Nanna Preethiya hendatige ninna gandan kade inda<br>
+                    Happy Valentine's Day 💌
                 </p>
 
                 <p class="story-paragraph">
-                    And avatte for the first time nanu astondu full low voice nalli and kai shake madta and bhaya dalli mathadiddu anisutte <span class="emoji-accent">😁</span>, aa tara yavattu experience agirlilla nange, thanks for the experience <span class="emoji-accent">😊</span>
+                    Let's start my one of the best chapter in my life and ninu nanna life ge bandiddu and ninna love madidde nange <span class="highlight">best ever experience and feeling</span> <span class="emoji-accent">😊</span>
+                </p>
+
+                <p class="story-paragraph">
+                    Yellinda start madbeku gottagtilla but I've to start,
+                </p>
+
+                <p class="story-paragraph">
+                    <span class="date-highlight">21st Dec</span>, date will be day to remember forever, that's the day we've to decided to live together forever and that's the day navu ibru madve ago plan madiddu, that's day nanu obne allade nangu ondu family ide anta adanna taleli itkondu yelladannu vichar madok start madide, and avatte for the first time nanu astondu full low voice nalli and kai shake madta and bhaya dalli mathadiddu anisutte <span class="emoji-accent">😁</span>, aa tara yavattu experience agirlilla nange, thanks for the experience <span class="emoji-accent">😊</span>
                 </p>
 
                 <p class="story-paragraph">
@@ -351,34 +420,11 @@
                 </p>
 
                 <p class="story-paragraph">
-                    One of the best night andre nange <span class="date-highlight">1st jan 2026 year night</span>, I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide.
+                    One of the best night andre nange <span class="date-highlight">1st jan 2026 year night</span>, I mean adu unexpected agi alle iroke plan madiddu adu hange iddu 2025 na ninna jote ne end madide and 2026 na ninna jote ne start madide, and unexpectedly <span class="highlight">that kiss will be my best ever kiss agutte</span> and nanu lifelong mariyalla adanna, hinge yella year nu end agli and start agli till my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona, like ninu helidange Keral or bere yelladru hogi alli celebration madona, nange otnalli ninu irbeku nanna jote aste saku <span class="emoji-accent">❤️</span>
                 </p>
 
                 <p class="story-paragraph">
-                    And unexpectedly <span class="highlight">that kiss will be my best ever kiss agutte</span> and nanu lifelong mariyalla adanna En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide.
-                </p>
-
-                <div class="promise-box">
-                    <p><strong>My Promise:</strong></p>
-                    <p>Hinge yella year nu end agli and start agli till my last breath anta ase, but ee year yellu plan madoke aglilla next year bere yalladru trip hogi plan madona. Like ninu helidange Keral or bere yelladru hogi alli celebration madona, nange otnalli ninu irbeku nanna jote aste saku <span class="emoji-accent">❤️</span></p>
-                </div>
-
-                <p class="story-paragraph">
-                    And adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise <span class="emoji-accent">🥺</span>
-                </p>
-
-                <p class="story-paragraph">
-                    Just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu.
-                </p>
-
-                <div class="divider">
-                    <div class="divider-line"></div>
-                    <span class="divider-heart">💑</span>
-                    <div class="divider-line"></div>
-                </div>
-
-                <p class="story-paragraph" style="text-align: center; font-size: 1.15rem; font-style: italic; color: #ff3d7f; margin-top: 30px;">
-                    Sorry, adastu bega <span class="highlight">nimma manege baroke</span>, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu <span class="emoji-accent">❤️</span>
+                    En gotta ee feb 14th nalli ondu helbeku anstu, tumba bega andre within one or two months nalli ninna namma urige karkondu hogo plan ide and adre ivagle namma maneyali heltini, andre avrigu kushi agli, and ninna nodidre namma maneli definitely opkontare and ista padtare promise <span class="emoji-accent">🥺</span>, just ninu enu and ninu yentolu anta helidre saku opkontare, adre within 2-3 months nalle maneli heltini and adastu bega namma manege baroke ready agu sorry, adastu bega <span class="highlight">nimma manege baroke</span>, ninna gandan manege baroke and nimma atte mavana nodi avra jote mathadoke ready agu <span class="emoji-accent">❤️</span>
                 </p>
             </div>
         </div>
