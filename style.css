@@ -12,6 +12,8 @@ overflow: hidden;
 
 }
 
+
+
 /* BACKGROUND */
 
 #bg-valentine {
@@ -30,6 +32,8 @@ z-index: -3;
 
 }
 
+
+
 @keyframes gradientShift {
 
 0%, 100% { background-position: 0% 50%; }
@@ -37,6 +41,8 @@ z-index: -3;
 50% { background-position: 100% 50%; }
 
 }
+
+
 
 #bg-hearts-layer {
 
@@ -56,11 +62,15 @@ z-index: -2;
 
 }
 
+
+
 @keyframes floatHearts {
 
 to { background-position: 0 -3000px; }
 
 }
+
+
 
 /* UI */
 
@@ -90,6 +100,8 @@ transition: all 0.3s ease;
 
 }
 
+
+
 .mute-btn:hover, .back-btn:hover {
 
 transform: scale(1.1);
@@ -98,9 +110,13 @@ box-shadow: 0 6px 20px rgba(255,90,140,0.3);
 
 }
 
+
+
 .mute-btn { right: 20px; }
 
 .back-btn { left: 20px; }
+
+
 
 /* SCENES */
 
@@ -124,9 +140,13 @@ text-align: center;
 
 }
 
+
+
 .scene.active { display: flex; }
 
 .scene.scrollable { overflow-y: auto; }
+
+
 
 /* LOGIN */
 
@@ -148,11 +168,15 @@ pointer-events: none;
 
 }
 
+
+
 @keyframes glowPulse {
 
 50% { transform: scale(1.15); opacity: 0.7; }
 
 }
+
+
 
 .login-card {
 
@@ -174,6 +198,8 @@ animation: fadeUp 1.2s ease;
 
 }
 
+
+
 @keyframes fadeUp {
 
 from { opacity: 0; transform: translateY(30px); }
@@ -181,6 +207,8 @@ from { opacity: 0; transform: translateY(30px); }
 to { opacity: 1; transform: translateY(0); }
 
 }
+
+
 
 /* BUTTON */
 
@@ -206,11 +234,15 @@ position: relative;
 
 }
 
+
+
 .primary:hover {
 
 transform: translateY(-2px);
 
 }
+
+
 
 /* POPUP */
 
@@ -240,6 +272,8 @@ z-index: 200;
 
 }
 
+
+
 .login-popup.show {
 
 opacity: 1;
@@ -247,6 +281,8 @@ opacity: 1;
 pointer-events: all;
 
 }
+
+
 
 .popup-card {
 
@@ -262,6 +298,8 @@ animation: popupIn 0.6s ease;
 
 }
 
+
+
 @keyframes popupIn {
 
 from { transform: scale(0.9); opacity: 0; }
@@ -269,6 +307,8 @@ from { transform: scale(0.9); opacity: 0; }
 to { transform: scale(1); opacity: 1; }
 
 }
+
+
 
 /* STORY */
 
@@ -282,6 +322,8 @@ line-height: 1.9;
 
 }
 
+
+
 /* PHOTOS */
 
 .photo-grid {
@@ -294,6 +336,8 @@ gap: 20px;
 
 }
 
+
+
 .stage-photo {
 
 max-width: 100%;
@@ -304,6 +348,8 @@ transition: 1.5s;
 
 }
 
+
+
 .stage-photo.shrink {
 
 transform: scale(0.3) translateY(300px);
@@ -311,6 +357,8 @@ transform: scale(0.3) translateY(300px);
 opacity: 0;
 
 }
+
+
 
 /* LETTER */
 
@@ -321,6 +369,8 @@ font-family: 'Dancing Script', cursive;
 font-size: 2.5rem;
 
 }
+
+
 
 /* ==================== ULTIMATE ROMANTIC HERO PAGE ==================== */
 
@@ -335,6 +385,8 @@ overflow: hidden;
 padding: 15px 20px !important;
 
 }
+
+
 
 /* Romantic Overlay Filter */
 
@@ -354,6 +406,8 @@ animation: overlayPulse 8s ease-in-out infinite;
 
 }
 
+
+
 @keyframes overlayPulse {
 
 0%, 100% { opacity: 0.4; }
@@ -361,6 +415,8 @@ animation: overlayPulse 8s ease-in-out infinite;
 50% { opacity: 0.6; }
 
 }
+
+
 
 /* Rose Petals Falling */
 
@@ -380,6 +436,8 @@ filter: blur(0.5px);
 
 }
 
+
+
 .petal-1 {
 
 top: -10%;
@@ -389,6 +447,8 @@ left: 10%;
 animation: petalFall1 12s linear infinite;
 
 }
+
+
 
 .petal-2 {
 
@@ -400,6 +460,8 @@ animation: petalFall2 14s linear infinite 2s;
 
 }
 
+
+
 .petal-3 {
 
 top: -20%;
@@ -409,6 +471,8 @@ left: 50%;
 animation: petalFall3 13s linear infinite 4s;
 
 }
+
+
 
 .petal-4 {
 
@@ -420,6 +484,8 @@ animation: petalFall4 15s linear infinite 1s;
 
 }
 
+
+
 .petal-5 {
 
 top: -25%;
@@ -429,6 +495,8 @@ left: 85%;
 animation: petalFall5 11s linear infinite 3s;
 
 }
+
+
 
 .petal-6 {
 
@@ -440,6 +508,8 @@ animation: petalFall6 16s linear infinite 5s;
 
 }
 
+
+
 .petal-7 {
 
 top: -20%;
@@ -450,6 +520,8 @@ animation: petalFall7 13.5s linear infinite 2.5s;
 
 }
 
+
+
 .petal-8 {
 
 top: -10%;
@@ -459,6 +531,8 @@ left: 45%;
 animation: petalFall8 14.5s linear infinite 4.5s;
 
 }
+
+
 
 @keyframes petalFall1 {
 
@@ -472,6 +546,8 @@ opacity: 0;
 
 }
 
+
+
 @keyframes petalFall2 {
 
 to {
@@ -483,6 +559,8 @@ opacity: 0;
 }
 
 }
+
+
 
 @keyframes petalFall3 {
 
@@ -496,6 +574,8 @@ opacity: 0;
 
 }
 
+
+
 @keyframes petalFall4 {
 
 to {
@@ -507,6 +587,8 @@ opacity: 0;
 }
 
 }
+
+
 
 @keyframes petalFall5 {
 
@@ -520,6 +602,8 @@ opacity: 0;
 
 }
 
+
+
 @keyframes petalFall6 {
 
 to {
@@ -531,6 +615,8 @@ opacity: 0;
 }
 
 }
+
+
 
 @keyframes petalFall7 {
 
@@ -544,6 +630,8 @@ opacity: 0;
 
 }
 
+
+
 @keyframes petalFall8 {
 
 to {
@@ -555,6 +643,8 @@ opacity: 0;
 }
 
 }
+
+
 
 /* Sparkles */
 
@@ -574,6 +664,8 @@ animation: sparkleAnim 3s ease-in-out infinite;
 
 }
 
+
+
 .sparkle-1 {
 
 top: 20%;
@@ -583,6 +675,8 @@ left: 15%;
 animation-delay: 0s;
 
 }
+
+
 
 .sparkle-2 {
 
@@ -594,6 +688,8 @@ animation-delay: 1s;
 
 }
 
+
+
 .sparkle-3 {
 
 bottom: 30%;
@@ -603,6 +699,8 @@ left: 25%;
 animation-delay: 2s;
 
 }
+
+
 
 .sparkle-4 {
 
@@ -614,6 +712,8 @@ animation-delay: 0.5s;
 
 }
 
+
+
 .sparkle-5 {
 
 top: 30%;
@@ -624,6 +724,8 @@ animation-delay: 1.5s;
 
 }
 
+
+
 @keyframes sparkleAnim {
 
 0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
@@ -631,6 +733,8 @@ animation-delay: 1.5s;
 50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
 
 }
+
+
 
 /* Floating Hearts Graphics */
 
@@ -650,6 +754,8 @@ z-index: 2;
 
 }
 
+
+
 .hero-heart-1 {
 
 top: 8%;
@@ -659,6 +765,8 @@ left: 12%;
 animation: heartFloat1 8s ease-in-out infinite;
 
 }
+
+
 
 .hero-heart-2 {
 
@@ -672,6 +780,8 @@ animation: heartFloat2 10s ease-in-out infinite;
 
 }
 
+
+
 .hero-heart-3 {
 
 bottom: 12%;
@@ -683,6 +793,8 @@ font-size: 3rem;
 animation: heartFloat3 12s ease-in-out infinite;
 
 }
+
+
 
 .hero-heart-4 {
 
@@ -696,6 +808,8 @@ animation: heartFloat4 9s ease-in-out infinite;
 
 }
 
+
+
 .hero-heart-5 {
 
 top: 35%;
@@ -708,6 +822,8 @@ animation: heartFloat5 11s ease-in-out infinite;
 
 }
 
+
+
 @keyframes heartFloat1 {
 
 0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -715,6 +831,8 @@ animation: heartFloat5 11s ease-in-out infinite;
 50% { transform: translateY(-25px) rotate(8deg); }
 
 }
+
+
 
 @keyframes heartFloat2 {
 
@@ -724,6 +842,8 @@ animation: heartFloat5 11s ease-in-out infinite;
 
 }
 
+
+
 @keyframes heartFloat3 {
 
 0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -731,6 +851,8 @@ animation: heartFloat5 11s ease-in-out infinite;
 50% { transform: translateY(-20px) rotate(10deg); }
 
 }
+
+
 
 @keyframes heartFloat4 {
 
@@ -740,6 +862,8 @@ animation: heartFloat5 11s ease-in-out infinite;
 
 }
 
+
+
 @keyframes heartFloat5 {
 
 0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -747,6 +871,8 @@ animation: heartFloat5 11s ease-in-out infinite;
 50% { transform: translateY(-35px) rotate(12deg); }
 
 }
+
+
 
 /* Light Particles */
 
@@ -770,6 +896,8 @@ box-shadow: 0 0 10px rgba(255,120,160,0.5);
 
 }
 
+
+
 .particle-1 {
 
 top: 12%;
@@ -779,6 +907,8 @@ left: 22%;
 animation: particleDrift1 15s linear infinite;
 
 }
+
+
 
 .particle-2 {
 
@@ -790,6 +920,8 @@ animation: particleDrift2 18s linear infinite;
 
 }
 
+
+
 .particle-3 {
 
 bottom: 18%;
@@ -799,6 +931,8 @@ left: 28%;
 animation: particleDrift3 20s linear infinite;
 
 }
+
+
 
 .particle-4 {
 
@@ -810,6 +944,8 @@ animation: particleDrift4 16s linear infinite;
 
 }
 
+
+
 .particle-5 {
 
 top: 65%;
@@ -820,6 +956,8 @@ animation: particleDrift5 22s linear infinite;
 
 }
 
+
+
 .particle-6 {
 
 top: 22%;
@@ -829,6 +967,8 @@ left: 58%;
 animation: particleDrift6 19s linear infinite;
 
 }
+
+
 
 @keyframes particleDrift1 {
 
@@ -842,6 +982,8 @@ animation: particleDrift6 19s linear infinite;
 
 }
 
+
+
 @keyframes particleDrift2 {
 
 0% { transform: translate(0, 0); opacity: 0; }
@@ -853,6 +995,8 @@ animation: particleDrift6 19s linear infinite;
 100% { transform: translate(-50px, -100vh); opacity: 0; }
 
 }
+
+
 
 @keyframes particleDrift3 {
 
@@ -866,6 +1010,8 @@ animation: particleDrift6 19s linear infinite;
 
 }
 
+
+
 @keyframes particleDrift4 {
 
 0% { transform: translate(0, 0); opacity: 0; }
@@ -877,6 +1023,8 @@ animation: particleDrift6 19s linear infinite;
 100% { transform: translate(-45px, -100vh); opacity: 0; }
 
 }
+
+
 
 @keyframes particleDrift5 {
 
@@ -890,6 +1038,8 @@ animation: particleDrift6 19s linear infinite;
 
 }
 
+
+
 @keyframes particleDrift6 {
 
 0% { transform: translate(0, 0); opacity: 0; }
@@ -902,6 +1052,8 @@ animation: particleDrift6 19s linear infinite;
 
 }
 
+
+
 /* Multiple Glow Effects */
 
 .hero-glow {
@@ -913,6 +1065,8 @@ pointer-events: none;
 z-index: 0;
 
 }
+
+
 
 .hero-glow-1 {
 
@@ -934,6 +1088,8 @@ transform: translate(-50%, -50%);
 
 }
 
+
+
 .hero-glow-2 {
 
 width: 400px;
@@ -952,6 +1108,8 @@ right: 10%;
 
 }
 
+
+
 @keyframes glowPulseHero1 {
 
 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.35; }
@@ -960,6 +1118,8 @@ right: 10%;
 
 }
 
+
+
 @keyframes glowPulseHero2 {
 
 0%, 100% { opacity: 0.25; transform: scale(1); }
@@ -967,6 +1127,8 @@ right: 10%;
 50% { opacity: 0.4; transform: scale(1.15); }
 
 }
+
+
 
 /* Main Content Container */
 
@@ -994,6 +1156,8 @@ height: 100%;
 
 }
 
+
+
 /* Opening Quote */
 
 .opening-quote {
@@ -1020,6 +1184,8 @@ line-height: 1.5;
 
 }
 
+
+
 .quote-mark {
 
 font-size: 1.8rem;
@@ -1032,11 +1198,15 @@ margin: 0 5px;
 
 }
 
+
+
 .quote-text {
 
 letter-spacing: 0.3px;
 
 }
+
+
 
 @keyframes quoteFadeIn {
 
@@ -1045,6 +1215,8 @@ from { opacity: 0; transform: translateY(-15px); }
 to { opacity: 1; transform: translateY(0); }
 
 }
+
+
 
 /* Signature with Heart Trail */
 
@@ -1074,6 +1246,8 @@ position: relative;
 
 }
 
+
+
 .sig-name {
 
 font-weight: 700;
@@ -1084,6 +1258,8 @@ position: relative;
 
 }
 
+
+
 .sig-name-1 {
 
 animation: nameBounce 0.6s ease forwards 1.5s;
@@ -1092,6 +1268,8 @@ transform: scale(0.95);
 
 }
 
+
+
 .sig-name-2 {
 
 animation: nameBounce 0.6s ease forwards 1.7s;
@@ -1099,6 +1277,8 @@ animation: nameBounce 0.6s ease forwards 1.7s;
 transform: scale(0.95);
 
 }
+
+
 
 @keyframes nameBounce {
 
@@ -1110,6 +1290,8 @@ transform: scale(0.95);
 
 }
 
+
+
 .sig-heart-group {
 
 position: relative;
@@ -1117,6 +1299,8 @@ position: relative;
 display: inline-flex;
 
 }
+
+
 
 .sig-heart {
 
@@ -1127,6 +1311,8 @@ font-size: 1.5rem;
 display: inline-block;
 
 }
+
+
 
 .heart-trail {
 
@@ -1144,6 +1330,8 @@ animation: heartTrailAnim 2s ease-in-out infinite 2.5s;
 
 }
 
+
+
 @keyframes heartBeat {
 
 0%, 100% { transform: scale(1); }
@@ -1154,6 +1342,8 @@ animation: heartTrailAnim 2s ease-in-out infinite 2.5s;
 
 }
 
+
+
 @keyframes heartTrailAnim {
 
 0%, 100% { opacity: 0; transform: translate(0, 0) scale(0.5); }
@@ -1161,6 +1351,8 @@ animation: heartTrailAnim 2s ease-in-out infinite 2.5s;
 50% { opacity: 0.6; transform: translate(-15px, -15px) scale(1); }
 
 }
+
+
 
 @keyframes signatureFadeIn {
 
@@ -1170,7 +1362,9 @@ to { opacity: 1; transform: translateY(0); }
 
 }
 
-/* OLD hero-title can stay if used elsewhere, but home now uses hero-title-unified */
+
+
+/* Enhanced Hero Title with Word Animation */
 
 .hero-title {
 
@@ -1194,7 +1388,15 @@ color: #2d2d2d;
 
 }
 
-.title-line-1 { display: block; }
+
+
+.title-line-1 {
+
+display: block;
+
+}
+
+
 
 .title-word {
 
@@ -1208,11 +1410,31 @@ text-shadow: 0 4px 20px rgba(255,90,140,0.25);
 
 }
 
-.title-word:nth-child(1) { animation: wordReveal 0.8s ease forwards 1.2s; }
 
-.title-word:nth-child(2) { animation: wordReveal 0.8s ease forwards 1.4s; }
 
-.title-word:nth-child(3) { animation: wordReveal 0.8s ease forwards 1.6s; }
+.title-word:nth-child(1) {
+
+animation: wordReveal 0.8s ease forwards 1.2s;
+
+}
+
+
+
+.title-word:nth-child(2) {
+
+animation: wordReveal 0.8s ease forwards 1.4s;
+
+}
+
+
+
+.title-word:nth-child(3) {
+
+animation: wordReveal 0.8s ease forwards 1.6s;
+
+}
+
+
 
 @keyframes wordReveal {
 
@@ -1222,6 +1444,8 @@ to { opacity: 1; transform: translateY(0) rotateX(0deg); }
 
 }
 
+
+
 .hero-name-wrapper {
 
 display: inline-block;
@@ -1229,6 +1453,8 @@ display: inline-block;
 position: relative;
 
 }
+
+
 
 .hero-name {
 
@@ -1248,7 +1474,9 @@ letter-spacing: 2px;
 
 }
 
-/* Special styling for \"Sanju\" - more adorable and stylish */
+
+
+/* Special styling for "Sanju" - more adorable and stylish */
 
 .hero-name-special {
 
@@ -1270,6 +1498,8 @@ filter: drop-shadow(0 0 15px rgba(255,90,140,0.5));
 
 }
 
+
+
 .name-accent {
 
 display: inline-block;
@@ -1286,6 +1516,8 @@ transform: scale(0);
 
 }
 
+
+
 @keyframes accentPop {
 
 0% { opacity: 0; transform: scale(0) rotate(0deg); }
@@ -1296,6 +1528,8 @@ transform: scale(0);
 
 }
 
+
+
 @keyframes heartPulseAccent {
 
 0%, 100% { transform: scale(1) rotate(0deg); }
@@ -1304,6 +1538,8 @@ transform: scale(0);
 
 }
 
+
+
 @keyframes nameRevealGlow {
 
 from { opacity: 0; transform: translateY(30px) scale(0.85); }
@@ -1311,6 +1547,8 @@ from { opacity: 0; transform: translateY(30px) scale(0.85); }
 to { opacity: 1; transform: translateY(0) scale(1); }
 
 }
+
+
 
 @keyframes nameGlow {
 
@@ -1330,6 +1568,8 @@ drop-shadow(0 0 35px rgba(255,60,120,0.6));
 
 }
 
+
+
 /* Enhanced Subtitle with Line-by-Line Animation */
 
 .hero-sub {
@@ -1348,6 +1588,8 @@ color: #4a4a4a;
 
 }
 
+
+
 .sub-line {
 
 margin: 0;
@@ -1357,6 +1599,8 @@ opacity: 0;
 text-shadow: 0 2px 8px rgba(0,0,0,0.04);
 
 }
+
+
 
 .sub-line-1 { animation: lineReveal 0.8s ease forwards 2.5s; }
 
@@ -1376,9 +1620,21 @@ text-shadow: 0 2px 8px rgba(0,0,0,0.04);
 
 .sub-line-9 { animation: lineReveal 0.8s ease forwards 4.3s; }
 
-.sub-spacer { margin-top: 8px; }
+.sub-spacer {
 
-.sub-spacer-2 { margin-top: 10px; }
+margin-top: 8px;
+
+}
+
+
+
+.sub-spacer-2 {
+
+margin-top: 10px;
+
+}
+
+
 
 @keyframes lineReveal {
 
@@ -1387,6 +1643,8 @@ from { opacity: 0; transform: translateX(-20px); }
 to { opacity: 1; transform: translateX(0); }
 
 }
+
+
 
 .hero-sub strong {
 
@@ -1398,6 +1656,8 @@ text-shadow: 0 0 15px rgba(255,60,120,0.3);
 
 }
 
+
+
 .hero-sub em {
 
 color: #ff6b9c;
@@ -1407,6 +1667,8 @@ font-style: italic;
 font-weight: 500;
 
 }
+
+
 
 /* Button with Shimmer Effect */
 
@@ -1446,6 +1708,8 @@ margin-top: 6px;
 
 }
 
+
+
 .btn-shimmer {
 
 position: absolute;
@@ -1466,6 +1730,8 @@ transform: skewX(-25deg);
 
 }
 
+
+
 @keyframes shimmer {
 
 0% { left: -100%; }
@@ -1474,6 +1740,8 @@ transform: skewX(-25deg);
 
 }
 
+
+
 .btn-text {
 
 position: relative;
@@ -1481,6 +1749,8 @@ position: relative;
 z-index: 2;
 
 }
+
+
 
 .btn-icon {
 
@@ -1492,6 +1762,8 @@ animation: iconSpin 2s ease-in-out infinite 6.8s;
 
 }
 
+
+
 @keyframes iconSpin {
 
 0%, 100% { transform: rotate(0deg) scale(1); }
@@ -1499,6 +1771,8 @@ animation: iconSpin 2s ease-in-out infinite 6.8s;
 50% { transform: rotate(180deg) scale(1.2); }
 
 }
+
+
 
 @keyframes btnReveal {
 
@@ -1508,6 +1782,8 @@ to { opacity: 1; transform: translateY(0) scale(1); }
 
 }
 
+
+
 .hero-cta-btn:hover {
 
 transform: translateY(-3px) scale(1.03);
@@ -1516,11 +1792,15 @@ box-shadow: 0 12px 40px rgba(255,60,120,0.5);
 
 }
 
+
+
 .hero-cta-btn:active {
 
 transform: translateY(-1px) scale(1.01);
 
 }
+
+
 
 @keyframes pulseEnhanced {
 
@@ -1529,6 +1809,8 @@ transform: translateY(-1px) scale(1.01);
 50% { transform: scale(1.05); box-shadow: 0 12px 40px rgba(255,60,120,0.5); }
 
 }
+
+
 
 /* Curiosity Hint */
 
@@ -1552,6 +1834,8 @@ margin-bottom: 0px;
 
 }
 
+
+
 .hint-text {
 
 font-size: 0.85rem;
@@ -1564,6 +1848,8 @@ letter-spacing: 0.5px;
 
 }
 
+
+
 .hint-arrow {
 
 font-size: 1.4rem;
@@ -1574,6 +1860,8 @@ color: rgba(255,90,140,0.7);
 
 }
 
+
+
 @keyframes hintFadeIn {
 
 from { opacity: 0; transform: translateY(-10px); }
@@ -1582,6 +1870,8 @@ to { opacity: 1; transform: translateY(0); }
 
 }
 
+
+
 @keyframes arrowBounce {
 
 0%, 100% { transform: translateY(0); }
@@ -1589,6 +1879,8 @@ to { opacity: 1; transform: translateY(0); }
 50% { transform: translateY(10px); }
 
 }
+
+
 
 /* ================= NEW: UNIFIED TITLE FOR HOME ================= */
 
@@ -1616,6 +1908,8 @@ gap: 2px;
 
 }
 
+
+
 .title-line-main {
 
 font-size: 2.5rem;
@@ -1631,6 +1925,8 @@ animation: titleReveal 1.2s ease forwards 1.2s;
 text-shadow: 0 4px 20px rgba(255,90,140,0.2);
 
 }
+
+
 
 .title-name-main {
 
@@ -1648,6 +1944,8 @@ text-shadow: 0 4px 20px rgba(255,90,140,0.4);
 
 }
 
+
+
 @keyframes titleReveal {
 
 from { opacity: 0; transform: translateY(20px) scale(0.9); }
@@ -1655,6 +1953,8 @@ from { opacity: 0; transform: translateY(20px) scale(0.9); }
 to { opacity: 1; transform: translateY(0) scale(1); }
 
 }
+
+
 
 @keyframes titleGlow {
 
@@ -1682,6 +1982,8 @@ text-shadow: 0 0 26px rgba(255,60,120,0.7),
 
 }
 
+
+
 /* ================= NEW: ROMANTIC STORY CARD ================= */
 
 .story-card-romantic {
@@ -1702,6 +2004,8 @@ z-index: 2;
 
 }
 
+
+
 @keyframes cardFadeIn {
 
 from { opacity: 0; transform: translateY(30px) scale(0.95); }
@@ -1709,6 +2013,8 @@ from { opacity: 0; transform: translateY(30px) scale(0.95); }
 to { opacity: 1; transform: translateY(0) scale(1); }
 
 }
+
+
 
 .card-inner {
 
@@ -1737,6 +2043,8 @@ position: relative;
 backdrop-filter: blur(10px);
 
 }
+
+
 
 .card-inner::before {
 
@@ -1770,6 +2078,8 @@ animation: borderGlow 4s ease-in-out infinite 3.5s;
 
 }
 
+
+
 @keyframes borderGlow {
 
 0%, 100% { opacity: 0; }
@@ -1777,6 +2087,8 @@ animation: borderGlow 4s ease-in-out infinite 3.5s;
 50% { opacity: 0.6; }
 
 }
+
+
 
 .card-header {
 
@@ -1796,6 +2108,8 @@ border-bottom: 1px solid rgba(255, 105, 180, 0.2);
 
 }
 
+
+
 .card-icon {
 
 font-size: 1.2rem;
@@ -1804,9 +2118,13 @@ animation: iconFloat 3s ease-in-out infinite;
 
 }
 
+
+
 .card-icon:first-child { animation-delay: 0s; }
 
 .card-icon:last-child { animation-delay: 1.5s; }
+
+
 
 @keyframes iconFloat {
 
@@ -1815,6 +2133,8 @@ animation: iconFloat 3s ease-in-out infinite;
 50% { transform: translateY(-5px) scale(1.15); }
 
 }
+
+
 
 .card-title {
 
@@ -1830,6 +2150,8 @@ text-shadow: 0 2px 8px rgba(255, 90, 140, 0.3);
 
 }
 
+
+
 .story-content {
 
 line-height: 1.65;
@@ -1837,6 +2159,8 @@ line-height: 1.65;
 color: #4a4a4a;
 
 }
+
+
 
 .story-line {
 
@@ -1849,6 +2173,8 @@ opacity: 0;
 animation: storyLineReveal 0.8s ease forwards;
 
 }
+
+
 
 .story-line-1 { animation-delay: 3.0s; }
 
@@ -1868,6 +2194,8 @@ animation: storyLineReveal 0.8s ease forwards;
 
 .story-line-9 { animation-delay: 5.0s; }
 
+
+
 @keyframes storyLineReveal {
 
 from { opacity: 0; transform: translateX(-15px); }
@@ -1875,6 +2203,8 @@ from { opacity: 0; transform: translateX(-15px); }
 to { opacity: 1; transform: translateX(0); }
 
 }
+
+
 
 .story-divider {
 
@@ -1886,6 +2216,8 @@ position: relative;
 
 }
 
+
+
 .divider-heart {
 
 display: inline-block;
@@ -1896,6 +2228,8 @@ animation: heartPulse 2s ease-in-out infinite;
 
 }
 
+
+
 @keyframes heartPulse {
 
 0%, 100% { transform: scale(1); }
@@ -1903,6 +2237,8 @@ animation: heartPulse 2s ease-in-out infinite;
 50% { transform: scale(1.2); }
 
 }
+
+
 
 .story-content strong {
 
@@ -1913,6 +2249,8 @@ font-weight: 600;
 text-shadow: 0 0 12px rgba(255, 60, 120, 0.25);
 
 }
+
+
 
 .story-emphasis {
 
@@ -1928,6 +2266,8 @@ border-top: 1px solid rgba(255, 105, 180, 0.15);
 
 }
 
+
+
 .story-emphasis em {
 
 color: #ff6b9c;
@@ -1937,6 +2277,8 @@ font-style: italic;
 font-weight: 500;
 
 }
+
+
 
 .card-footer {
 
@@ -1956,6 +2298,8 @@ border-top: 1px solid rgba(255, 105, 180, 0.2);
 
 }
 
+
+
 .footer-decoration {
 
 font-size: 1rem;
@@ -1964,9 +2308,13 @@ animation: sparkleRotate 3s ease-in-out infinite;
 
 }
 
+
+
 .footer-decoration:first-child { animation-delay: 0s; }
 
 .footer-decoration:last-child { animation-delay: 1.5s; }
+
+
 
 @keyframes sparkleRotate {
 
@@ -1975,6 +2323,8 @@ animation: sparkleRotate 3s ease-in-out infinite;
 50% { transform: rotate(180deg) scale(1.2); }
 
 }
+
+
 
 .footer-text {
 
@@ -1990,82 +2340,212 @@ text-shadow: 0 2px 6px rgba(255, 90, 140, 0.3);
 
 }
 
-/* ================= RESPONSIVE ================= */
+
+
+/* ========= RESPONSIVE ADJUSTMENTS (UPDATED, MOBILE ONLY) ========= */
 
 @media (max-width: 768px) {
 
-.hero-scene { padding: 10px 15px !important; }
+  /* allow more breathing room on mobile */
 
-.opening-quote {
+  .hero-scene {
 
-font-size: 0.92rem;
+    padding: 10px 10px !important;
 
-margin-bottom: 8px;
+  }
+
+
+
+  /* make main content scroll naturally if taller than viewport */
+
+  .hero-content {
+
+    height: auto;
+
+    min-height: 100%;
+
+    padding: 16px 16px 24px;
+
+  }
+
+
+
+  /* slightly shrink story card so it fits fully */
+
+  .story-card-romantic {
+
+    max-width: 90%;
+
+    margin: 8px auto 14px;
+
+  }
+
+
+
+  .card-inner {
+
+    padding: 14px 16px;
+
+  }
+
+
+
+  .story-line {
+
+    font-size: 0.86rem;
+
+  }
+
+
+
+  /* opening quote + titles */
+
+  .opening-quote {
+
+    font-size: 0.9rem;
+
+    margin-bottom: 6px;
+
+  }
+
+
+
+  .hero-title-unified {
+
+    margin-bottom: 8px;
+
+  }
+
+
+
+  .title-line-main,
+
+  .title-name-main {
+
+    font-size: 1.9rem;
+
+  }
+
+
+
+  /* old hero-title (kept for other scenes) */
+
+  .hero-title {
+
+    font-size: 2rem;
+
+    margin-bottom: 10px;
+
+  }
+
+
+
+  .title-word {
+
+    margin: 0 4px;
+
+  }
+
+
+
+  .hero-name {
+
+    font-size: 2.4rem;
+
+  }
+
+
+
+  .name-accent {
+
+    font-size: 2.1rem;
+
+  }
+
+
+
+  /* text + signature */
+
+  .hero-sub {
+
+    font-size: 0.88rem;
+
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+
+  }
+
+
+
+  .hero-signature {
+
+    font-size: 1.2rem;
+
+    margin-bottom: 6px;
+
+  }
+
+
+
+  /* button */
+
+  .hero-cta-btn {
+
+    font-size: 0.9rem;
+
+    padding: 11px 26px;
+
+    margin-top: 4px;
+
+  }
+
+
+
+  /* decorations smaller so they don’t cover text */
+
+  .petal {
+
+    font-size: 1.3rem;
+
+  }
+
+
+
+  .sparkle {
+
+    font-size: 0.9rem;
+
+  }
 
 }
 
-.hero-title-unified { margin-bottom: 10px; }
 
-.title-line-main, .title-name-main { font-size: 2rem; }
 
-.hero-title { font-size: 2rem; margin-bottom: 10px; }
-
-.title-word { margin: 0 4px; }
-
-.hero-name { font-size: 2.4rem; }
-
-.name-accent { font-size: 2.2rem; }
-
-.hero-sub {
-
-font-size: 0.88rem;
-
-line-height: 1.6;
-
-margin-bottom: 14px;
-
-}
-
-.hero-signature {
-
-font-size: 1.25rem;
-
-margin-bottom: 8px;
-
-}
-
-.hero-cta-btn {
-
-font-size: 0.95rem;
-
-padding: 12px 30px;
-
-}
-
-.story-card-romantic { max-width: 100%; }
-
-.card-inner { padding: 16px 18px; }
-
-.card-title { font-size: 1.15rem; }
-
-.story-line { font-size: 0.88rem; }
-
-.petal { font-size: 1.4rem; }
-
-.sparkle { font-size: 1rem; }
-
-}
+/* height-based tweaks stay as you had */
 
 @media (max-height: 750px) {
 
-.hero-content { transform: scale(0.88); }
+.hero-content {
+
+transform: scale(0.88);
 
 }
+
+}
+
+
 
 @media (max-height: 650px) {
 
-.hero-content { transform: scale(0.78); }
+.hero-content {
+
+transform: scale(0.78);
 
 }
+
+}
+
+
 
 /* ==================== END OF ULTIMATE ROMANTIC HERO ==================== */
