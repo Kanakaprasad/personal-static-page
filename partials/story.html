@@ -21,6 +21,8 @@
             position: relative;
             min-height: 100vh;
             padding: 0;
+            width: 100vw;
+            max-width: 100%;
         }
 
         @keyframes gradientShift {
@@ -67,8 +69,10 @@
             position: relative;
             z-index: 1;
             max-width: 900px;
+            width: 100%;
             margin: 0 auto;
-            padding: 40px 20px 140px 20px;
+            padding: 40px 20px 80px 20px;
+            box-sizing: border-box;
         }
 
         /* Greeting Header */
@@ -129,7 +133,7 @@
             50% { transform: scale(1); }
         }
 
-        /* Single Story Card - NO SCROLL */
+        /* Single Story Card */
         .story-card {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 240, 245, 0.98) 50%, rgba(255, 255, 255, 0.98) 100%);
             border-radius: 35px;
@@ -141,9 +145,11 @@
             border: 3px solid rgba(255, 107, 156, 0.3);
             backdrop-filter: blur(15px);
             position: relative;
-            overflow: visible;
+            overflow: hidden;
             animation: fadeInUp 2s ease, cardGlow 4s ease-in-out infinite;
             margin-bottom: 40px;
+            width: 100%;
+            max-width: 100%;
         }
 
         @keyframes cardGlow {
@@ -162,16 +168,19 @@
         .story-card::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
             background: 
                 radial-gradient(circle at 20% 50%, rgba(255, 107, 156, 0.15), transparent 50%),
                 radial-gradient(circle at 80% 50%, rgba(255, 61, 127, 0.12), transparent 50%),
                 radial-gradient(circle at 50% 50%, rgba(255, 140, 180, 0.1), transparent 70%);
             animation: rotateGlow 30s linear infinite;
             pointer-events: none;
+            border-radius: 35px;
         }
 
         .story-card::after {
@@ -224,7 +233,11 @@
             line-height: 2.2;
             color: #333;
             font-size: 1.1rem;
-            text-align: center;
+            text-align: justify;
+            width: 100%;
+            max-width: 100%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .story-paragraph {
@@ -305,6 +318,32 @@
             margin: 0 5px;
         }
 
+        /* Promise Box */
+        .promise-box {
+            background: linear-gradient(135deg, rgba(255, 107, 156, 0.12), rgba(255, 61, 127, 0.12));
+            border-left: 5px solid #ff3d7f;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            animation: fadeInText 1.5s ease forwards;
+            animation-delay: 3s;
+        }
+
+        .promise-box p {
+            margin: 12px 0;
+            font-style: italic;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .promise-box strong {
+            color: #ff3d7f;
+            font-size: 1.1rem;
+        }
+
         /* Sparkles */
         .sparkle {
             position: absolute;
@@ -325,14 +364,16 @@
             }
         }
 
-        /* NEXT BUTTON - Centered and Fixed at Bottom */
+        /* Next Button */
         .next-btn-container {
             position: relative;
             z-index: 10;
             max-width: 900px;
+            width: 100%;
             margin: 0 auto;
             padding: 0 20px 60px 20px;
             text-align: center;
+            box-sizing: border-box;
         }
 
         .next-btn {
@@ -366,7 +407,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             .story-container {
-                padding: 25px 15px 100px 15px;
+                padding: 25px 15px 60px 15px;
             }
 
             .greeting-header {
@@ -377,6 +418,15 @@
             .story-card {
                 padding: 35px 25px;
                 margin-bottom: 30px;
+            }
+
+            .next-btn-container {
+                padding: 0 15px 40px 15px;
+            }
+
+            .next-btn {
+                font-size: 1rem;
+                padding: 14px 32px;
             }
 
             .greeting-title {
@@ -394,19 +444,11 @@
             .story-content {
                 font-size: 1rem;
                 line-height: 2;
+                text-align: left;
             }
 
             .story-paragraph {
                 margin-bottom: 25px;
-            }
-
-            .next-btn-container {
-                padding: 0 15px 40px 15px;
-            }
-
-            .next-btn {
-                font-size: 1rem;
-                padding: 14px 32px;
             }
         }
     </style>
@@ -462,7 +504,7 @@
         </div>
     </div>
 
-    <!-- Next Button Container - Outside the card, properly positioned -->
+    <!-- Next Button Container -->
     <div class="next-btn-container">
         <button class="next-btn" onclick="window.parent.postMessage('nextScene', '*')">
             Next: Our Memories
