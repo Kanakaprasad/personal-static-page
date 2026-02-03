@@ -8,20 +8,47 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* OVERRIDE FOR BETTER TEXT ALIGNMENT AND SIZE */
+    .story-card-romantic .story-content {
+      text-align: center !important;
+      line-height: 1.9 !important;
+    }
+    
+    .story-card-romantic .story-line {
+      font-size: 1.15rem !important;
+      margin-bottom: 12px !important;
+    }
+    
+    .story-card-romantic .card-title {
+      font-size: 1.7rem !important;
+    }
+    
+    .story-card-romantic .card-inner {
+      padding: 28px 32px !important;
+    }
+    
+    @media (max-width: 768px) {
+      .story-card-romantic .story-line {
+        font-size: 1.05rem !important;
+      }
+      
+      .story-card-romantic .card-title {
+        font-size: 1.5rem !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="bg-valentine"></div>
   <div id="bg-hearts-layer"></div>
 
-
   <button class="mute-btn" id="muteBtn">🔊</button>
   <button class="back-btn" id="backBtn" style="display:none;">←</button>
-
 
   <audio id="bgMusic" loop>
     <source src="music/music.mp3" type="audio/mpeg">
   </audio>
-
 
   <!-- ===================== LOGIN SCENE ===================== -->
   <div class="scene active" id="loginScene">
@@ -43,12 +70,10 @@
         <span class="login-title-sub">hoping it's you.</span>
       </h1>
 
-
       <!-- Curiosity Line -->
       <p class="login-curiosity">
         Say my favourite name 💭
       </p>
-
 
       <!-- Input Field -->
       <input
@@ -61,13 +86,11 @@
       
       <p class="error-msg" id="error"></p>
 
-
       <!-- Button -->
       <button class="primary" onclick="unlock()">
         <span class="btn-text">Let me in</span>
         <span class="btn-icon">✨</span>
       </button>
-
 
       <!-- Footer Hint -->
       <p class="login-hint">
@@ -76,7 +99,6 @@
       </p>
     </div>
   </div>
-
 
   <!-- ===================== POPUP ===================== -->
   <div class="login-popup" id="login-popup">
@@ -89,7 +111,6 @@
       </p>
     </div>
   </div>
-
 
   <!-- ===================== HOME/HERO SCENE ===================== -->
   <div class="scene hero-scene scrollable" id="homeScene">
@@ -106,7 +127,6 @@
     <div class="petal petal-7">🌸</div>
     <div class="petal petal-8">🌸</div>
 
-
     <!-- Sparkles -->
     <div class="sparkle sparkle-1">✨</div>
     <div class="sparkle sparkle-2">✨</div>
@@ -114,14 +134,12 @@
     <div class="sparkle sparkle-4">✨</div>
     <div class="sparkle sparkle-5">✨</div>
 
-
     <!-- Floating hearts -->
     <div class="hero-heart hero-heart-1">💕</div>
     <div class="hero-heart hero-heart-2">💖</div>
     <div class="hero-heart hero-heart-3">💗</div>
     <div class="hero-heart hero-heart-4">💓</div>
     <div class="hero-heart hero-heart-5">💝</div>
-
 
     <!-- Light particles -->
     <div class="particle particle-1"></div>
@@ -131,11 +149,9 @@
     <div class="particle particle-5"></div>
     <div class="particle particle-6"></div>
 
-
     <!-- Glow effects -->
     <div class="hero-glow hero-glow-1"></div>
     <div class="hero-glow hero-glow-2"></div>
-
 
     <!-- Main content -->
     <div class="hero-content">
@@ -145,7 +161,6 @@
         <span class="quote-text">In a world full of temporary things, you are a perpetual feeling</span>
         <span class="quote-mark">"</span>
       </div>
-
 
       <!-- Signature -->
       <div class="hero-signature">
@@ -157,13 +172,11 @@
         <span class="sig-name sig-name-2">KP</span>
       </div>
 
-
       <!-- Title -->
       <div class="hero-title-unified">
         <span class="title-line-main">Happy Valentine's Day</span>
         <span class="title-name-main">Sanju 💕</span>
       </div>
-
 
       <!-- Story Card -->
       <div class="story-card-romantic">
@@ -176,26 +189,33 @@
           
           <div class="story-content">
             <p class="story-line story-line-1">This was never a plan.</p>
-            <p class="story-line story-line-2">It started with KT sessions, Linux commands, AWS cloud talks at midnight,</p>
-            <p class="story-line story-line-3">birthday celebrations, team lunches, and those quiet meetings where our eyes met a little longer.</p>
+            <p class="story-line story-line-2">It started with KT sessions, Linux commands,</p>
+            <p class="story-line story-line-3">AWS cloud talks at midnight, birthday celebrations,</p>
+            <p class="story-line story-line-3">team lunches, and those quiet meetings</p>
+            <p class="story-line story-line-3">where our eyes met a little longer.</p>
             
             <div class="story-divider">
               <span class="divider-heart">💕</span>
             </div>
             
-            <p class="story-line story-line-4">Then came the temples, the park walks, the late-night calls that never wanted to end,</p>
-            <p class="story-line story-line-5">the silly jokes, the deep conversations, the caring texts, the gentle hugs.</p>
-            <p class="story-line story-line-6">Somewhere between being your TL and becoming <strong>yours</strong>, it became <strong>us</strong>.</p>
+            <p class="story-line story-line-4">Then came the temples, the park walks,</p>
+            <p class="story-line story-line-5">the late-night calls that never wanted to end,</p>
+            <p class="story-line story-line-5">the silly jokes, the deep conversations,</p>
+            <p class="story-line story-line-5">the caring texts, the gentle hugs.</p>
+            <p class="story-line story-line-6">Somewhere between being your TL</p>
+            <p class="story-line story-line-6">and becoming <strong>yours</strong>, it became <strong>us</strong>.</p>
             
             <div class="story-divider">
               <span class="divider-heart">💕</span>
             </div>
             
             <p class="story-line story-line-7">Tonight, I want to hold your hand through this screen,</p>
-            <p class="story-line story-line-8">and walk you through every heartbeat, every stolen glance, every promise.</p>
+            <p class="story-line story-line-8">and walk you through every heartbeat,</p>
+            <p class="story-line story-line-8">every stolen glance, every promise.</p>
             
             <p class="story-line story-line-9 story-emphasis">
-              <em>Our story. Our memories. Our almost, now turning into forever.</em>
+              <em>Our story. Our memories.</em><br>
+              <em>Our almost, now turning into forever.</em>
             </p>
           </div>
           
@@ -207,14 +227,12 @@
         </div>
       </div>
 
-
       <!-- CTA Button -->
       <button class="primary hero-cta-btn" onclick="nextScene()">
         <span class="btn-shimmer"></span>
         <span class="btn-text">Begin Our Story</span>
         <span class="btn-icon">✨</span>
       </button>
-
 
       <!-- Curiosity Hint -->
       <div class="curiosity-hint">
@@ -224,13 +242,11 @@
     </div>
   </div>
 
-
   <!-- OTHER SCENES (story, memories, letter) loaded dynamically -->
   <div class="scene scrollable" id="storyScene">
     <div id="story-container"></div>
     <button class="primary" onclick="nextScene()">Next: Our Memories →</button>
   </div>
-
 
   <div class="scene scrollable" id="memoriesScene">
     <div id="photoStage"></div>
@@ -241,11 +257,9 @@
     </button>
   </div>
 
-
   <div class="scene scrollable" id="letterScene">
     <div id="letter-container"></div>
   </div>
-
 
   <script src="script.js"></script>
 </body>
