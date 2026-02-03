@@ -13,14 +13,17 @@
   <div id="bg-valentine"></div>
   <div id="bg-hearts-layer"></div>
 
+
   <button class="mute-btn" id="muteBtn">🔊</button>
   <button class="back-btn" id="backBtn" style="display:none;">←</button>
+
 
   <audio id="bgMusic" loop>
     <source src="music/music.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- ===================== LOGIN SCENE (ENHANCED WITH UNIQUE QUOTE) ===================== -->
+
+  <!-- ===================== LOGIN SCENE ===================== -->
   <div class="scene active" id="loginScene">
     <div class="login-glow"></div>
     <div class="login-glow login-glow-2"></div>
@@ -33,13 +36,6 @@
     <div class="login-sparkle login-sparkle-2">✨</div>
     
     <div class="login-card">
-      <!-- Romantic Opening Line - UNIQUE FOR LOGIN PAGE -->
-      <div class="login-quote">
-        <span class="quote-mark">"</span>
-        <span class="quote-text">Every love story is beautiful, but ours is my favorite💖✨</span>
-        <span class="quote-mark">"</span>
-      </div>
-      
       <!-- Main Heading -->
       <h1 class="login-title">
         <span class="login-title-line">Hey you...</span>
@@ -47,10 +43,12 @@
         <span class="login-title-sub">hoping it's you.</span>
       </h1>
 
+
       <!-- Curiosity Line -->
       <p class="login-curiosity">
         Say my favourite name 💭
       </p>
+
 
       <!-- Input Field -->
       <input
@@ -63,11 +61,13 @@
       
       <p class="error-msg" id="error"></p>
 
+
       <!-- Button -->
       <button class="primary" onclick="unlock()">
         <span class="btn-text">Let me in</span>
         <span class="btn-icon">✨</span>
       </button>
+
 
       <!-- Footer Hint -->
       <p class="login-hint">
@@ -76,6 +76,7 @@
       </p>
     </div>
   </div>
+
 
   <!-- ===================== POPUP ===================== -->
   <div class="login-popup" id="login-popup">
@@ -88,6 +89,7 @@
       </p>
     </div>
   </div>
+
 
   <!-- ===================== HOME/HERO SCENE ===================== -->
   <div class="scene hero-scene scrollable" id="homeScene">
@@ -104,6 +106,7 @@
     <div class="petal petal-7">🌸</div>
     <div class="petal petal-8">🌸</div>
 
+
     <!-- Sparkles -->
     <div class="sparkle sparkle-1">✨</div>
     <div class="sparkle sparkle-2">✨</div>
@@ -111,12 +114,14 @@
     <div class="sparkle sparkle-4">✨</div>
     <div class="sparkle sparkle-5">✨</div>
 
+
     <!-- Floating hearts -->
     <div class="hero-heart hero-heart-1">💕</div>
     <div class="hero-heart hero-heart-2">💖</div>
     <div class="hero-heart hero-heart-3">💗</div>
     <div class="hero-heart hero-heart-4">💓</div>
     <div class="hero-heart hero-heart-5">💝</div>
+
 
     <!-- Light particles -->
     <div class="particle particle-1"></div>
@@ -126,9 +131,11 @@
     <div class="particle particle-5"></div>
     <div class="particle particle-6"></div>
 
+
     <!-- Glow effects -->
     <div class="hero-glow hero-glow-1"></div>
     <div class="hero-glow hero-glow-2"></div>
+
 
     <!-- Main content -->
     <div class="hero-content">
@@ -138,6 +145,7 @@
         <span class="quote-text">In a world full of temporary things, you are a perpetual feeling</span>
         <span class="quote-mark">"</span>
       </div>
+
 
       <!-- Signature -->
       <div class="hero-signature">
@@ -149,11 +157,13 @@
         <span class="sig-name sig-name-2">KP</span>
       </div>
 
+
       <!-- Title -->
       <div class="hero-title-unified">
         <span class="title-line-main">Happy Valentine's Day</span>
         <span class="title-name-main">Sanju 💕</span>
       </div>
+
 
       <!-- Story Card -->
       <div class="story-card-romantic">
@@ -197,12 +207,14 @@
         </div>
       </div>
 
+
       <!-- CTA Button -->
       <button class="primary hero-cta-btn" onclick="nextScene()">
         <span class="btn-shimmer"></span>
         <span class="btn-text">Begin Our Story</span>
         <span class="btn-icon">✨</span>
       </button>
+
 
       <!-- Curiosity Hint -->
       <div class="curiosity-hint">
@@ -212,11 +224,13 @@
     </div>
   </div>
 
+
   <!-- OTHER SCENES (story, memories, letter) loaded dynamically -->
   <div class="scene scrollable" id="storyScene">
     <div id="story-container"></div>
     <button class="primary" onclick="nextScene()">Next: Our Memories →</button>
   </div>
+
 
   <div class="scene scrollable" id="memoriesScene">
     <div id="photoStage"></div>
@@ -227,9 +241,11 @@
     </button>
   </div>
 
+
   <div class="scene scrollable" id="letterScene">
     <div id="letter-container"></div>
   </div>
+
 
   <script src="script.js"></script>
 </body>
